@@ -48,7 +48,7 @@ export class ResultComponent {
 		if (this.downloading) return;
 
 		const target = event.target as HTMLElement;
-		if (target && target !== this.trigger) {
+		if (target && target !== this.trigger && document.contains(target)) {
 			this.trigger = target;
 			this.tooltipService.showTooltip(this.trigger, tooltip);
 		}
