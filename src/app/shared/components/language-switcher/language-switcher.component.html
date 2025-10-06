@@ -2,7 +2,7 @@
 	<ng-container *ngFor="let language of availableLanguages">
 		<button (click)="setLanguage(language)" mat-menu-item matRipple>
 			<span>{{ LANGUAGE_FLAGS[language] }}</span>
-			<span class="uppercase">{{ LANGUAGE_FULLNAMES[language] }}</span>
+			<span>{{ LANGUAGE_FULLNAMES[language] }}</span>
 		</button>
 	</ng-container>
 </mat-menu>
