@@ -23,6 +23,7 @@ import { MatButtonModule } from "@angular/material/button";
 })
 export class HeaderComponent implements OnInit {
 	activeSection = "";
+	isMobileMenuOpen = false;
 
 	constructor(private scrollService: ScrollService) {}
 
@@ -30,5 +31,29 @@ export class HeaderComponent implements OnInit {
 		this.scrollService.activeSection$.subscribe((section) => {
 			this.activeSection = section || "";
 		});
+	}
+
+	toggleMobileMenu() {
+		this.isMobileMenuOpen = !this.isMobileMenuOpen;
+	}
+
+	closeMobileMenu() {
+		this.isMobileMenuOpen = false;
+	}
+
+	scrollToSection(sectionId: string, event?: Event) {
+		if (event) {
+			event.preventDefault();
+		}
+
+		// Check if we're on the home page
+		const currentUrl = window.location.pathname;
+		if (currentUrl === "/" || currentUrl === "") {
+			// We're on home page, just scroll to section
+			this.scrollService.scrollTo(sectionId);
+		} else {
+			// We're on another page, navigate to home with anchor
+			window.location.href = `/#${sectionId}`;
+		}
 	}
 }

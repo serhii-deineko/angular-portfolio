@@ -1,7 +1,7 @@
 .header {
 	position: fixed;
 	top: 0;
-	z-index: 1000;
+	z-index: 9999;
 	transition: var(--transition);
 	background: var(--bg-color);
 	width: 100%;
@@ -71,6 +71,7 @@
 		transition: var(--transition);
 		padding: 10px;
 		color: var(--text);
+		white-space: nowrap;
 
 		&.active {
 			color: var(--accent-color);
@@ -95,7 +96,7 @@ body.light-mode {
 	}
 }
 
-.theme-toggle-item {
+.theme-switcher {
 	display: flex;
 	column-gap: 0.5rem;
 	justify-content: center;
@@ -107,18 +108,197 @@ body.light-mode {
 	display: none;
 }
 
+/* Mobile Navigation */
+.mobile-nav {
+	display: none;
+}
+
+.mobile-controls {
+	display: flex;
+	column-gap: 0.5rem;
+	align-items: center;
+}
+
+:host ::ng-deep .burger-button {
+	transform: scale(0.9);
+	transition: var(--transition);
+	background: var(--bg);
+	width: 90px;
+	height: 40px;
+
+	span {
+		filter: grayscale(1);
+	}
+
+	.mdc-button__label {
+		display: flex;
+		column-gap: 0.5rem;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		font-weight: 600;
+	}
+}
+
+.mobile-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 9999;
+	transition:
+		opacity 0.3s ease,
+		visibility 0.3s ease;
+
+	&.open {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	&__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		backdrop-filter: blur(4px);
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 100vw;
+		height: 100vh;
+	}
+
+	&__content {
+		position: fixed;
+		top: 0;
+		right: 0;
+		transform: translateX(100%);
+		transition: transform 0.3s ease;
+		border-left: 1px solid var(--border-color);
+		background-color: var(--bg-color);
+		width: 280px;
+		height: 100vh;
+		overflow: hidden;
+
+		.mobile-menu.open & {
+			transform: translateX(0);
+		}
+	}
+
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem;
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__item {
+		border-bottom: 1px solid var(--border-color);
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		transition: var(--transition);
+		cursor: pointer;
+		border: none;
+		background: none;
+		padding: 1rem 1.5rem;
+		width: 100%;
+		color: var(--text);
+		font-size: 16px;
+		text-decoration: none;
+
+		&.active {
+			background-color: rgba(var(--accent-color-rgb), 0.1);
+			color: var(--accent-color);
+		}
+
+		&:hover {
+			background-color: rgba(var(--accent-color-rgb), 0.05);
+			color: var(--accent-color);
+		}
+
+		.emoji-icon {
+			position: relative;
+			margin-right: 0.75rem;
+			width: 20px;
+			height: 20px;
+		}
+
+		.emoji-png,
+		.emoji-webp {
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: opacity var(--transition);
+			width: 20px;
+			height: 20px;
+		}
+
+		.emoji-png {
+			opacity: 1;
+		}
+
+		.emoji-webp {
+			opacity: 0;
+		}
+
+		&:hover {
+			.emoji-png {
+				opacity: 0;
+			}
+
+			.emoji-webp {
+				opacity: 1;
+			}
+		}
+	}
+}
+
 /* Responsive adjustments */
-@media (max-width: 868px) {
+@media (max-width: 1024px) {
 	.header__content {
-		padding: 0 25px;
+		padding: 1rem;
 	}
 
-	.nav__links {
-		display: none; // Will add mobile menu later
-	}
-
-	.resume-button {
+	.desktop-nav {
 		display: none;
+	}
+
+	.mobile-nav {
+		display: flex;
+		align-items: center;
+	}
+}
+
+::ng-deep body.dark-mode {
+	.burger-button {
+		background-color: #454545 !important;
+
+		.mdc-button__label {
+			color: #d1d1d1 !important;
+		}
+	}
+
+	.burger-button {
+		.mat-mdc-button-ripple > * {
+			opacity: 0.1;
+			background: var(--accent-color) !important;
+		}
+		.mat-mdc-button-persistent-ripple::before {
+			background: var(--border-color) !important;
+		}
 	}
 }
 
@@ -144,9 +324,38 @@ body.light-mode {
 	font-size: 13px;
 	white-space: nowrap;
 
-	img {
+	.emoji-icon {
+		position: relative;
 		width: 18px;
 		height: 18px;
+	}
+
+	.emoji-png,
+	.emoji-webp {
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: opacity var(--transition);
+		width: 18px;
+		height: 18px;
+	}
+
+	.emoji-png {
+		opacity: 1;
+	}
+
+	.emoji-webp {
+		opacity: 0;
+	}
+
+	&:hover {
+		.emoji-png {
+			opacity: 0;
+		}
+
+		.emoji-webp {
+			opacity: 1;
+		}
 	}
 
 	span {
@@ -166,7 +375,8 @@ body.light-mode {
 
 ::ng-deep body.light-mode {
 	.emoji-seeker button {
-		img {
+		.emoji-png,
+		.emoji-webp {
 			filter: brightness(1.5);
 		}
 	}
@@ -194,7 +404,7 @@ body.light-mode {
 .emoji-seeker button::after {
 	top: 0.25rem;
 	z-index: -2;
-	filter: blur(1.5rem);
+	filter: blur(0.75rem);
 	background-image:
 		conic-gradient(
 			from var(--border-angle-1) at 10% 15%,

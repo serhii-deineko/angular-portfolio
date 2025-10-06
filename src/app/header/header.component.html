@@ -4,10 +4,14 @@
 			<img src="/logo.png" alt="" />
 		</a>
 
-		<div class="nav__links">
+		<div class="nav__links desktop-nav">
 			<ol class="nav__list">
 				<li class="nav__item">
-					<a class="nav__link" [class.active]="activeSection === 'hero'" href="#about">
+					<a
+						class="nav__link"
+						[class.active]="activeSection === 'hero'"
+						(click)="scrollToSection('hero', $event)"
+						href="#hero">
 						{{ "header.nav.about" | translate }}
 					</a>
 				</li>
@@ -15,6 +19,7 @@
 					<a
 						class="nav__link"
 						[class.active]="activeSection === 'projects'"
+						(click)="scrollToSection('projects', $event)"
 						href="#projects">
 						{{ "header.nav.projects" | translate }}
 					</a>
@@ -23,6 +28,7 @@
 					<a
 						class="nav__link"
 						[class.active]="activeSection === 'experience'"
+						(click)="scrollToSection('experience', $event)"
 						href="#experience">
 						{{ "header.nav.experience" | translate }}
 					</a>
@@ -31,24 +37,106 @@
 					<a
 						class="nav__link"
 						[class.active]="activeSection === 'contact'"
+						(click)="scrollToSection('contact', $event)"
 						href="#contact">
 						{{ "header.nav.contact" | translate }}
 					</a>
 				</li>
 				<li class="nav__item emoji-seeker">
 					<button class="nav__link" mat-button matRipple routerLink="/emoji-seeker">
-						<img
-							src="assets/emoji/icon/magnifying-glass-tilted-right.webp"
-							alt="Emoji Seeker" />
-						<span>Emoji Seeker</span>
+						<div class="emoji-icon">
+							<img
+								class="emoji-png"
+								[attr.alt]="'header.nav.emoji-seeker' | translate"
+								src="assets/emoji/icon/magnifying-glass-tilted-right.png" />
+							<img
+								class="emoji-webp"
+								[attr.alt]="'header.nav.emoji-seeker' | translate"
+								src="assets/emoji/icon/magnifying-glass-tilted-right.webp" />
+						</div>
+						<span>{{ "header.nav.emoji-seeker" | translate }}</span>
 					</button>
 				</li>
 
-				<li class="nav__item theme-toggle-item language-switcher">
+				<li class="nav__item theme-switcher language-switcher">
 					<app-theme-switcher></app-theme-switcher>
 					<app-language-switcher></app-language-switcher>
 				</li>
 			</ol>
+		</div>
+
+		<div class="mobile-nav">
+			<div class="mobile-controls">
+				<button class="burger-button" (click)="toggleMobileMenu()" mat-button matRipple>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						height="24px"
+						viewBox="0 -960 960 960"
+						width="24px"
+						fill="currentColor">
+						<path
+							d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+					</svg>
+					<span>{{ "header.menu" | translate }}</span>
+				</button>
+			</div>
+
+			<div class="mobile-menu" [class.open]="isMobileMenuOpen">
+				<div class="mobile-menu__overlay" (click)="closeMobileMenu()"></div>
+				<div class="mobile-menu__content">
+					<div class="mobile-menu__header language-switcher theme-switcher">
+						<app-theme-switcher></app-theme-switcher>
+						<app-language-switcher></app-language-switcher>
+					</div>
+					<ol class="mobile-menu__list">
+						<li class="mobile-menu__item">
+							<a
+								class="mobile-menu__link"
+								[class.active]="activeSection === 'hero'"
+								(click)="scrollToSection('hero', $event); closeMobileMenu()"
+								href="#hero">
+								{{ "header.nav.about" | translate }}
+							</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a
+								class="mobile-menu__link"
+								[class.active]="activeSection === 'projects'"
+								(click)="scrollToSection('projects', $event); closeMobileMenu()"
+								href="#projects">
+								{{ "header.nav.projects" | translate }}
+							</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a
+								class="mobile-menu__link"
+								[class.active]="activeSection === 'experience'"
+								(click)="scrollToSection('experience', $event); closeMobileMenu()"
+								href="#experience">
+								{{ "header.nav.experience" | translate }}
+							</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a
+								class="mobile-menu__link"
+								[class.active]="activeSection === 'contact'"
+								(click)="scrollToSection('contact', $event); closeMobileMenu()"
+								href="#contact">
+								{{ "header.nav.contact" | translate }}
+							</a>
+						</li>
+						<li class="mobile-menu__item">
+							<a
+								class="mobile-menu__link"
+								[class.active]="activeSection === 'contact'"
+								(click)="closeMobileMenu()"
+								href="/emoji-seeker">
+								{{ "header.nav.emoji-seeker" | translate }}
+							</a>
+						</li>
+					</ol>
+				</div>
+			</div>
 		</div>
 	</div>
 </nav>
