@@ -30,9 +30,20 @@ export class ThemeSwitcherComponent implements OnInit {
 	}
 
 	public toggleTheme() {
-		this.darkMode.set(!this.darkMode());
-		localStorage.setItem("theme", this.darkMode() ? "dark" : "light");
-		this.applyTheme();
+		// Add transitioning class to prevent flickering
+		this.renderer.addClass(this.document.body, "theme-transitioning");
+
+		// Use requestAnimationFrame to ensure smooth transition
+		requestAnimationFrame(() => {
+			this.darkMode.set(!this.darkMode());
+			localStorage.setItem("theme", this.darkMode() ? "dark" : "light");
+			this.applyTheme();
+
+			// Remove transitioning class after a short delay
+			setTimeout(() => {
+				this.renderer.removeClass(this.document.body, "theme-transitioning");
+			}, 50);
+		});
 	}
 
 	private applyTheme() {
