@@ -2,6 +2,7 @@
 import { Component } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { TranslateModule } from "@ngx-translate/core";
 
 /* Environment */
 import { Environment } from "../../../../environments/environment";
@@ -9,6 +10,9 @@ import { Environment } from "../../../../environments/environment";
 /* Components */
 import { ResultComponent } from "../result/result.component";
 import { SceletComponent } from "../scelet/scelet.component";
+
+/* Services */
+import { TooltipService } from "../../services/tooltip.service";
 
 /* Interfaces */
 import { EmojiInterface, ResponseInterface } from "../../interfaces/emoji.interface";
@@ -23,7 +27,7 @@ import EmojiJSON from "../../assets/cleaned-emoji.json";
 @Component({
 	standalone: true,
 	selector: "app-search",
-	imports: [CommonModule, FormsModule, ResultComponent, SceletComponent],
+	imports: [CommonModule, FormsModule, TranslateModule, ResultComponent, SceletComponent],
 	templateUrl: "./search.component.html",
 	styleUrl: "./search.component.scss"
 })
@@ -41,6 +45,8 @@ export class SearchComponent {
 
 	private abortController?: AbortController;
 
+	constructor(private tooltipService: TooltipService) {}
+
 	async onInput(prompt: string) {
 		const trimmedPrompt = prompt.trim();
 
@@ -51,6 +57,8 @@ export class SearchComponent {
 			this.abortController.abort();
 			this.abortController = undefined;
 		}
+
+		this.tooltipService.forceHideTooltip();
 
 		if (trimmedPrompt.length < 1) {
 			this.resultArray = [];
@@ -131,6 +139,7 @@ export class SearchComponent {
 
 				if (prompt === this.searchPrompt.trim()) {
 					this.resultArray = [...new Set(response)];
+					this.tooltipService.forceHideTooltip();
 				}
 
 				clearTimeout(this.searchTimeoutId);

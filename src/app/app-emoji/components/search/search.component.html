@@ -8,16 +8,16 @@
 			placeholder:select-none placeholder:font-normal focus:outline-0 focus:ring-0"
 		id="search"
 		[(ngModel)]="searchPrompt"
+		[placeholder]="'emoji-seeker.placeholder' | translate"
 		(input)="onInput(searchPrompt)"
 		type="text"
-		autocomplete="off"
-		placeholder="Just start typing..." />
+		autocomplete="off" />
 	<img
 		class="pointer-events-none absolute left-4 top-3 h-8 select-none brightness-125"
+		[attr.alt]="'emoji-seeker.search-icon-alt' | translate"
 		src="assets/emoji/icon/magnifying-glass-tilted-right.{{
 			searchPrompt.length > 0 && resultArray.length === 0 ? 'webp' : 'png'
-		}}"
-		alt="Magnifying glass tilted left" />
+		}}" />
 	<div
 		class="group/ul relative h-0 max-h-[20.25rem] w-full overflow-y-scroll"
 		id="results"
