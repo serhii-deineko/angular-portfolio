@@ -43,6 +43,11 @@ export class TooltipService {
 			return;
 		}
 
+		// Проверяем, что элемент все еще в DOM
+		if (!document.contains(trigger)) {
+			return;
+		}
+
 		this.currentTrigger = trigger;
 		const rect = trigger.getBoundingClientRect();
 
@@ -69,5 +74,16 @@ export class TooltipService {
 			this.tooltipSubject.next(null);
 			this.currentTrigger = undefined;
 		});
+	}
+
+	forceHideTooltip() {
+		// Отменяем предыдущий таймер если есть
+		if (this.hideTimer) {
+			this.hideTimer.unsubscribe();
+		}
+
+		// Немедленно скрываем тултип
+		this.tooltipSubject.next(null);
+		this.currentTrigger = undefined;
 	}
 }
