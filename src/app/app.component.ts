@@ -80,7 +80,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 					if (event.urlAfterRedirects === "/" || event.urlAfterRedirects.includes("#")) {
 						this.scrollService.updateSections(this.sections.map((s) => s.id));
 					} else {
-						// Clear active section for pages without sections (like emojiseeker)
+						// Clear active section for pages without sections (like emoji-seeker)
 						this.scrollService.clearActiveSection();
 						// Also clear sections array to prevent scroll handler from trying to find sections
 						this.scrollService.updateSections([]);

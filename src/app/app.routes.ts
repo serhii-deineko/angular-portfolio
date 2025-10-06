@@ -9,7 +9,7 @@ export const routes: Routes = [
 		component: HomeComponent
 	},
 	{
-		path: "emojiseeker",
+		path: "emoji-seeker",
 		component: EmojiSeekerComponent
 	},
 	{
