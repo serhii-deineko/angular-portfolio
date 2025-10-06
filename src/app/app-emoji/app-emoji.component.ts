@@ -1,6 +1,7 @@
 /* Angular */
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { TranslateModule } from "@ngx-translate/core";
 
 /* RxJS */
 import { Observable } from "rxjs";
@@ -22,7 +23,14 @@ import { ScrollService } from "../services/scroll.service";
 @Component({
 	selector: "app-emoji-seeker",
 	standalone: true,
-	imports: [CommonModule, SearchComponent, TooltipComponent, ModalComponent, RouterComponent],
+	imports: [
+		CommonModule,
+		TranslateModule,
+		SearchComponent,
+		TooltipComponent,
+		ModalComponent,
+		RouterComponent
+	],
 	templateUrl: "./app-emoji.component.html",
 	styleUrl: "./app-emoji.component.scss",
 	encapsulation: ViewEncapsulation.None
