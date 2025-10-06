@@ -43,6 +43,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 	activeSection = "";
 
 	progressSpiner = signal<boolean>(true);
+	private previousUrl = "";
 
 	constructor(
 		private scrollService: ScrollService,
@@ -54,6 +55,9 @@ export class AppComponent implements OnInit, AfterViewInit {
 	}
 
 	ngOnInit() {
+		// Initialize previous URL with current URL
+		this.previousUrl = this.router.url;
+
 		this.scrollService.init(
 			this.sections.map((s) => s.id),
 			"scrollProgress"
@@ -67,17 +71,24 @@ export class AppComponent implements OnInit, AfterViewInit {
 		this.router.events
 			.pipe(filter((event) => event instanceof NavigationEnd))
 			.subscribe((event: NavigationEnd) => {
-				// Show progress spinner for 1 second during route transitions
-				this.progressSpiner.set(true);
+				const currentUrl = event.urlAfterRedirects;
+				const currentBaseUrl = currentUrl.split("#")[0];
+				const previousBaseUrl = this.previousUrl.split("#")[0];
 
-				setTimeout(() => {
-					this.progressSpiner.set(false);
-				}, 1000);
+				// Show progress spinner only if we're actually changing pages (not just anchor links)
+				const isPageChange = currentBaseUrl !== previousBaseUrl;
+
+				if (isPageChange) {
+					this.progressSpiner.set(true);
+					setTimeout(() => {
+						this.progressSpiner.set(false);
+					}, 1000);
+				}
 
 				// Small delay to ensure DOM is updated
 				setTimeout(() => {
 					// Check if we're on a page with sections (home page)
-					if (event.urlAfterRedirects === "/" || event.urlAfterRedirects.includes("#")) {
+					if (currentUrl === "/" || currentUrl.includes("#")) {
 						this.scrollService.updateSections(this.sections.map((s) => s.id));
 					} else {
 						// Clear active section for pages without sections (like emoji-seeker)
@@ -87,19 +98,17 @@ export class AppComponent implements OnInit, AfterViewInit {
 					}
 
 					// Handle anchor scrolling for hash URLs
-					const hash = event.urlAfterRedirects.split("#")[1];
+					const hash = currentUrl.split("#")[1];
 					if (hash) {
 						setTimeout(() => {
-							const element = document.getElementById(hash);
-							if (element) {
-								element.scrollIntoView({
-									behavior: "smooth",
-									block: "start"
-								});
-							}
+							// Use ScrollService for consistent scrolling behavior
+							this.scrollService.scrollTo(hash);
 						}, 200);
 					}
 				}, 100);
+
+				// Update previous URL for next comparison
+				this.previousUrl = currentUrl;
 			});
 	}
 
