@@ -86,7 +86,7 @@ export class ContactComponent implements AfterViewInit, OnDestroy {
 		const isContactSectionVisible = rect.top <= windowHeight && rect.bottom >= 0;
 		const isNearTop = scrollY < 150;
 
-		if (currentUrl === "/emojiseeker") {
+		if (currentUrl === "/emoji-seeker") {
 			this.hiddenFooter = isContactSectionVisible;
 		} else {
 			this.hiddenFooter = isContactSectionVisible || isNearTop;
