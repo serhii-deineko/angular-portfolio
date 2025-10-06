@@ -79,26 +79,93 @@ label.gradient-animation {
 label:hover:not(.has-results, :focus-within, .gradient-animation)::after {
 	opacity: 0.5;
 	filter: blur(0.75rem) grayscale(1);
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 }
 
 label:hover:not(.has-results, :focus-within, .gradient-animation)::before {
 	opacity: 0.5;
 	filter: grayscale(1);
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 }
 
 label.has-results::after,
 label:focus-within::after,
 label.gradient-animation::after {
 	opacity: 0.75;
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 }
 
 label.has-results::before,
 label:focus-within::before {
 	opacity: 0.75;
+	transition:
+		var(--transition),
+		filter var(--animation-timing),
+		background-image var(--animation-timing);
+	background-image:
+		linear-gradient(
+			color-mix(in srgb, var(--bg-color-secondary) 90%, transparent) 40%,
+			transparent 80%
+		),
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		),
+		linear-gradient(var(--bg-color-secondary), var(--bg-color-secondary));
 }
 
 label.gradient-animation::before {
 	opacity: 0.75;
+	transition:
+		var(--transition),
+		filter var(--animation-timing),
+		background-image var(--animation-timing);
+	background-image:
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		),
+		linear-gradient(var(--bg-color-secondary), var(--bg-color-secondary));
 }
 
 label.has-results::after {
@@ -106,12 +173,18 @@ label.has-results::after {
 	left: 3rem;
 	opacity: 1;
 	filter: blur(3rem) !important;
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 	width: calc(100% - 6rem);
 	height: calc(100% - 6rem);
 }
 
 label.has-results::before {
 	opacity: 0.75;
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 	background-color: var(--bg-color-secondary);
 }
 
@@ -119,27 +192,33 @@ label.gradient-animation::after {
 	top: 0.5rem;
 	left: 0.5rem;
 	opacity: 1;
-	filter: blur(1rem);
+	filter: blur(1.5rem);
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 	width: calc(100% - 1rem);
 	height: calc(100% - 1rem);
 }
 
 label.gradient-animation::before {
 	opacity: 1;
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 }
 
 label.gradient-animation {
 	--animation-duration-1: 1.5s;
 	--animation-duration-2: 4s;
 	--animation-duration-3: 6.5s;
-	--animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+	--animation-timing: ease-in-out;
 }
 
 label.has-results {
 	--animation-duration-1: 10s;
 	--animation-duration-2: 20s;
 	--animation-duration-3: 30s;
-	--animation-timing: cubic-bezier(0.2, 0, 0.4, 1);
+	--animation-timing: ease-in-out;
 }
 
 @property --border-angle-1 {
@@ -217,6 +296,9 @@ label::after {
 	opacity: 0;
 	z-index: -2;
 	filter: blur(1rem);
+	transition:
+		var(--transition),
+		filter var(--animation-timing);
 	background-image:
 		conic-gradient(
 			from var(--border-angle-1) at 10% 15%,
@@ -248,29 +330,10 @@ label::before {
 	left: -0.16rem;
 	z-index: -1;
 	filter: blur(0rem);
-	background-image:
-		conic-gradient(
-			from var(--border-angle-1) at 10% 15%,
-			transparent,
-			var(--bright-yellow) 10%,
-			transparent 30%,
-			transparent
-		),
-		conic-gradient(
-			from var(--border-angle-2) at 70% 60%,
-			transparent,
-			var(--bright-blue) 10%,
-			transparent 60%,
-			transparent
-		),
-		conic-gradient(
-			from var(--border-angle-3) at 50% 20%,
-			transparent,
-			var(--bright-yellow) 10%,
-			transparent 50%,
-			transparent
-		),
-		linear-gradient(var(--bg-color-secondary), var(--bg-color-secondary));
+	transition:
+		var(--transition),
+		filter var(--animation-timing),
+		background-image var(--animation-timing);
 	background-color: var(--bg-color-secondary);
 	width: calc(100% + 0.32rem);
 	height: calc(100% + 0.32rem);
