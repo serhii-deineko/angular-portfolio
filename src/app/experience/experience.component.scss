@@ -85,7 +85,10 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+	#experience {
+		padding: 60px 1.5rem 20px;
+	}
 	.experience {
 		&__item {
 			margin-bottom: 40px;
