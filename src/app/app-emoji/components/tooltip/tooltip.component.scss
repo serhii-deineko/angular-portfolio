@@ -1,0 +1,11 @@
+div {
+	background-color: var(--accent-color);
+}
+
+span {
+	color: var(--bg);
+
+	&:last-child {
+		background-color: var(--accent-color);
+	}
+}

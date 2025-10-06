@@ -1,0 +1,16 @@
+{
+  "printWidth": 100,
+  "semi": true,
+  "tabWidth": 4,
+  "bracketSameLine": true,
+  "trailingComma": "none",
+  "experimentalTernaries": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-organize-attributes",
+    "prettier-plugin-classnames",
+    "prettier-plugin-merge",
+    "prettier-plugin-css-order"
+  ]
+}

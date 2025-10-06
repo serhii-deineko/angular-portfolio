@@ -1,0 +1,11 @@
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<app-header></app-header>
+<router-outlet [@routeAnimations]></router-outlet>
+<section id="contact" aria-label="Contact Information">
+	<app-contact></app-contact>
+</section>
+
+<div class="progress-spinner" [class]="progressSpiner() ? 'active' : 'hide'">
+	<mat-spinner [diameter]="24" [strokeWidth]="3"></mat-spinner>
+</div>

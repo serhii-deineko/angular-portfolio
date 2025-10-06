@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+app-emoji-seeker {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 1rem;
+	width: 100vw;
+	height: 100vh;
+}
+
+.text-color-secondary {
+	color: var(--text-color-secondary) !important;
+}

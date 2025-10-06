@@ -1,0 +1,12 @@
+<a
+	class="cta-button"
+	[href]="targetUrl"
+	[attr.target]="targetUrl ? '_blank' : '_self'"
+	(click)="downloadFile($event)">
+	<span>{{ buttonText }}</span>
+	<mat-icon
+		*ngIf="buttonIcon"
+		[fontIcon]="buttonIcon"
+		aria-hidden="false"
+		aria-label="Example home icon"></mat-icon>
+</a>

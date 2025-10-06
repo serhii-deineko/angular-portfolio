@@ -1,0 +1,32 @@
+<section class="hero" id="about">
+	<p class="hero__subtitle">{{ "hero.subtitle" | translate }}</p>
+	<h1 class="hero__title">{{ "hero.title" | translate }}</h1>
+	<h2 class="hero__subtitle-large">{{ "hero.subtitleLarge" | translate }}</h2>
+
+	<div class="hero__description">
+		<p>
+			{{ "hero.description.part1" | translate }}
+			{{ "hero.description.part2" | translate }}
+			<strong>{{ "hero.description.emphasis1" | translate }}</strong>
+			<span>{{ "hero.description.connector1" | translate }}&nbsp;</span>
+			<strong>{{ "hero.description.emphasis2" | translate }}</strong>
+			<span>{{ "hero.description.connector2" | translate }}&nbsp;</span>
+			<strong>{{ "hero.description.emphasis3" | translate }}</strong>
+			{{ "hero.description.part3" | translate }}
+		</p>
+	</div>
+
+	<div class="hero__cta">
+		<app-cta-button
+			[buttonText]="'hero.cta.certificate' | translate"
+			[targetUrl]="
+				'https://www.biznes.gov.pl/en/wyszukiwarka-firm/wpis/ceidg/6B03F41E-620E-45E3-975C-60F77E240B24'
+			"
+			buttonIcon="arrow_outward"></app-cta-button>
+
+		<app-cta-button
+			[buttonText]="'hero.cta.downloadCv' | translate"
+			[fileUrl]="'CV — Serhii Deineko.pdf'"
+			buttonIcon="arrow_downward"></app-cta-button>
+	</div>
+</section>

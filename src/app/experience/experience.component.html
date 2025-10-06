@@ -1,0 +1,24 @@
+<section id="experience">
+	<h2 class="numbered-heading">{{ "experience.title" | translate }}</h2>
+
+	<div class="experience__list">
+		@for (item of "experience.items" | translate; track item.id) {
+			<div class="experience__item">
+				<h3 class="experience__title">
+					<span class="role">{{ item.role }}</span>
+					<span class="company">&#64; {{ item.company }}</span>
+				</h3>
+
+				<p class="experience__duration">{{ item.duration }}</p>
+
+				<ul class="experience__points">
+					@for (point of item.points; track point; let i = $index) {
+						<li class="experience__point">
+							{{ point }}
+						</li>
+					}
+				</ul>
+			</div>
+		}
+	</div>
+</section>

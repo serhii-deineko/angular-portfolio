@@ -1,0 +1,40 @@
+:host ::ng-deep .mat-mdc-button {
+	transform: scale(0.9);
+	transition: var(--transition);
+	background-color: rgb(228 233 241);
+	width: 75px;
+
+	.mdc-button__label {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-left: -5px;
+		width: 100%;
+		font-weight: 600;
+	}
+}
+
+::ng-deep .mat-mdc-menu-item-text {
+	display: flex;
+	column-gap: 0.5rem;
+	justify-content: start;
+	align-items: center;
+}
+
+::ng-deep body.dark-mode .language-switcher .mat-mdc-button {
+	background-color: #454545 !important;
+
+	.mdc-button__label {
+		color: #d1d1d1 !important;
+	}
+}
+
+::ng-deep body.dark-mode .language-switcher .mat-mdc-button {
+	.mat-mdc-button-ripple > * {
+		opacity: 0.1;
+		background: var(--accent-color) !important;
+	}
+	.mat-mdc-button-persistent-ripple::before {
+		background: var(--border-color) !important;
+	}
+}

@@ -1,0 +1,68 @@
+<li
+	class="group mb-2 flex w-full items-center justify-between rounded-md p-1.5 transition-all"
+	[class.bg-color-secondary]="downloading"
+	(mouseenter)="mouseenter = true"
+	(mouseleave)="mouseenter = false">
+	<div class="flex w-3/4 space-x-3">
+		<div
+			class="relative z-0 flex h-11 w-11 min-w-11 items-center justify-center overflow-hidden rounded-md">
+			<span
+				class="z-0 flex h-full w-full cursor-pointer items-center justify-center text-2xl">
+				<img
+					class="absolute w-7 opacity-0 group-hover:opacity-100"
+					*ngIf="emoji.animation"
+					[alt]="emoji.description"
+					[src]="emoji.unicode | url: 'webp'"
+					loading="lazy" />
+				<span
+					class="flex items-center justify-center text-2xl"
+					[class.group-hover:opacity-0]="emoji.animation">
+					{{ emoji.icon }}
+				</span>
+			</span>
+			<span class="absolute -z-10 text-4xl blur-xl transition-all group-hover:opacity-0">
+				{{ emoji.icon }}
+			</span>
+		</div>
+		<div class="flex h-11 w-4/5 flex-col justify-center space-y-1.5">
+			<span
+				class="text-color-highlight overflow-hidden text-ellipsis whitespace-nowrap text-base font-medium leading-5">
+				{{ emoji.description }}.png
+			</span>
+			<div
+				class="text-color-secondary flex space-x-1 whitespace-nowrap text-sm font-normal leading-4">
+				<button
+					class="cursor-pointer transition-all hover:underline hover:underline-offset-4">
+					{{ emoji.group }}
+				</button>
+				<span>/</span>
+				<button
+					class="cursor-pointer transition-all hover:underline hover:underline-offset-4">
+					{{ emoji.subgroup }}
+				</button>
+			</div>
+		</div>
+	</div>
+	<div
+		class="relative flex opacity-0 transition-opacity group-hover:opacity-100"
+		*ngIf="mouseenter || downloading"
+		[class.opacity-100]="downloading">
+		<tool
+			*ngFor="let tool of tools"
+			[tool]="tool"
+			(click)="onMouseClick(tool)"
+			(mouseenter)="onMouseEnter($event, tool)"
+			(mouseleave)="onMouseLeave()"></tool>
+	</div>
+</li>
+<!-- <picture>
+	<source srcset="images/large.webp" media="(min-width: 1200px)" type="image/webp" />
+	<source srcset="images/medium.webp" media="(min-width: 800px)" type="image/webp" />
+	<source srcset="images/small.webp" media="(max-width: 799px)" type="image/webp" />
+
+	<source srcset="images/large.jpg" media="(min-width: 1200px)" type="image/jpeg" />
+	<source srcset="images/medium.jpg" media="(min-width: 800px)" type="image/jpeg" />
+	<source srcset="images/small.jpg" media="(max-width: 799px)" type="image/jpeg" />
+
+	<img src="images/fallback.jpg" alt="Complex responsive image example" />
+</picture> -->

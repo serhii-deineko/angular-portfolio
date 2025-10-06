@@ -1,0 +1,305 @@
+.header {
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	transition: var(--transition);
+	background: var(--bg-color);
+	width: 100%;
+	height: var(--nav-height);
+	font-size: 13px;
+	font-family: var(--font-mono);
+
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		padding: 0 50px;
+		max-width: 1600px;
+		height: 100%;
+	}
+}
+
+.logo {
+	transition: var(--transition);
+	color: var(--accent-color);
+	font-weight: 700;
+	font-size: 1.5rem;
+	user-select: none;
+	text-decoration: none;
+
+	img {
+		opacity: 0.9;
+		filter: invert(1);
+		width: 46px;
+	}
+
+	&__text {
+		display: inline-block;
+		transition: var(--transition);
+
+		&:hover {
+			transform: translateY(-3px);
+		}
+	}
+}
+
+::ng-deep .light-mode {
+	.logo > img {
+		opacity: 0.8 !important;
+		filter: unset !important;
+	}
+}
+
+.nav {
+	&__list {
+		display: flex;
+		align-items: center;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	&__item {
+		margin-right: 20px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	&__link {
+		transition: var(--transition);
+		padding: 10px;
+		color: var(--text);
+
+		&.active {
+			color: var(--accent-color);
+		}
+
+		&:hover {
+			color: var(--accent-color);
+		}
+
+		&::before {
+			margin-right: 5px;
+			color: var(--accent-color);
+			font-size: 12px;
+		}
+	}
+}
+
+body.light-mode {
+	.resume-button:hover {
+		background-color: var(--accent-color);
+		color: var(--bg-color);
+	}
+}
+
+.theme-toggle-item {
+	display: flex;
+	column-gap: 0.5rem;
+	justify-content: center;
+	align-items: center;
+}
+// Remove old theme toggle styles that are no longer needed
+.theme-toggle-btn,
+.theme-icon {
+	display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 868px) {
+	.header__content {
+		padding: 0 25px;
+	}
+
+	.nav__links {
+		display: none; // Will add mobile menu later
+	}
+
+	.resume-button {
+		display: none;
+	}
+}
+
+:host ::ng-deep .emoji-seeker button {
+	display: flex;
+	position: relative;
+	column-gap: 0.5rem;
+	--bright-yellow: rgb(255, 204, 0);
+	--bright-blue: rgb(0, 92, 187);
+	justify-content: center;
+	align-items: center;
+	transition: var(--transition);
+	cursor: pointer;
+	box-shadow: inset 0 0 2rem -2rem var(--bg);
+	border: none;
+	border-radius: 1rem;
+	border-radius: 1rem;
+	background-color: var(--accent-color);
+	padding-right: 0.7rem;
+	padding-left: 0.5rem;
+	height: 28px;
+	color: var(--bg);
+	font-size: 13px;
+	white-space: nowrap;
+
+	img {
+		width: 18px;
+		height: 18px;
+	}
+
+	span {
+		filter: grayscale(1);
+	}
+
+	&:hover {
+		color: var(--bg);
+	}
+
+	.mdc-button__label {
+		display: flex;
+		column-gap: 0.5rem;
+		align-items: center;
+	}
+}
+
+::ng-deep body.light-mode {
+	.emoji-seeker button {
+		img {
+			filter: brightness(1.5);
+		}
+	}
+}
+
+.emoji-seeker button::after,
+.emoji-seeker button::before {
+	content: "";
+	--border-angle-1: 0deg;
+	--border-angle-2: 90deg;
+	--border-angle-3: 180deg;
+	display: flex;
+	position: absolute;
+	animation:
+		rotate-background-1 3s linear infinite,
+		rotate-background-2 8s linear infinite,
+		rotate-background-3 13s linear infinite;
+	transition: inherit;
+	border: 0;
+	border-radius: 1.15rem;
+	background-color: transparent;
+	padding: var(--border-size);
+}
+
+.emoji-seeker button::after {
+	top: 0.25rem;
+	z-index: -2;
+	filter: blur(1.5rem);
+	background-image:
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		);
+	width: 100%;
+	height: 100%;
+}
+
+::ng-deep body.dark-mode {
+	.emoji-seeker button::after {
+		filter: blur(0.25rem) grayscale(1) !important;
+	}
+}
+
+.emoji-seeker button::before {
+	top: -0.16rem;
+	left: -0.16rem;
+	z-index: -1;
+	background-image:
+		linear-gradient(
+			color-mix(in srgb, var(--accent-color) 90%, transparent) 40%,
+			transparent 80%
+		),
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		),
+		linear-gradient(var(--accent-color), rgba(from var(--accent-color) r g b / 0.75));
+	width: calc(100% + 0.32rem);
+	height: calc(100% + 0.32rem);
+}
+
+::ng-deep body.dark-mode {
+	.emoji-seeker button::before {
+		filter: blur(0) grayscale(1) !important;
+	}
+}
+
+@keyframes rotate-background-1 {
+	to {
+		--border-angle-1: 360deg;
+	}
+}
+
+@keyframes rotate-background-2 {
+	to {
+		--border-angle-2: -270deg;
+	}
+}
+
+@keyframes rotate-background-3 {
+	to {
+		--border-angle-3: 540deg;
+	}
+}
+
+@property --border-angle-1 {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 0deg;
+}
+
+@property --border-angle-2 {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 90deg;
+}
+
+@property --border-angle-3 {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 180deg;
+}

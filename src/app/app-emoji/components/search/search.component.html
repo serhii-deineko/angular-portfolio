@@ -1,0 +1,43 @@
+<label
+	class="relative w-full border-2"
+	[class.gradient-animation]="searchPrompt.length > 0"
+	[class.has-results]="resultArray.length > 0"
+	for="search">
+	<input
+		class="peer h-14 w-full appearance-none rounded-full bg-transparent pl-16 pr-6 text-lg tracking-wide
+			placeholder:select-none placeholder:font-normal focus:outline-0 focus:ring-0"
+		id="search"
+		[(ngModel)]="searchPrompt"
+		(input)="onInput(searchPrompt)"
+		type="text"
+		autocomplete="off"
+		placeholder="Just start typing..." />
+	<img
+		class="pointer-events-none absolute left-4 top-3 h-8 select-none brightness-125"
+		src="assets/emoji/icon/magnifying-glass-tilted-right.{{
+			searchPrompt.length > 0 && resultArray.length === 0 ? 'webp' : 'png'
+		}}"
+		alt="Magnifying glass tilted left" />
+	<div
+		class="group/ul relative h-0 max-h-[20.25rem] w-full overflow-y-scroll"
+		id="results"
+		[class.scroll]="resultArray.length > 5"
+		[style.height]="updateHeight()"
+		(scroll)="updateTooltip()">
+		<ul
+			class="absolute z-10 w-full px-3 pb-1 transition-opacity duration-200 group-[.scroll]/ul:pr-0"
+			[class.opacity-0]="searchPrompt.length > 0 && resultArray.length === 0">
+			<result
+				*ngFor="let item of resultArray; let i = index"
+				[style.--animation-delay]="i * 50 + 'ms'"
+				[emoji]="item" />
+		</ul>
+		<ul
+			class="absolute z-0 w-full px-3 pb-1 opacity-0 transition-opacity duration-200"
+			[class.opacity-100]="searchPrompt.length > 0 && resultArray.length === 0">
+			<scelet
+				*ngFor="let item of [].constructor(resultArray.length || 5); let i = index"
+				[style.--animation-delay]="i * 100 + 'ms'" />
+		</ul>
+	</div>
+</label>

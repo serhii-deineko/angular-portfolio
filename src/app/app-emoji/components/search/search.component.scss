@@ -1,0 +1,294 @@
+::ng-deep .emoji-seeker {
+	button {
+		color: var(--bg) !important;
+
+		&::before {
+			background-image: unset !important;
+			background-color: var(--accent-color) !important;
+		}
+
+		&::after {
+			display: none !important;
+		}
+	}
+}
+
+::ng-deep body.light-mode .emoji-seeker {
+	button {
+		img {
+			filter: brightness(1.5);
+		}
+	}
+}
+
+::-webkit-scrollbar {
+	transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb {
+	border: solid 0.75rem transparent;
+	border-radius: 2.5rem;
+	background-clip: padding-box;
+	background-color: var(--bg-color-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--bg-color-tertiary);
+}
+
+::-webkit-scrollbar-track {
+	margin-block-start: -0.75rem;
+	background: initial !important;
+}
+
+::-webkit-scrollbar {
+	width: 0 !important;
+}
+
+.scroll::-webkit-scrollbar {
+	width: 2rem !important;
+}
+
+label {
+	transition: var(--transition);
+	box-shadow: inset 0 0 2rem -2rem var(--bg);
+	border: none;
+	--bright-yellow: rgb(255, 204, 0);
+	--bright-blue: rgb(0, 92, 187);
+	border-radius: 1rem;
+	background: var(--bg);
+}
+
+label #results {
+	transition: inherit;
+}
+
+label.has-results,
+label:focus-within,
+label.gradient-animation {
+	outline: unset;
+	box-shadow: inset 0 0 2rem -2rem var(--bg);
+}
+
+label:hover:not(.has-results, :focus-within, .gradient-animation)::after {
+	opacity: 0.5;
+	filter: blur(0.75rem) grayscale(1);
+}
+
+label:hover:not(.has-results, :focus-within, .gradient-animation)::before {
+	opacity: 0.5;
+	filter: grayscale(1);
+}
+
+label.has-results::after,
+label:focus-within::after,
+label.gradient-animation::after {
+	opacity: 0.75;
+}
+
+label.has-results::before,
+label:focus-within::before {
+	opacity: 0.75;
+	background-image:
+		linear-gradient(
+			color-mix(in srgb, var(--bg-color-secondary) 90%, transparent) 40%,
+			transparent 80%
+		),
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		),
+		linear-gradient(var(--bg-color-secondary), var(--bg-color-secondary));
+}
+
+label.gradient-animation::before {
+	opacity: 0.75;
+	background-image:
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		),
+		linear-gradient(var(--bg-color-secondary), var(--bg-color-secondary));
+}
+
+label.has-results::after {
+	top: 3rem;
+	left: 3rem;
+	opacity: 1;
+	filter: blur(3rem) !important;
+	animation:
+		rotate-background-1 10s linear infinite,
+		rotate-background-2 20s linear infinite,
+		rotate-background-3 30s linear infinite !important;
+	width: calc(100% - 6rem);
+	height: calc(100% - 6rem);
+}
+
+label.has-results::before {
+	opacity: 0.75;
+	animation:
+		rotate-background-1 10s linear infinite,
+		rotate-background-2 20s linear infinite,
+		rotate-background-3 30s linear infinite !important;
+	background-color: var(--bg-color-secondary);
+}
+
+label.gradient-animation::after {
+	top: 0.5rem;
+	left: 0.5rem;
+	opacity: 1;
+	filter: blur(1rem);
+	animation:
+		rotate-background-1 2s linear infinite,
+		rotate-background-2 4s linear infinite,
+		rotate-background-3 8s linear infinite;
+	width: calc(100% - 1rem);
+	height: calc(100% - 1rem);
+}
+
+label.gradient-animation::before {
+	opacity: 1;
+	animation:
+		rotate-background-1 2s linear infinite,
+		rotate-background-2 4s linear infinite,
+		rotate-background-3 8s linear infinite;
+}
+
+@property --border-angle-1 {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 0deg;
+}
+
+@property --border-angle-2 {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 90deg;
+}
+
+@property --border-angle-3 {
+	syntax: "<angle>";
+	inherits: true;
+	initial-value: 180deg;
+}
+
+input {
+	color: var(--text-color);
+
+	&::placeholder {
+		color: var(--text-color-secondary);
+	}
+}
+
+@keyframes rotate-background-1 {
+	to {
+		--border-angle-1: 360deg;
+	}
+}
+
+@keyframes rotate-background-2 {
+	to {
+		--border-angle-2: -270deg;
+	}
+}
+
+@keyframes rotate-background-3 {
+	to {
+		--border-angle-3: 540deg;
+	}
+}
+
+label::after,
+label::before {
+	content: "";
+	--border-angle-1: 0deg;
+	--border-angle-2: 90deg;
+	--border-angle-3: 180deg;
+	display: flex;
+	position: absolute;
+	animation:
+		rotate-background-1 3s linear infinite,
+		rotate-background-2 8s linear infinite,
+		rotate-background-3 13s linear infinite;
+	transition: inherit;
+	border: 0;
+	border-radius: 1.15rem;
+	background-color: transparent;
+	padding: var(--border-size);
+}
+
+label::after {
+	top: 3rem;
+	left: 1.5rem;
+	opacity: 0;
+	z-index: -2;
+	filter: blur(1rem);
+	background-image:
+		conic-gradient(
+			from var(--border-angle-1) at 10% 15%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 30%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-2) at 70% 60%,
+			transparent,
+			var(--bright-blue) 10%,
+			transparent 60%,
+			transparent
+		),
+		conic-gradient(
+			from var(--border-angle-3) at 50% 20%,
+			transparent,
+			var(--bright-yellow) 10%,
+			transparent 50%,
+			transparent
+		);
+	width: calc(100% - 3rem);
+	height: calc(100% - 3rem);
+}
+
+label::before {
+	top: -0.16rem;
+	left: -0.16rem;
+	z-index: -1;
+	filter: blur(0rem);
+	background-color: var(--bg-color-secondary);
+	width: calc(100% + 0.32rem);
+	height: calc(100% + 0.32rem);
+}

@@ -1,0 +1,58 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+main {
+	flex: 1;
+	padding-top: 4rem; // Offset for fixed header
+}
+
+section {
+	padding: 4rem 0;
+	scroll-margin-top: 80px; // Ensure sections align below header
+
+	&:not(:first-child) {
+		border-top: 1px solid var(--divider);
+	}
+}
+
+// Smooth scroll behavior
+html {
+	scroll-behavior: smooth;
+}
+
+// Dark theme overrides
+.mat-toolbar {
+	background-color: var(--surface) !important;
+	color: var(--text-primary) !important;
+}
+
+// Responsive padding
+@media (max-width: 768px) {
+	main {
+		padding-top: 60px;
+	}
+
+	section {
+		padding: 2rem 0;
+		scroll-margin-top: 60px;
+	}
+}
+
+// Print styles
+@media print {
+	app-header {
+		display: none;
+	}
+
+	main {
+		padding-top: 0;
+	}
+
+	section {
+		page-break-inside: avoid;
+		border: none !important;
+	}
+}

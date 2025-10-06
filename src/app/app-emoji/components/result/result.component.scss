@@ -1,0 +1,31 @@
+:host {
+	opacity: 0;
+	animation: fade-in 0.4s ease-in-out forwards;
+	-webkit-animation: fade-in 0.4s ease-in-out forwards;
+	animation-delay: var(--animation-delay);
+	-webkit-animation-delay: var(--animation-delay);
+}
+
+@keyframes fade-in {
+	100% {
+		opacity: 1;
+	}
+}
+
+li {
+	&:hover {
+		background-color: var(--bg-color);
+	}
+}
+
+.bg-color-secondary {
+	background-color: var(--bg-color-secondary) !important;
+}
+
+.text-color-highlight {
+	color: var(--text-color) !important;
+}
+
+.text-color-secondary {
+	color: var(--text-color-highlight) !important;
+}

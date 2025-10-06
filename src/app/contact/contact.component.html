@@ -1,0 +1,51 @@
+<section class="contact-section" #contactSection>
+	<div class="contact-content">
+		<h2 class="contact-heading">{{ "contact.title" | translate }}</h2>
+
+		<div class="contact-links">
+			<a class="contact-link" href="mailto:serhii.deineko@gmail.com">
+				<i class="fas fa-envelope"></i>
+				{{ "contact.links.email" | translate }}
+			</a>
+
+			<a
+				class="contact-link"
+				href="https://www.linkedin.com/in/serhii-deineko/"
+				target="_blank"
+				rel="noopener">
+				<i class="fab fa-linkedin"></i>
+				{{ "contact.links.linkedin" | translate }}
+			</a>
+
+			<a
+				class="contact-link"
+				href="https://github.com/serhii-deineko/"
+				target="_blank"
+				rel="noopener">
+				<i class="fab fa-github"></i>
+				{{ "contact.links.github" | translate }}
+			</a>
+		</div>
+
+		<div class="copyright">
+			{{ "contact.copyright" | translate: { year: currentYear } }}
+		</div>
+	</div>
+</section>
+
+<!-- Persistent Footer -->
+@if (!hiddenFooter) {
+	<footer class="persistent-footer">
+		<div class="footer-icons">
+			<a href="https://github.com/serhii-deineko/" target="_blank" rel="noopener">
+				<i class="fab fa-github"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/serhii-deineko/" target="_blank" rel="noopener">
+				<i class="fab fa-linkedin"></i>
+			</a>
+			<a href="mailto:serhii.deineko@gmail.com">
+				<i class="fas fa-envelope"></i>
+			</a>
+		</div>
+	</footer>
+}

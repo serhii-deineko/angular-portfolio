@@ -1,0 +1,352 @@
+{
+	"header": {
+		"home": "Accueil",
+		"nav": {
+			"about": "À propos",
+			"projects": "Projets",
+			"experience": "Expérience",
+			"contact": "Contact"
+		}
+	},
+	"hero": {
+		"subtitle": "Salut, mon nom est",
+		"title": "Serhii Deineko.",
+		"subtitleLarge": "Je construis des solutions informatiques pour les entreprises.",
+		"description": {
+			"part1": "Je suis un développeur frontend en croissance rapide avec cinq ans d'expérience dans la construction de solutions modernes,",
+			"part2": "orientées business en utilisant la dernière stack Angular. Je suis passionné par le",
+			"emphasis1": "design épuré",
+			"emphasis2": "la performance",
+			"emphasis3": "sans friction",
+			"connector1": ",",
+			"connector2": ", et les expériences ",
+			"part3": "utilisateur."
+		},
+		"cta": {
+			"certificate": "Certificat dans le CEIDG",
+			"downloadCv": "Télécharger le CV"
+		}
+	},
+	"projects": {
+		"title": "Quelques solutions que j'ai construites",
+		"cta-button": {
+			"website": "Ouvrir la page du projet"
+		},
+		"technologies-used": "Technologies utilisées",
+		"items": [
+			{
+				"id": "aisema-ai-grant-advisor",
+				"title": "Plateforme intelligente de jumelage de subventions UE 🇪🇺",
+				"description": "Développé de zéro et maintenu une application frontend à charge élevée en Angular pour la plateforme Aisema, qui utilise l'intelligence artificielle pour rechercher et analyser les programmes de subventions de l'UE. Implémenté le cycle complet des fonctionnalités, de l'authentification des utilisateurs aux tableaux de bord complexes avec visualisation dynamique des données. Introduit une stack professionnelle d'outils pour la gestion d'état, la surveillance des erreurs et l'intégration et livraison continues (CI/CD).",
+				"key-points": [
+					"Développé et implémenté tous les composants frontend de l'application à page unique (SPA), y compris les mécanismes d'authentification complexes, la recherche avec aperçu et les graphiques interactifs.",
+					"Conçu et implémenté l'architecture de gestion d'état globale de l'application en utilisant NgRx, garantissant un flux de données prévisible et des performances à toutes les étapes du workflow utilisateur.",
+					"Intégré Sentry pour une surveillance complète des erreurs en environnement de production, permettant la détection proactive et la correction des problèmes critiques avant qu'ils n'impactent les utilisateurs finaux.",
+					"Configuré et maintenu un pipeline CI/CD entièrement automatisé en utilisant Jenkins, permettant les tests automatisés, la construction et le déploiement de l'application à chaque mise à jour de la base de code."
+				],
+				"full-description": "En tant que seul développeur frontend du projet Aisema, j'ai créé une application web complète qui aide les petites et moyennes entreprises à trouver des subventions UE adaptées avec l'aide de l'intelligence artificielle. Le projet a été mis en œuvre en collaboration avec le Réseau de Recherche Łukasiewicz — ITECH. Les responsabilités incluaient le cycle de développement complet : de la conception de l'architecture et de l'implémentation de la logique métier à la configuration des processus DevOps et au support post-lancement.",
+				"sections": [
+					{
+						"title": "Architecture et développement d'application",
+						"content": "Conçu et implémenté une architecture Angular modulaire et évolutive en utilisant des services personnalisés pour l'interaction avec les API REST. Implémenté des mécanismes d'accès sécurisé (Guards) et de gestion des erreurs (Interceptors) au niveau des requêtes HTTP. Utilisé le préprocesseur SASS pour le style, créant un système de style maintenable et flexible."
+					},
+					{
+						"title": "Gestion d'état et performance",
+						"content": "Appliqué la bibliothèque NgRx (modèle Redux pour Angular) pour une gestion centralisée et prévisible de l'état complexe de l'application. Utilisé extensivement RxJS et les Observables pour la programmation réactive, la gestion efficace des opérations asynchrones et des événements, ce qui est critique pour une interface réactive avec du contenu dynamique."
+					},
+					{
+						"title": "Internationalisation et monitoring",
+						"content": "Intégré la bibliothèque ngx-translate pour une prise en charge multilingue complète (toutes les langues officielles de l'UE), qui est une exigence clé pour un produit ciblant le marché européen. Pour assurer la fiabilité, implémenté Sentry, permettant le suivi en temps réel, le regroupement et la réponse rapide aux erreurs dans l'environnement de production."
+					},
+					{
+						"title": "Processus CI/CD et déploiement",
+						"content": "Configuré et automatisé le processus d'intégration et de livraison continues (CI/CD) en utilisant Jenkins. Le pipeline incluait des étapes pour l'exécution des tests, la construction de la version de production de l'application et le déploiement automatique, accélérant et simplifiant significativement le processus de release."
+					}
+				]
+			},
+			{
+				"id": "mobile-homes-order-app",
+				"title": "Système de gestion de commandes pour usine",
+				"description": "Conçu et livré en solo une application full-stack Angular & Firebase qui a digitalisé le processus principal de gestion des commandes. Le système connecte de manière transparente les clients, les ventes et les départements internes, remplaçant les workflows manuels chaotiques par une plateforme rationalisée, automatisée et transparente. Il comprend l'édition collaborative en temps réel, une piste d'audit complète et une intégration profonde avec un configurateur précédemment déployé.",
+				"key-points": [
+					"Architecturé et construit l'application full-stack entière à partir de zéro en tant que développeur solo, supervisant le développement frontend et backend pour répondre aux besoins business précis.",
+					"Ingéniéré une fonction d'édition collaborative sophistiquée en temps réel, permettant à plusieurs utilisateurs de mettre à jour les détails des commandes simultanément avec un système fiable de résolution de conflits.",
+					"Implémenté un système granulaire de contrôle d'accès basé sur les rôles (RBAC) pour créer des expériences hautement sur mesure et un accès sécurisé aux données pour les divers rôles utilisateur à travers l'entreprise.",
+					"Intégré de manière transparente le nouveau système de gestion des commandes avec un configurateur personnalisé (également construit par moi), créant un workflow unifié de bout en bout de la configuration du produit à la passation de commande.",
+					"Établi et configuré un pipeline CI/CD professionnel avec des environnements de staging et de production séparés pour des tests contrôlés et des releases automatisées stables."
+				],
+				"full-description": "Piloté le cycle de vie complet du développement logiciel pour une application de gestion de commandes critique qui a transformé l'efficacité opérationnelle pour un fabricant de maisons mobiles. La solution agit comme un hub central, automatisant des processus auparavant disjoints et fournissant une visibilité sans précédent à travers les ventes, la production et la communication client.",
+				"sections": [
+					{
+						"title": "Architecture & Développement Full-Stack",
+						"content": "Développé en solo une application robuste en utilisant Angular sur le frontend, adhérant aux meilleures pratiques modernes pour la maintenabilité et la performance. Le backend est alimenté par Firebase, utilisant Firestore comme base de données en temps réel, Firebase Auth pour l'authentification sécurisée, Cloud Functions pour la logique serverless (ex: notifications email), et Cloud Storage pour la gestion des documents."
+					},
+					{
+						"title": "Collaboration en temps réel & Piste d'audit",
+						"content": "Implémenté un environnement d'édition en temps réel de type Google Sheets, permettant des mises à jour synchrones des commandes par plusieurs utilisateurs. Conçu un journal d'historique des changements complet qui trace chaque modification, fournissant une responsabilité complète et simplifiant la résolution des problèmes."
+					},
+					{
+						"title": "Intégration avancée & Contrôle d'accès",
+						"content": "Intégré de manière transparente le nouveau système de commandes avec le configurateur de maisons mobiles existant, assurant la cohérence des données du devis initial à la commande finale. Construit un système de gestion de rôles sophistiqué qui personnalise dynamiquement l'UI et la fonctionnalité basée sur les permissions utilisateur (ex: clients, commerciaux, managers, personnel de production)."
+					},
+					{
+						"title": "Stratégie de déploiement & d'environnement",
+						"content": "Configuré et géré des environnements de développement et de production isolés. Cela a permis des tests d'acceptation utilisateur (UAT) approfondis avec l'équipe commerciale dans l'environnement de dev avant de déployer des builds stables et complètes en fonctionnalités à tous les clients et distributeurs en production."
+					}
+				]
+			},
+			{
+				"id": "speech-analysis-platform",
+				"title": "Plateforme d'analyse de discours d'entreprise",
+				"description": "Développé une application frontend entièrement fonctionnelle pour l'analyse de données vocales dans un environnement d'entreprise à partir de zéro. Implémenté un système complexe de gestion des utilisateurs et des permissions, une interface multilingue avec personnalisation de thème, et un tableau de bord d'analytique intuitif. Intégré l'authentification d'entreprise via Microsoft SSO et assuré un déploiement transparent en utilisant Docker.",
+				"key-points": [
+					"Conçu et implémenté l'UI/UX entière de la plateforme à partir de zéro, créant une interface intuitive et moderne basée sur les principes de Material Design v3 avec des mises en page entièrement responsives.",
+					"Implémenté un système complet de contrôle d'accès basé sur les rôles (RBAC) avec une hiérarchie de rôles, des droits d'accès étendus et une journalisation détaillée de l'activité des utilisateurs.",
+					"Optimisé les performances de l'application grâce à une gestion d'état efficace avec NgRx, les réducteurs et les sélecteurs, et l'optimisation du re-rendu des composants.",
+					"Créé des services personnalisés pour travailler avec l'API REST, comportant une gestion d'erreur unifiée, des intercepteurs d'autorisation, de la mise en cache des requêtes et des mécanismes de réessai."
+				],
+				"full-description": "Développé indépendamment le frontend pour une plateforme d'analyse de discours d'entreprise en collaboration avec le call center Lockus. Construit une solution complète avec un accent sur l'évolutivité, la sécurité et l'expérience utilisateur.",
+				"sections": [
+					{
+						"title": "Architecture et développement",
+						"content": "Conçu une architecture Angular modulaire en mettant l'accent sur la réutilisabilité des composants. Implémenté la gestion de l'état de l'application en utilisant NgRx pour une manipulation prévisible des données. Développé des guards personnalisés pour la protection des routes et des resolvers pour un chargement optimisé des données."
+					},
+					{
+						"title": "Design et interface",
+						"content": "Créé un système de design complet basé sur Angular Material v3 avec des tokens de thème personnalisés. Implémenté des interfaces responsives supportant les thèmes clair et sombre. Développé un système de composants adhérant aux principes d'accessibilité et d'utilisabilité."
+					},
+					{
+						"title": "Sécurité et authentification",
+						"content": "Intégré l'authentification d'entreprise via Microsoft SSO. Implémenté un système de contrôle d'accès basé sur les rôles (RBAC) avec une hiérarchie de droits et de privilèges. Construit un panneau d'administration pour gérer les utilisateurs et les paramètres d'accès."
+					},
+					{
+						"title": "Analytique et visualisation",
+						"content": "Développé un tableau de bord interactif avec divers types de graphiques et de diagrammes pour visualiser les statistiques. Implémenté des fonctionnalités avancées de filtrage, tri et recherche de données avec pagination."
+					},
+					{
+						"title": "Infrastructure et déploiement",
+						"content": "Configuré la conteneurisation Docker pour le déploiement sur plusieurs environnements (test, production). Introduit des processus de revue de code et assuré le support multilingue en utilisant ngx-translate."
+					}
+				]
+			},
+			{
+				"id": "mobile-homes-configurator",
+				"title": "Configurateur Full-Stack de Maisons Mobiles",
+				"description": "Architecturé et livré en solo un configurateur web sophistiqué pour une usine de maisons mobiles, révolutionnant le processus de vente. L'application permet la personnalisation en temps réel, génère des devis professionnels instantanés et s'intègre avec les systèmes internes. Construit initialement avec un moteur vanilla personnalisé pour des performances maximales, il a été modernisé par la suite avec un frontend Angular complet et un backend Firebase pour améliorer l'évolutivité et la maintenabilité.",
+				"key-points": [
+					"Architecturé et construit l'application full-stack entière à partir de zéro en tant que développeur solo, supervisant le développement frontend et backend pour répondre aux besoins business précis.",
+					"Conçu et implémenté un moteur de gestion DOM et d'état propriétaire en JavaScript vanilla, atteignant une réactivité de type framework sans dépendances externes pour des performances optimales.",
+					"Ingéniéré un flux de configuration multi-étapes avec changement de modèle instantané et sauvegarde persistante de la progression, permettant aux clients de comparer de manière transparente différentes configurations de maison en temps réel.",
+					"Intégré de manière transparente le configurateur avec le service commercial de l'usine en automatisant la génération de fiches techniques détaillées, prêtes à l'impression, pour une utilisation immédiate dans la planification de la production.",
+					"Modernisé la stack technologique en menant une réécriture complète avec Angular et Firebase, implémentant Firestore pour les données en temps réel, Cloud Functions et un système d'authentification robuste."
+				],
+				"full-description": "Piloté le cycle de vie complet du développement d'une plateforme de configuration de vente critique qui a transformé l'engagement client pour un fabricant de maisons mobiles. La solution comble le fossé entre la personnalisation client et la production, fournissant une expérience digitale immersive qui a significativement boosté les ventes et élevé la marque technologique de l'entreprise.",
+				"sections": [
+					{
+						"title": "Architecture de base & Développement",
+						"content": "Développé en solo l'application initiale en utilisant JavaScript vanilla, HTML5 et CSS3, créant une solution légère et très performante sans la surcharge d'un framework. Conçu et construit un système de gestion d'état personnalisé et un moteur de manipulation du DOM pour gérer efficacement des mises à jour UI dynamiques complexes, assurant une expérience utilisateur fluide."
+					},
+					{
+						"title": "Expérience utilisateur & Automatisation du workflow",
+						"content": "Implémenté un processus de configuration multi-étapes intuitif supportant un catalogue étendu d'options et de personnalisations. Ingéniéré des fonctionnalités critiques comme la comparaison instantanée modèle à modèle avec préservation complète de l'état et la génération automatisée de devis PDF détaillés et professionnels qui alimentent directement le pipeline des ventes pour le traitement."
+					},
+					{
+						"title": "Modernisation du système & Intégration",
+						"content": "Mené la migration stratégique vers une stack technologique moderne et évolutive. Reconstruit le frontend avec Angular, adoptant une architecture basée sur les composants et TypeScript pour une maintenabilité supérieure. Architecturé le backend sur Firebase, utilisant Firestore pour la synchronisation de données en temps réel, Cloud Functions pour les opérations serverless (ex: notifications email, génération PDF) et Firebase Auth pour la gestion sécurisée des utilisateurs."
+					},
+					{
+						"title": "Impact business & Optimisation des performances",
+						"content": "L'application est devenue un outil de vente pivotal, augmentant directement les conversions en permettant aux clients de visualiser et personnaliser leurs maisons de manière transparente. Pris la responsabilité d'optimiser tous les aspects de performance de l'application, y compris la gestion d'état et les opérations DOM, pour assurer des temps de chargement rapides et une expérience de configuration fluide, améliorant ainsi l'image de marque de l'entreprise en tant que leader innovant."
+					}
+				]
+			},
+			{
+				"id": "homes-offers-configurator",
+				"title": "Configurateur Full-Stack de Brochures d'Offres",
+				"description": "Conçu et développé une application web interne pour les équipes commerciales et les distributeurs afin de générer dynamiquement des brochures professionnelles, prêtes à l'impression, pour des offres de maisons mobiles. Initialement construite avec JavaScript vanilla pour des performances et un contrôle maximaux, l'application est en cours de modernisation avec Angular pour améliorer la maintenabilité et le développement de fonctionnalités, rationalisant l'ensemble du processus de proposition commerciale.",
+				"key-points": [
+					"Architecturé et développé un configurateur de brochures dynamique à partir de zéro pour remplacer les méthodes manuelles et chronophages de création de propositions.",
+					"Ingéniéré un moteur de mise en page en temps réel qui arrange dynamiquement les images produits, descriptions et prix en modèles visuellement cohérents et conformes à la marque.",
+					"Implémenté une interface conviviale permettant au personnel commercial de configurer et générer rapidement des documents PDF de haute qualité, prêts à l'impression, à la demande.",
+					"Initié et mène l'effort de modernisation pour refactoriser l'application en Angular, améliorant la structure du code, l'évolutivité et l'ergonomie du développement."
+				],
+				"full-description": "Conçu et construit une application web interne complète qui automatise et standardise la création de brochures commerciales et de propositions clients. L'outil permet à l'équipe commerciale de produire rapidement des offres professionnelles, assurant la cohérence de la marque et l'exactitude.",
+				"sections": [
+					{
+						"title": "Architecture JS Vanilla & Performance",
+						"content": "Construit l'application initiale en utilisant du JavaScript pur, HTML et CSS pour créer un outil rapide, léger et fiable sans dépendances externes. Développé une logique personnalisée pour l'injection dynamique de contenu, le changement de template et la génération d'aperçu en temps réel pour fournir un retour instantané aux utilisateurs."
+					},
+					{
+						"title": "Moteur de template dynamique",
+						"content": "Créé un système de template flexible qui ajuste automatiquement les mises en page basées sur la saisie de contenu (nombre d'images, longueur du texte). Implémenté des capacités de génération PDF côté client pour produire instantanément des documents prêts à l'impression, éliminant le besoin de logiciels de design externes."
+					},
+					{
+						"title": "Modernisation avec Angular",
+						"content": "Mener la transition architecturale en cours vers Angular pour améliorer la maintenabilité à long terme et l'évolutivité des fonctionnalités. La refonte introduit une architecture basée sur les composants, TypeScript pour la sécurité de type et les pratiques de développement modernes, rendant la base de code plus robuste et plus facile à utiliser pour les équipes."
+					},
+					{
+						"title": "Intégration du processus business",
+						"content": "L'outil a été intégré de manière transparente dans le workflow quotidien des distributeurs et du service commercial interne, standardisant le processus de création d'offre et réduisant drastiquement la marge d'erreur. Cela a résulté en un pipeline de vente plus efficace et une image professionnelle dans les communications client."
+					}
+				]
+			},
+			{
+				"id": "website-chatbot-plugin",
+				"title": "Plugin de Chatbot Unifié pour E‑Commerce",
+				"description": "Orchestré un chatbot multi-langue pour une plateforme e-commerce de meubles leader. Ingéniéré un pipeline de données pour une recherche contextuelle de produits vectorielle, un widget vanilla JS avec des formulaires de service, et un configurateur de démonstration évolutif.",
+				"key-points": [
+					"Construit le frontend du moteur de recherche sémantique, traitant les requêtes utilisateur en vecteurs et affichant les résultats produits pertinents dans un slider interactif de type chat.",
+					"Architecturé l'intégralité du frontend en tant que script embarquable léger avec un système de build basé sur Webpack pour une intégration transparente dans n'importe quel CMS ou plateforme e-commerce.",
+					"Conteneurisé l'application configurateur de démonstration compagnon avec Docker, permettant la génération d'instances de chatbot en marque blanche avec des jeux de données et styles personnalisés.",
+					"Scripts simples d'analyse de données pour extraire, nettoyer et structurer les informations du catalogue produits (images, descriptions, attributs) de multiples sources pour la vectorisation."
+				],
+				"full-description": "Mené le développement d'un chatbot de la couche données initiale à l'interface utilisateur finale. Les responsabilités incluaient la création du pipeline de données pour la fonctionnalité de recherche vectorielle, la construction de l'application client et le développement d'un outil pour générer des instances de démonstration personnalisées.",
+				"sections": [
+					{
+						"title": "Pipeline de données pour la base de données vectorielle",
+						"content": "Conçu et implémenté le pipeline d'acquisition et de traitement des données. Écrit des analyseurs personnalisés pour agréger et normaliser le catalogue produits à partir de diverses sources (CSV, XML, APIs). Préparé et structuré ces données (titres, descriptions, spécifications) pour la génération d'embeddings, formant la base de la fonctionnalité de recherche contextuelle vectorielle."
+					},
+					{
+						"title": "Architecture Frontend & Build",
+						"content": "Construit l'application de chat entière en utilisant JavaScript vanilla, HTML et CSS pour des performances et une taille optimales. Configuré un build Webpack multi-étapes pour produire un script IIFE autonome et minifié, assurant une intégration sans tracas sur n'importe quel site client avec une seule balise."
+					},
+					{
+						"title": "Interface de recherche sémantique contextuelle",
+						"content": "Ingéniéré la logique côté client pour la découverte de produits basée sur les vecteurs. Le système traduit les requêtes utilisateur en recherches sémantiques contre la base de données vectorielle de produits pré-construite, retournant et affichant des articles hautement pertinents dans un slider intégré de manière fluide, directement dans le dialogue de chat."
+					},
+					{
+						"title": "Configurateur de démonstration & Déploiement",
+						"content": "Développé une application web configurateur de démonstration full-stack qui permet de générer des instances de chatbot personnalisées en définissant UID, couleurs et données d'exemple. Le processus de build et de déploiement pour chaque instance de démonstration était entièrement automatisé et conteneurisé en utilisant Docker, assurant la cohérence de l'environnement et une provision rapide."
+					}
+				]
+			},
+			{
+				"id": "legacy-app-modernization",
+				"title": "Support & Modernisation d'App Legacy",
+				"description": "Fourni un support complet et une modernisation itérative pour deux applications business critiques : une plateforme legacy PHP/jQuery et un système d'automatisation d'emails basé sur Angular pour BNP Paribas. Amélioré la fonctionnalité, la stabilité et l'expérience utilisateur grâce au développement de nouvelles fonctionnalités, à la correction de bugs et à des améliorations architecturales.",
+				"key-points": [
+					"Maintenu et amélioré une application Angular de production pour la gestion automatisée de demandes par email, implémentant de nouveaux composants UI et de la logique métier en utilisant PrimeNG et Angular Material.",
+					"Construit des microfrontends Angular pour remplacer progressivement des parties clés de l'UI d'une application legacy PHP/jQuery sans causer d'indisponibilité ou perturber le flux de production en direct.",
+					"Développé de nouvelles fonctionnalités et résolu des bugs à travers les deux applications, assurant une haute disponibilité et un alignement avec les exigences business évolutives.",
+					"Conteneurisé les services legacy et modernes avec Docker sur Linux, établissant un environnement cohérent pour le développement, les tests et le déploiement automatisé."
+				],
+				"full-description": "Piloté le support et la modernisation progressive de deux applications distinctes, en se concentrant sur l'ajout de valeur via de nouvelles fonctionnalités, la résolution immédiate de bugs et des améliorations architecturales stratégiques pour assurer l'évolutivité et la maintenabilité à long terme.",
+				"sections": [
+					{
+						"title": "Support & Amélioration de l'Application Angular",
+						"content": "Fourni une maintenance continue et du développement pour une application Angular critique conçue pour automatiser et gérer le routage des demandes par email pour BNP Paribas. Implémenté de nouvelles fonctionnalités d'interface utilisateur en utilisant les bibliothèques de composants PrimeNG et Angular Material, ajouté de nouvelles logiques métier pour gérer divers types de demandes, et assuré la fiabilité et les performances de l'application en environnement de production."
+					},
+					{
+						"title": "Modernisation du Système Legacy via Microfrontends",
+						"content": "Exécuté une migration stratégique depuis une application monolithique PHP/jQuery en construisant et intégrant des microfrontends Angular. Cette approche a permis le remplacement transparent des sections UI obsolètes par des composants Angular modernes et performants sans risquer d'indisponibilité ou perturber le workflow des utilisateurs, améliorant significativement la maintenabilité."
+					},
+					{
+						"title": "Développement Full-Cycle & DevOps",
+						"content": "Géré le cycle de vie complet du développement pour les deux projets — de l'analyse des exigences et du développement de nouvelles fonctionnalités aux tests, corrections de bugs et déploiement. Conteneurisé les applications en utilisant Docker pour standardiser les environnements à travers les étapes, facilitant des pipelines CI/CD fiables et des retours arrière faciles."
+					}
+				]
+			},
+			{
+				"id": "other-website-development",
+				"title": "Autre Développement de Sites WordPress",
+				"description": "Ingéniéré et lancé 11+ sites WordPress complets pour un portefeuille diversifié de clients internationaux, incluant la manufacturing, l'hôtellerie, l'art et les médias. Maîtrisé le spectre des solutions sans code Elementor aux thèmes codés sur mesure et aux intégrations fonctionnelles complexes, livrant des expériences digitales sur mesure pour les besoins uniques de chaque marque.",
+				"key-points": [
+					"Piloté le développement de bout en bout : de la configuration initiale de l'hébergement et du domaine au codage de thème personnalisé, au développement de plugin et au déploiement final.",
+					"Implémenté des fonctionnalités avancées incluant des formulaires PHP personnalisés, l'authentification utilisateur OAuth 2.0 via Google, et la traduction de contenu multilingue dynamique via l'API DeepL.",
+					"Optimisé chaque site pour la performance, le SEO et l'utilisabilité, assurant une expérience transparente sur tous les types d'appareils et navigateurs."
+				],
+				"full-description": "Exécuté une large gamme de projets de développement web, démontrant la versatilité de la création de prototypes rapides avec des constructeurs de page à l'architecture de thèmes WordPress sur mesure à partir de zéro. Résolu des défis clients uniques via des scripts PHP personnalisés et des intégrations d'API tierces.",
+				"sections": [
+					{
+						"title": "Développement de Thème & Plugin Personnalisé",
+						"content": "Conçu et construit des thèmes WordPress à partir de zéro pour une performance maximale et une flexibilité de design (ex: Lark Gallery Print). Développé des scripts PHP et plugins personnalisés pour étendre la fonctionnalité de base, comme la création de formulaires de réservation complexes pour les maisons de vacances (Holiday Domki) et des sélecteurs de service de laverie (Pralnia Delfin), dépassant les limitations des solutions pré-construites."
+					},
+					{
+						"title": "Intégrations Avancées & Implémentation d'API",
+						"content": "Amélioré l'expérience utilisateur et les capacités du site en intégrant des services tiers puissants. Implémenté une authentification utilisateur sécurisée via Google OAuth pour des connexions rationalisées. Automatisé la gestion de contenu multilingue en intégrant l'API de traduction DeepL, fournissant un changement de langue transparent pour les clients internationaux comme Zweitheim.de et Neptun Darlowo."
+					},
+					{
+						"title": "Stratégies de Construction Variées : D'Elementor au Code Personnalisé",
+						"content": "Adapté la méthodologie de développement pour correspondre parfaitement au périmètre et au budget du projet. Utilisé Elementor pour une construction de site marketing efficace et visuellement impressionnante (Hotel Plaza, Luminarist TV). Inversement, employé du HTML, CSS et PHP brut pour des solutions sur mesure, légères et hautement personnalisées où l'unicité du design et la performance étaient primordiales (Lark Factory)."
+					}
+				]
+			}
+		]
+	},
+	"experience": {
+		"title": "Où j'ai travaillé / étudié",
+		"items": [
+			{
+				"id": "dnipro-university",
+				"role": "Informatique",
+				"company": "Université Technologique de Dnipro (Ukraine)",
+				"duration": "2017 – 2018",
+				"points": [
+					"Terminé une année d'études de premier cycle en Informatique dans l'une des plus anciennes universités techniques d'Ukraine, avec une forte concentration sur la programmation et la pensée algorithmique"
+				]
+			},
+			{
+				"id": "networks-ua",
+				"role": "Développeur Fullstack",
+				"company": "Networks.ua",
+				"duration": "Mars 2018 - Septembre 2019",
+				"points": [
+					"Architecturé et construit des micro-frontends basés sur Angular pour les modules les plus critiques de l'application, permettant une modernisation incrémentale sans perturber les workflows existants",
+					"Conçu et implémenté un projet de cartographie géospatiale en utilisant Vue.js, Node.js, NestJS et PostgreSQL—livrant des couches cartographiques interactives, des requêtes spatiales et des outils SIG personnalisés pour supporter les besoins de reporting client",
+					"Conteneurisé à la fois les applications legacy et géospatiales avec Docker sur Linux—rationalisant les environnements de développement, automatisant les déploiements et réduisant le temps de configuration pour les nouveaux membres de l'équipe de 50%"
+				]
+			},
+			{
+				"id": "psw-biala-podlaska",
+				"role": "Informatique",
+				"company": "PSW w Białej Podlaskiej (Pologne)",
+				"duration": "2019 – 2021",
+				"points": [
+					"Inscrit dans une université polonaise après avoir déménagé dans l'UE, terminé deux années académiques en Informatique avec des cours en technologies web, bases de données et conception de systèmes",
+					"Participé à des cours de programmation dirigés par Maciej Hawryluk, M.Sc. (email : m.hawryluk@dyd.akademiabialska.pl, téléphone : +48 609 111 856), qui reste une référence professionnelle pour des purposes de recrutement"
+				]
+			},
+			{
+				"id": "lark-leisure-homes",
+				"role": "Développeur Fullstack",
+				"company": "Lark Leisure Homes",
+				"duration": "Juillet 2022 - Présent",
+				"points": [
+					"Architecturé un configurateur de maisons mobiles personnalisé en JavaScript vanilla/PHP comportant un gestionnaire d'état event-bus sur mesure, un moteur de diff-and-patch DOM pour les aperçus en temps réel, et un backend PHP/SQL sécurisé pour la persistance et le versioning des configurations",
+					"Construit un configurateur de flyer alimenté par l'IA (https://larkfactory.com/oferter/) intégrant de multiples modèles de machine-learning pour auto-organiser et catégoriser les images produits, avec un rendu de mise en page dynamique et une exportation vers des formats prêts à l'impression",
+					"Développé une application de création de commandes entièrement unifiée Angular Material & Firebase avec CI/CD automatisé (Jenkins sur push vers main), supportant l'authentification via Firebase Auth, Firestore pour les données de commande, Storage pour les médias, Firebase Functions pour les notifications email, un historique détaillé des changements et des contrôles d'accès basés sur les rôles",
+					"Implémenté un CRM de génération de leads personnalisé avec intégration Gmail et Google Apps Script—automatisant les campagnes email via des tâches cron, le suivi du comportement, et des tableaux de bord Angular pour l'analytique en temps réel et l'assignation des leads",
+					"Livré 8+ sites web pour l'usine mère et ses filiales—incluant Lark Leisure Homes, la télévision (luminaristv.com), la galerie (dom mistrzów), l'hôtel, et plus—assurant un design responsive et une intégration CMS sur des stacks WordPress et PHP personnalisées"
+				]
+			},
+			{
+				"id": "yarrl",
+				"role": "Développeur Frontend",
+				"company": "Yarrl S.A.",
+				"duration": "Novembre 2023 - Présent",
+				"points": [
+					"Construit le frontend pour Aisema, une application de recherche de financement UE utilisant LLM, développée en Angular avec Jenkins pour CI/CD et Sentry pour la surveillance des erreurs en temps réel (plus de détails : https://cyfrowa.rp.pl/biznes-ludzie-startupy/art42365771-polska-aplikacja-ai-pomoze-firmom-zdobyc-pieniadze-z-ue)",
+					"Développé un frontend de chatbot en JavaScript vanilla pour des sites e-commerce de meubles (ex: BRW) comportant une recherche contextuelle basée sur les vecteurs et le dépôt/vérification de réclamation via une API XML externe ; intégré des réponses d'assistant basées sur GPT directement dans l'UI, maintenant déployé sur de multiples plateformes incluant des projets du Ministère des Finances",
+					"Développé et maintiens le site WordPress aisema.eu, implémentant le support multilingue, un calculateur de prix dynamique et l'intégration transparente du chatbot personnalisé basé sur GPT dans l'interface utilisateur pour améliorer l'engagement client et automatiser le support",
+					"Implémenté un frontend Angular pour un outil d'analyse de conversations de call-center alimenté par des modèles d'IA avancés—permettant des analyses personnalisées à partir d'enregistrements téléchargés ou fournis par API, une évaluation multi-critères, le suivi de la performance des consultants, un contrôle d'accès basé sur les rôles complexe, la gestion de compte et l'intégration SSO"
+				]
+			}
+		]
+	},
+	"contact": {
+		"title": "Entrer en contact",
+		"links": {
+			"email": "serhii.deineko@gmail.com",
+			"linkedin": "linkedin.com/in/serhii-deineko",
+			"github": "github.com/serhii-deineko"
+		},
+		"copyright": "© {{year}} Serhii Deineko. Tous droits réservés."
+	},
+	"uni": {
+		"view": "Voir plus",
+		"github": "GitHub",
+		"overview": "Aperçu",
+		"watch-demo": "Voir la démo",
+		"not-found": "Projet non trouvé"
+	}
+}

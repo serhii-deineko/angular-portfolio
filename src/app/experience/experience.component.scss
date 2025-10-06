@@ -1,0 +1,101 @@
+#experience {
+	margin: 0 auto;
+	padding: 0.5rem;
+	max-width: 1000px;
+}
+.experience {
+	&__list {
+		position: relative;
+		max-width: 800px;
+	}
+
+	&__item {
+		position: relative;
+		opacity: 0;
+		animation: fadeInUp 1s forwards;
+		animation-delay: calc(0.2s * var(--i));
+		margin-bottom: 50px;
+		border-left: 2px solid var(--accent-color);
+		padding-left: 30px;
+	}
+
+	&__item:nth-child(1),
+	&__item:nth-child(3) {
+		opacity: 0.5 !important;
+		border-left-style: dashed !important;
+	}
+
+	&__title {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 10px;
+		font-size: 22px;
+	}
+
+	.role {
+		color: var(--text-color-highlight);
+	}
+
+	.company {
+		transition: var(--transition);
+		color: var(--accent-color);
+		font-size: 16px;
+		font-family: var(--font-mono);
+	}
+
+	&__duration {
+		margin-bottom: 20px;
+		color: var(--text-color);
+		font-size: 13px;
+		font-family: var(--font-mono);
+	}
+
+	&__points {
+		padding: 0;
+		list-style: none;
+	}
+
+	&__point {
+		position: relative;
+		margin-bottom: 10px;
+		padding-left: 25px;
+		color: var(--text-color);
+		line-height: 1.5;
+
+		&::before {
+			position: absolute;
+			left: 0;
+			content: "●";
+			color: var(--accent-color);
+			font-size: 8px;
+			line-height: 2.5;
+		}
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		transform: translateY(20px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@media (max-width: 768px) {
+	.experience {
+		&__item {
+			margin-bottom: 40px;
+			padding-left: 20px;
+		}
+
+		&__title {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 5px;
+		}
+	}
+}

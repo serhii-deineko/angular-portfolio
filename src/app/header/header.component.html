@@ -1,0 +1,54 @@
+<nav class="header">
+	<div class="header__content">
+		<a class="logo" [attr.aria-label]="'header.home' | translate" href="/">
+			<img src="/logo.png" alt="" />
+		</a>
+
+		<div class="nav__links">
+			<ol class="nav__list">
+				<li class="nav__item">
+					<a class="nav__link" [class.active]="activeSection === 'hero'" href="#about">
+						{{ "header.nav.about" | translate }}
+					</a>
+				</li>
+				<li class="nav__item">
+					<a
+						class="nav__link"
+						[class.active]="activeSection === 'projects'"
+						href="#projects">
+						{{ "header.nav.projects" | translate }}
+					</a>
+				</li>
+				<li class="nav__item">
+					<a
+						class="nav__link"
+						[class.active]="activeSection === 'experience'"
+						href="#experience">
+						{{ "header.nav.experience" | translate }}
+					</a>
+				</li>
+				<li class="nav__item">
+					<a
+						class="nav__link"
+						[class.active]="activeSection === 'contact'"
+						href="#contact">
+						{{ "header.nav.contact" | translate }}
+					</a>
+				</li>
+				<li class="nav__item emoji-seeker">
+					<button class="nav__link" mat-button matRipple routerLink="/emojiseeker">
+						<img
+							src="assets/emoji/icon/magnifying-glass-tilted-right.webp"
+							alt="Emoji Seeker" />
+						<span>Emoji Seeker</span>
+					</button>
+				</li>
+
+				<li class="nav__item theme-toggle-item language-switcher">
+					<app-theme-switcher></app-theme-switcher>
+					<app-language-switcher></app-language-switcher>
+				</li>
+			</ol>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,24 @@
+.progress-spinner {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	z-index: 9999999999999999;
+	transition: var(--transition);
+	background: var(--bg-color);
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.progress-spinner.active {
+	opacity: 1;
+	transition: none;
+}
+
+::ng-deep .mat-mdc-progress-spinner svg {
+	stroke: var(--text-color) !important;
+}
