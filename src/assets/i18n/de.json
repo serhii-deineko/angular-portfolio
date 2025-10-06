@@ -1,11 +1,13 @@
 {
 	"header": {
 		"home": "Startseite",
+		"menu": "Menü",
 		"nav": {
 			"about": "Über mich",
 			"projects": "Projekte",
 			"experience": "Berufserfahrung",
-			"contact": "Kontakt"
+			"contact": "Kontakt",
+			"emoji-seeker": "Emoji-Sucher"
 		}
 	},
 	"hero": {
@@ -348,5 +350,10 @@
 		"overview": "Übersicht",
 		"watch-demo": "Demo ansehen",
 		"not-found": "Projekt nicht gefunden"
+	},
+	"emoji-seeker": {
+		"placeholder": "Einfach anfangen zu tippen...",
+		"search-icon-alt": "Lupe nach rechts geneigt",
+		"description": "Finden Sie das perfekte Emoji für jede Situation mit KI-gestützter Suche"
 	}
 }

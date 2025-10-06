@@ -1,11 +1,13 @@
 {
 	"header": {
 		"home": "Strona główna",
+		"menu": "Menu",
 		"nav": {
 			"about": "O mnie",
 			"projects": "Projekty",
 			"experience": "Doświadczenie",
-			"contact": "Kontakt"
+			"contact": "Kontakt",
+			"emoji-seeker": "Wyszukiwarka Emoji"
 		}
 	},
 	"hero": {
@@ -348,5 +350,10 @@
 		"overview": "Przegląd",
 		"watch-demo": "Obejrzyj demo",
 		"not-found": "Projekt nie znaleziony"
+	},
+	"emoji-seeker": {
+		"placeholder": "Po prostu zacznij pisać...",
+		"search-icon-alt": "Lupa przechylona w prawo",
+		"description": "Znajdź idealne emoji na każdą sytuację z szukajką opartą na AI"
 	}
 }

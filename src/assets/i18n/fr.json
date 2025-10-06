@@ -1,11 +1,13 @@
 {
 	"header": {
 		"home": "Accueil",
+		"menu": "Menu",
 		"nav": {
 			"about": "À propos",
 			"projects": "Projets",
 			"experience": "Expérience",
-			"contact": "Contact"
+			"contact": "Contact",
+			"emoji-seeker": "Chercheur d'Emoji"
 		}
 	},
 	"hero": {
@@ -348,5 +350,10 @@
 		"overview": "Aperçu",
 		"watch-demo": "Voir la démo",
 		"not-found": "Projet non trouvé"
+	},
+	"emoji-seeker": {
+		"placeholder": "Commencez simplement à taper...",
+		"search-icon-alt": "Loupe inclinée vers la droite",
+		"description": "Trouvez l'emoji parfait pour toute situation avec la recherche IA"
 	}
 }

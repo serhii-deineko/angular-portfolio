@@ -1,11 +1,13 @@
 {
 	"header": {
 		"home": "Home",
+		"menu": "Menu",
 		"nav": {
 			"about": "About",
 			"projects": "Projects",
 			"experience": "Experience",
-			"contact": "Contact"
+			"contact": "Contact",
+			"emoji-seeker": "Emoji Seeker"
 		}
 	},
 	"hero": {
@@ -348,5 +350,10 @@
 		"overview": "Overview",
 		"watch-demo": "Watch Demo",
 		"not-found": "Project not found"
+	},
+	"emoji-seeker": {
+		"placeholder": "Just start typing...",
+		"search-icon-alt": "Magnifying glass tilted right",
+		"description": "Find the perfect emoji for any situation using AI-powered search"
 	}
 }
