@@ -176,8 +176,15 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+	#projects {
+		padding: 60px 1.5rem 20px;
+	}
 	.project-card {
 		padding: 1.5rem;
+	}
+	.project-footer {
+		row-gap: 1rem;
+		flex-direction: column;
 	}
 }
