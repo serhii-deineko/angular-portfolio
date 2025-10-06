@@ -57,31 +57,6 @@
 	}
 }
 
-.cta-button {
-	display: flex;
-	column-gap: 10px;
-	align-items: center;
-	transition: var(--transition);
-	cursor: pointer;
-	border: 1.5px solid var(--accent-color);
-	background-color: transparent;
-	padding: 1.25rem 1.5rem;
-	color: var(--accent-color);
-	font-weight: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 1;
-	font-family: var(--font-sans);
-	text-decoration: none;
-
-	&:hover {
-		transform: translateY(-2.5px);
-		opacity: 1;
-		background-color: var(--accent-color);
-		color: var(--bg-color);
-	}
-}
-
 @keyframes fadeInUp {
 	from {
 		transform: translateY(20px);
@@ -93,7 +68,7 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 	.hero {
 		padding: 60px 1.5rem 20px;
 		min-height: calc(100vh - var(--nav-height) - var(--footer-height) - 20px);
