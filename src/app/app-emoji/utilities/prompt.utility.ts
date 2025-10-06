@@ -14,6 +14,8 @@ export const PromptUtility = (
 				content: `
 					Provide 1 to 7 unique Unicode emoji code-points relevant to the given text, ranked by relevance.
 					Follow this JSON format: "result": ["1f3d0", "2764-fe0f", ...up to 7 if it's relevant to text].
+					Always use Unicode code-points with all necessary parts (e.g., "31-fe0f-20e3" not "0031-20e3").
+					Include all required modifiers like FE0F (variation selector) and combining characters.
 					${showmore ? `Exclude any emoji listed in the forbidden codes: [${result.join(", ")}].` : ""}
 				`
 			},
@@ -43,7 +45,8 @@ export const PromptUtility = (
 								"A list of unique Unicode emoji code-points relevant to the given text.",
 							items: {
 								type: "string",
-								description: "Emoji code-point relevant to the given text."
+								description:
+									"Complete Unicode emoji code-point with all necessary parts (e.g., '31-fe0f-20e3')."
 							}
 						}
 					},
