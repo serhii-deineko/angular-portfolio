@@ -64,13 +64,21 @@ export class SearchComponent {
 				if (trimmedPrompt === currentTrimmed && trimmedPrompt.length >= 1) {
 					this.previousPrompt = trimmedPrompt;
 					this.resultArray = [];
-					this.searchEmojis(trimmedPrompt);
+					// Only start search if no active search is running
+					if (!this.abortController) {
+						this.searchEmojis(trimmedPrompt);
+					}
 				}
 			}, 500);
 		}
 	}
 
 	async searchEmojis(prompt: string, showmore: boolean = false, attempts: number = 0) {
+		// Prevent multiple simultaneous searches for the same prompt
+		if (attempts === 0 && this.abortController) {
+			return;
+		}
+
 		const timeoutDuration = 15000 + attempts * 5000;
 		this.searchTimeoutId = setTimeout(() => {
 			if (this.abortController) {
@@ -81,7 +89,7 @@ export class SearchComponent {
 			}
 		}, timeoutDuration);
 
-		while (attempts < 3) {
+		while (attempts <= 10) {
 			this.abortController = new AbortController();
 			let response: ResponseInterface[] = [];
 
@@ -108,39 +116,64 @@ export class SearchComponent {
 					throw new Error(`Invalid JSON response: ${content}`);
 				}
 
-				if (!parsedContent.result || !Array.isArray(parsedContent.result)) {
-					throw new Error("Invalid response format");
+				if (
+					!parsedContent.result ||
+					!Array.isArray(parsedContent.result) ||
+					parsedContent.result.length === 0
+				) {
+					throw new Error("Invalid response format or empty result");
 				}
 
 				// prettier-ignore
 				response = parsedContent.result.map((unicode: string) => {
+					// Validate unicode format
+					if (!unicode || typeof unicode !== 'string' || unicode.trim() === '') {
+						return null;
+					}
 					return this.emojisJson.find((emoji) => {
-						return emoji.unicode.includes(unicode);
+						return emoji.unicode.includes(unicode.trim());
 					});
 				}).filter(Boolean);
+
+				// If no results found in local database, treat as error to trigger retry
+				if (response.length === 0) {
+					throw new Error("No matching emojis found in local database");
+				}
 
 				if (prompt === this.searchPrompt.trim()) {
 					this.resultArray = [...new Set(response)];
 				}
 
+				// Clear timeout and abort controller on success
 				clearTimeout(this.searchTimeoutId);
+				if (this.abortController) {
+					this.abortController = undefined;
+				}
 				return;
 			} catch (error: any) {
 				if (error.name === "AbortError") {
 					clearTimeout(this.searchTimeoutId);
+					if (this.abortController) {
+						this.abortController = undefined;
+					}
 					return;
 				}
 
 				attempts++;
 
-				if (attempts >= 3) {
+				// If we've exhausted all attempts, show empty results
+				if (attempts >= 10) {
 					if (prompt === this.searchPrompt.trim()) {
 						this.resultArray = [];
 					}
 					clearTimeout(this.searchTimeoutId);
+					if (this.abortController) {
+						this.abortController = undefined;
+					}
 					return;
 				}
 
+				// Wait before retrying, with increasing delay
 				await new Promise((resolve) => setTimeout(resolve, 500 * attempts));
 			}
 		}

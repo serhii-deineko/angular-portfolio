@@ -55,6 +55,8 @@ label {
 	border: none;
 	--bright-yellow: rgb(255, 204, 0);
 	--bright-blue: rgb(0, 92, 187);
+	outline: none !important;
+	border: none !important;
 	border-radius: 1rem;
 	background: var(--bg);
 }
@@ -207,10 +209,16 @@ label.gradient-animation::before {
 }
 
 input {
+	outline: none !important;
+	border: none !important;
 	color: var(--text-color);
 
 	&::placeholder {
 		color: var(--text-color-secondary);
+	}
+
+	&:focus-visible {
+		outline: none;
 	}
 }
 
