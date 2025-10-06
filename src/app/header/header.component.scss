@@ -2,7 +2,6 @@
 	position: fixed;
 	top: 0;
 	z-index: 9999;
-	transition: var(--transition);
 	background: var(--bg-color);
 	width: 100%;
 	height: var(--nav-height);
@@ -21,7 +20,6 @@
 }
 
 .logo {
-	transition: var(--transition);
 	color: var(--accent-color);
 	font-weight: 700;
 	font-size: 1.5rem;
@@ -68,7 +66,6 @@
 	}
 
 	&__link {
-		transition: var(--transition);
 		padding: 10px;
 		color: var(--text);
 		white-space: nowrap;
@@ -121,10 +118,11 @@ body.light-mode {
 
 :host ::ng-deep .burger-button {
 	transform: scale(0.9);
-	transition: var(--transition);
+	border: 1.5px solid var(--border-color);
 	background: var(--bg);
 	width: 90px;
 	height: 40px;
+	text-transform: lowercase;
 
 	span {
 		filter: grayscale(1);
@@ -171,7 +169,7 @@ body.light-mode {
 		top: 0;
 		right: 0;
 		transform: translateX(100%);
-		transition: transform 0.3s ease;
+		transition: transform var(--transition);
 		border-left: 1px solid var(--border-color);
 		background-color: var(--bg-color);
 		width: 280px;
@@ -209,7 +207,6 @@ body.light-mode {
 	&__link {
 		display: flex;
 		align-items: center;
-		transition: var(--transition);
 		cursor: pointer;
 		border: none;
 		background: none;
@@ -241,7 +238,6 @@ body.light-mode {
 			position: absolute;
 			top: 0;
 			left: 0;
-			transition: opacity var(--transition);
 			width: 20px;
 			height: 20px;
 		}
@@ -310,7 +306,6 @@ body.light-mode {
 	--bright-blue: rgb(0, 92, 187);
 	justify-content: center;
 	align-items: center;
-	transition: var(--transition);
 	cursor: pointer;
 	box-shadow: inset 0 0 2rem -2rem var(--bg);
 	border: none;
@@ -335,7 +330,6 @@ body.light-mode {
 		position: absolute;
 		top: 0;
 		left: 0;
-		transition: opacity var(--transition);
 		width: 18px;
 		height: 18px;
 	}
