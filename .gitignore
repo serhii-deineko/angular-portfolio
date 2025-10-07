@@ -126,3 +126,7 @@ public
 # Temporary folders
 tmp/
 temp/
+
+# App Emoji - moved to separate repository
+src/app/app-emoji/*
+!src/app/app-emoji/README.md
