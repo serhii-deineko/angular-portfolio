@@ -1,5 +1,5 @@
-import { DOCUMENT } from "@angular/common";
-import { Inject, Injectable, signal } from "@angular/core";
+import { DOCUMENT, isPlatformBrowser } from "@angular/common";
+import { Inject, Injectable, PLATFORM_ID, signal } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { Meta } from "@angular/platform-browser";
 import { TranslateService } from "@ngx-translate/core";
@@ -14,14 +14,19 @@ export class LanguageService {
 
 	constructor(
 		@Inject(DOCUMENT) private document: Document,
+		@Inject(PLATFORM_ID) private platformId: Object,
 		private translateService: TranslateService,
 		private meta: Meta
 	) {}
 
 	public initLanguage(): void {
-		let language = localStorage.getItem("language");
-		this.language.set(language || DEFAULT_LANGUAGE);
+		let language = DEFAULT_LANGUAGE;
 
+		if (isPlatformBrowser(this.platformId)) {
+			language = localStorage.getItem("language") || DEFAULT_LANGUAGE;
+		}
+
+		this.language.set(language);
 		this.setLanguage(this.language());
 	}
 
@@ -32,7 +37,9 @@ export class LanguageService {
 		this.language.set(language);
 		this.translateService.use(language);
 
-		localStorage.setItem("language", language);
+		if (isPlatformBrowser(this.platformId)) {
+			localStorage.setItem("language", language);
+		}
 	}
 
 	public getAvailableLanguages(): string[] {

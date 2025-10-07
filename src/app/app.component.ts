@@ -8,6 +8,7 @@ import { filter, interval, takeWhile } from "rxjs";
 import { ContactComponent } from "./contact/contact.component";
 import { HeaderComponent } from "./header/header.component";
 import { ScrollService } from "./services/scroll.service";
+import { SEOService } from "./services/seo.service";
 import { LanguageService } from "./shared/services/language.service";
 
 @Component({
@@ -49,7 +50,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 		private scrollService: ScrollService,
 		private translateService: TranslateService,
 		private languageService: LanguageService,
-		private router: Router
+		private router: Router,
+		private seoService: SEOService
 	) {
 		this.languageService.initLanguage();
 	}
@@ -90,6 +92,16 @@ export class AppComponent implements OnInit, AfterViewInit {
 					// Check if we're on a page with sections (home page)
 					if (currentUrl === "/" || currentUrl.includes("#")) {
 						this.scrollService.updateSections(this.sections.map((s) => s.id));
+
+						// Force re-initialization of scroll service for home page
+						if (currentUrl === "/") {
+							setTimeout(() => {
+								this.scrollService.init(
+									this.sections.map((s) => s.id),
+									"scrollProgress"
+								);
+							}, 200);
+						}
 					} else {
 						// Clear active section for pages without sections (like emoji-seeker)
 						this.scrollService.clearActiveSection();

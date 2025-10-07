@@ -54,6 +54,11 @@ export class ProjectDetailComponent implements OnInit {
 				})
 			)
 			.subscribe((projectData) => {
+				if (!projectData) {
+					this.router.navigate(["/"]);
+					return;
+				}
+
 				this.projectDetails.set({
 					id: this.projectId(),
 					title: projectData.title,

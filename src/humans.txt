@@ -1,0 +1,24 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Developer: Serhii Deineko
+    Contact: your-email [at] domain.com
+    From: Ukraine
+
+# THANKS
+
+    Angular Team
+    Material Design Team
+    Font Awesome
+    Google Fonts
+
+# TECHNOLOGY COLOPHON
+
+    Frontend: Angular 19, TypeScript, SCSS, Tailwind CSS
+    Icons: Font Awesome, Material Icons
+    Fonts: Inter, Roboto, Roboto Flex
+    Build Tool: Angular CLI
+    Package Manager: Yarn
+    Version Control: Git
