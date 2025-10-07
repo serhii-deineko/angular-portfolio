@@ -84,12 +84,20 @@ label:hover:not(.has-results, :focus-within, .gradient-animation)::after {
 		filter var(--animation-timing);
 }
 
+::ng-deep body.dark-mode label:hover:not(.has-results, :focus-within, .gradient-animation)::after {
+	filter: blur(0.75rem) grayscale(1);
+}
+
 label:hover:not(.has-results, :focus-within, .gradient-animation)::before {
 	opacity: 0.5;
 	filter: grayscale(1);
 	transition:
 		var(--transition),
 		filter var(--animation-timing);
+}
+
+::ng-deep body.dark-mode label:hover:not(.has-results, :focus-within, .gradient-animation)::before {
+	filter: grayscale(0);
 }
 
 label.has-results::after,
@@ -139,6 +147,7 @@ label:focus-within::before {
 
 label.gradient-animation::before {
 	opacity: 0.75;
+	filter: grayscale(0);
 	transition:
 		var(--transition),
 		filter var(--animation-timing),
@@ -172,7 +181,7 @@ label.has-results::after {
 	top: 3rem;
 	left: 3rem;
 	opacity: 1;
-	filter: blur(3rem) !important;
+	filter: blur(3rem) grayscale(0) !important;
 	transition:
 		var(--transition),
 		filter var(--animation-timing);
@@ -192,7 +201,7 @@ label.gradient-animation::after {
 	top: 0.5rem;
 	left: 0.5rem;
 	opacity: 1;
-	filter: blur(1.5rem);
+	filter: blur(1.5rem) grayscale(0) !important;
 	transition:
 		var(--transition),
 		filter var(--animation-timing);
@@ -295,7 +304,7 @@ label::after {
 	left: 1.5rem;
 	opacity: 0;
 	z-index: -2;
-	filter: blur(1rem);
+	filter: blur(1rem) grayscale(1);
 	transition:
 		var(--transition),
 		filter var(--animation-timing);
@@ -325,11 +334,15 @@ label::after {
 	height: calc(100% - 3rem);
 }
 
+::ng-deep body.light-mode label::after {
+	filter: blur(1rem) grayscale(0);
+}
+
 label::before {
 	top: -0.16rem;
 	left: -0.16rem;
 	z-index: -1;
-	filter: blur(0rem);
+	filter: grayscale(1);
 	transition:
 		var(--transition),
 		filter var(--animation-timing),
@@ -337,4 +350,8 @@ label::before {
 	background-color: var(--bg-color-secondary);
 	width: calc(100% + 0.32rem);
 	height: calc(100% + 0.32rem);
+}
+
+::ng-deep body.light-mode label::before {
+	filter: grayscale(0);
 }
