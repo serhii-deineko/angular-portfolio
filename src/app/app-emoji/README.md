@@ -4,7 +4,7 @@ The emoji seeker application code has been moved to a separate repository for be
 
 ## Repository
 
-The application is now available at: [angular-emoji-seeker](https://github.com/sdeineko/angular-emoji-seeker)
+The application is now available at: [angular-emoji-seeker](https://github.com/serhii-deineko/angular-emoji-seeker)
 
 ## About
 

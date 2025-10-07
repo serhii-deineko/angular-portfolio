@@ -144,7 +144,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Serhii Deineko** - Angular Frontend Developer
 
-- GitHub: [@sdeineko](https://github.com/sdeineko)
+- GitHub: [@serhii-deineko](https://github.com/serhii-deineko)
 - Email: [Contact information in the app]
 
 ## 🤝 Contributing
