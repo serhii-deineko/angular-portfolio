@@ -7,7 +7,11 @@
 		"build:ssr": "ng build --configuration ssr",
 		"serve:ssr": "node dist/angular-portfolio/server/server.mjs",
 		"prerender": "ng build --configuration ssr",
-		"test": "ng test"
+		"test": "ng test",
+		"functions:build": "cd functions && yarn build",
+		"functions:deploy": "cd functions && yarn deploy",
+		"deploy": "./deploy.sh",
+		"emulators": "firebase emulators:start"
 	},
 	"private": true,
 	"dependencies": {
@@ -30,7 +34,6 @@
 		"file-saver": "^2.0.5",
 		"font-awesome": "^4.7.0",
 		"jszip": "^3.10.1",
-		"openai": "^5.23.1",
 		"rxjs": "~7.8.0",
 		"tslib": "^2.3.0",
 		"zone.js": "~0.15.0"

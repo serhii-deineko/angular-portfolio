@@ -1,4 +1,7 @@
 {
+	"functions": {
+		"source": "functions"
+	},
 	"hosting": {
 		"public": "dist/angular-portfolio/browser",
 		"ignore": [
@@ -45,6 +48,10 @@
 			}
 		],
 		"rewrites": [
+			{
+				"source": "/api/**",
+				"function": "chatCompletion"
+			},
 			{
 				"source": "**",
 				"destination": "/index.html"

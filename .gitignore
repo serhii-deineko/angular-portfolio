@@ -48,6 +48,9 @@ Thumbs.db
 .firebase/
 firebase-debug.log
 firebase-debug.*.log
+functions/node_modules/
+functions/lib/
+functions/.env
 
 # Environment files
 .env
