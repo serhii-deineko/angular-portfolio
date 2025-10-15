@@ -32,7 +32,7 @@
 	--transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 	--transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
-	// Apply dark theme variables as default
+	// Default theme variables (will be overridden by theme classes)
 	--bg: var(--dark);
 	--bg-color: var(--dark-bg);
 	--bg-color-secondary: var(--dark-bg-secondary);
@@ -43,6 +43,28 @@
 	--text-color-highlight: var(--dark-text-tertiary);
 	--accent-color: var(--dark-accent);
 	--border-color: var(--dark-bg-tertiary);
+
+	// Icon filter variables for dark mode
+	--icon-invert: 0.7;
+	--icon-invert-hover: 0.9;
+}
+
+/* Dark mode class (explicit) */
+body.dark-mode {
+	--bg: var(--dark);
+	--bg-color: var(--dark-bg);
+	--bg-color-secondary: var(--dark-bg-secondary);
+	--bg-color-tertiary: var(--dark-bg-tertiary);
+	--text: var(--dark-text);
+	--text-color: var(--dark-text);
+	--text-color-secondary: var(--dark-text-secondary);
+	--text-color-highlight: var(--dark-text-tertiary);
+	--accent-color: var(--dark-accent);
+	--border-color: var(--dark-bg-tertiary);
+
+	// Icon filter variables for dark mode
+	--icon-invert: 0.7;
+	--icon-invert-hover: 0.9;
 }
 
 /* Light mode class that overrides the default dark theme */
@@ -57,6 +79,10 @@ body.light-mode {
 	--text-color-highlight: var(--light-text);
 	--accent-color: var(--light-accent);
 	--border-color: var(--light-bg-tertiary);
+
+	// Icon filter variables for light mode
+	--icon-invert: 0.3;
+	--icon-invert-hover: 0.1;
 }
 
 /* Theme transition optimization */
