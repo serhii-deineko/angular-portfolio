@@ -6,7 +6,7 @@
 		"build": "ng build",
 		"build:ssr": "ng build --configuration ssr",
 		"serve:ssr": "node dist/angular-portfolio/server/server.mjs",
-		"prerender": "ng build --configuration ssr && ng run angular-portfolio:prerender",
+		"prerender": "ng build --configuration ssr",
 		"test": "ng test"
 	},
 	"private": true,
