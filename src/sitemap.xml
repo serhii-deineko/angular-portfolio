@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://serhii-deineko.web.app/</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2025-01-27</lastmod>
+  </url>
+  <url>
+    <loc>https://serhii-deineko.web.app/#about</loc>
+    <lastmod>2025-01-27</lastmod>
+  </url>
+  <url>
+    <loc>https://serhii-deineko.web.app/#projects</loc>
+    <lastmod>2025-01-27</lastmod>
+  </url>
+  <url>
+    <loc>https://serhii-deineko.web.app/#experience</loc>
+    <lastmod>2025-01-27</lastmod>
+  </url>
+  <url>
+    <loc>https://serhii-deineko.web.app/#contact</loc>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/emoji-seeker</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/projects/aisema-ai-grant-advisor</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/projects/homes-offers-configurator</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/projects/mobile-homes-configurator</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/projects/mobile-homes-order-app</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/projects/speech-analysis-platform</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
   <url>
     <loc>https://serhii-deineko.web.app/projects/website-chatbot-plugin</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2025-01-27</lastmod>
   </url>
 </urlset>
