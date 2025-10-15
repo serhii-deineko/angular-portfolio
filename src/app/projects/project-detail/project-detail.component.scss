@@ -49,6 +49,17 @@
 					background: var(--bg-color-secondary);
 				}
 
+				.github-icon {
+					filter: brightness(0) saturate(100%) invert(var(--icon-invert, 0.7));
+					transition: var(--transition);
+					width: 18px;
+					height: 18px;
+				}
+
+				&:hover .github-icon {
+					filter: brightness(0) saturate(100%) invert(var(--icon-invert-hover, 0.9));
+				}
+
 				i {
 					font-size: 1.2rem;
 				}

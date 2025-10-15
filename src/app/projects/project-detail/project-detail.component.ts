@@ -2,18 +2,8 @@ import { CommonModule } from "@angular/common";
 import { Component, computed, OnInit, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { switchMap } from "rxjs/operators";
 import { PROJECTS_DEFINITIONS } from "src/app/shared/constants/projects.constant";
 import { CtaButtonComponent } from "../../shared/components/cta-button/cta-button.component";
-
-interface ProjectDetails {
-	id: string;
-	title?: string;
-	description?: string;
-	"key-points"?: string[];
-	"full-description"?: string;
-	sections?: { [key: string]: { title: string; content: string } };
-}
 
 @Component({
 	selector: "app-project-detail",
@@ -26,9 +16,7 @@ export class ProjectDetailComponent implements OnInit {
 	projectDefinition = computed(() => {
 		return PROJECTS_DEFINITIONS[this.projectId()];
 	});
-	projectDetails = signal<ProjectDetails>({ id: "" });
 	projectId = signal<string>("");
-
 	selectedImage?: number;
 
 	constructor(
@@ -38,40 +26,23 @@ export class ProjectDetailComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.route.paramMap
-			.pipe(
-				switchMap((params) => {
-					this.projectId.set(params.get("id")!);
-					return this.translate.get("projects.items").pipe(
-						switchMap((items: any) => {
-							return Promise.resolve(
-								items.find((project: any) => {
-									return project.id === this.projectId();
-								})
-							);
-						})
-					);
-				})
-			)
-			.subscribe((projectData) => {
-				if (!projectData) {
-					this.router.navigate(["/"]);
-					return;
-				}
+		this.route.paramMap.subscribe((params) => {
+			const id = params.get("id");
+			if (!id) {
+				this.router.navigate(["/"]);
+				return;
+			}
+			this.projectId.set(id);
 
-				this.projectDetails.set({
-					id: this.projectId(),
-					title: projectData.title,
-					description: projectData.description,
-					"key-points": projectData["key-points"],
-					"full-description": projectData["full-description"],
-					sections: projectData.sections
-				});
+			setTimeout(() => {
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			}, 0);
+		});
+	}
 
-				setTimeout(() => {
-					window.scrollTo({ top: 0, behavior: "smooth" });
-				}, 0);
-			});
+	getCurrentProject() {
+		const projects = this.translate.instant("projects.items") as any[];
+		return projects.find((project) => project.id === this.projectId());
 	}
 
 	openFullscreen(image: number) {

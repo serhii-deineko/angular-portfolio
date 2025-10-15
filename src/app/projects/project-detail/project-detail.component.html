@@ -1,117 +1,123 @@
 <main class="main">
 	<section class="project-detail">
-		@if (projectDetails()) {
-			<header class="project-header">
-				<h1 class="project-title">{{ projectDetails().title }}</h1>
-				<p class="project-description">{{ projectDetails().description }}</p>
+		@for (project of "projects.items" | translate; track project.id) {
+			@if (project.id === projectId()) {
+				<header class="project-header">
+					<h1 class="project-title">{{ project.title }}</h1>
+					<p class="project-description">{{ project.description }}</p>
 
-				<div class="project-links">
-					@if (projectDefinition().github) {
-						<a
-							class="link-button"
-							[href]="projectDefinition().github"
-							target="_blank"
-							rel="noopener noreferrer">
-							<i class="fab fa-github"></i>
-							{{ "uni.github" | translate }}
-						</a>
-					}
+					<div class="project-links">
+						@if (projectDefinition().github) {
+							<a
+								class="link-button"
+								[href]="projectDefinition().github"
+								target="_blank"
+								rel="noopener noreferrer">
+								<img
+									class="github-icon"
+									src="assets/icon/github.svg"
+									alt="GitHub" />
+								{{ "uni.github" | translate }}
+							</a>
+						}
 
-					@if (projectDefinition().demo?.length) {
-						@for (demo of projectDefinition().demo; track demo.url) {
-							@switch (demo.type) {
-								@case ("youtube") {
-									<app-cta-button
-										[targetUrl]="demo.url"
-										[buttonText]="'uni.watch-demo' | translate"
-										buttonIcon="play_arrow"></app-cta-button>
-								}
-								@default {
-									<app-cta-button
-										[targetUrl]="demo.url"
-										[buttonText]="
-											demo.label ||
-											('projects.cta-button.website' | translate)
-										"
-										buttonIcon="arrow_outward"></app-cta-button>
+						@if (projectDefinition().demo?.length) {
+							@for (demo of projectDefinition().demo; track demo.url) {
+								@switch (demo.type) {
+									@case ("youtube") {
+										<app-cta-button
+											[targetUrl]="demo.url"
+											[buttonText]="'uni.watch-demo' | translate"
+											buttonIcon="play_arrow"></app-cta-button>
+									}
+									@default {
+										<app-cta-button
+											[targetUrl]="demo.url"
+											[buttonText]="
+												demo.label ||
+												('projects.cta-button.website' | translate)
+											"
+											buttonIcon="arrow_outward"></app-cta-button>
+									}
 								}
 							}
 						}
-					}
-				</div>
-			</header>
+					</div>
+				</header>
 
-			<div class="project-content">
-				@if (
-					(projectDefinition().images && projectDefinition().images > 1) ||
-					projectDefinition().video
-				) {
-					<div
-						class="project-gallery"
-						*ngIf="projectDefinition().images && projectDefinition().images > 1">
+				<div class="project-content">
+					@if (
+						(projectDefinition().images && projectDefinition().images > 1) ||
+						projectDefinition().video
+					) {
 						<div
-							class="image-container"
-							*ngFor="
-								let idx of [].constructor(projectDefinition().images - 1);
-								let i = index
-							">
+							class="project-gallery"
+							*ngIf="projectDefinition().images && projectDefinition().images > 1">
+							<div
+								class="image-container"
+								*ngFor="
+									let idx of [].constructor(projectDefinition().images - 1);
+									let i = index
+								">
+								<img
+									class="project-image"
+									[src]="`projects/${project.id}/${i + 2}.png`"
+									[alt]="project.title"
+									(click)="openFullscreen(i + 2)" />
+							</div>
+						</div>
+
+						<div class="image-container">
 							<img
 								class="project-image"
-								[src]="`projects/${projectDetails().id}/${i + 2}.png`"
-								[alt]="projectDetails().title"
-								(click)="openFullscreen(i + 2)" />
-						</div>
-					</div>
-
-					<div class="image-container">
-						<img
-							class="project-image"
-							[src]="
-								`projects/${projectDetails().id}/1.${projectDefinition().video ? 'gif' : 'png'}`
-							"
-							[alt]="projectDetails().title"
-							(click)="openFullscreen(1)" />
-					</div>
-				}
-
-				<div class="project-sections">
-					@if (projectDetails()["full-description"]) {
-						<div class="project-section">
-							<h2>{{ "uni.overview" | translate }}</h2>
-							<p class="section-content">
-								{{ projectDetails()["full-description"] }}
-							</p>
+								[src]="
+									`projects/${project.id}/1.${projectDefinition().video ? 'gif' : 'png'}`
+								"
+								[alt]="project.title"
+								(click)="openFullscreen(1)" />
 						</div>
 					}
 
-					@for (section of projectDetails().sections | keyvalue; track section.key) {
-						<div class="project-section">
-							<h2>{{ section.value.title }}</h2>
-							<p class="section-content">{{ section.value.content }}</p>
-						</div>
-					}
-				</div>
-
-				<div class="project-section">
-					<h2>{{ "projects.technologies-used" | translate }}</h2>
-					<ul class="project-tech-list">
-						@for (tech of projectDefinition().tech; track tech) {
-							<li>{{ tech }}</li>
+					<div class="project-sections">
+						@if (project["full-description"]) {
+							<div class="project-section">
+								<h2>{{ "uni.overview" | translate }}</h2>
+								<p class="section-content">
+									{{ project["full-description"] }}
+								</p>
+							</div>
 						}
-					</ul>
-				</div>
 
-				@if (selectedImage) {
-					<div class="fullscreen-modal" (click)="closeFullscreen()">
-						<div class="modal-content">
-							<img
-								[src]="`projects/${projectDetails().id}/${selectedImage}.png`"
-								[alt]="projectDetails().title" />
-						</div>
+						@for (section of project.sections; track section.title) {
+							<div class="project-section">
+								<h2>{{ section.title }}</h2>
+								<p class="section-content">{{ section.content }}</p>
+							</div>
+						}
 					</div>
-				}
-			</div>
-		} @else {
+
+					<div class="project-section">
+						<h2>{{ "projects.technologies-used" | translate }}</h2>
+						<ul class="project-tech-list">
+							@for (tech of projectDefinition().tech; track tech) {
+								<li>{{ tech }}</li>
+							}
+						</ul>
+					</div>
+
+					@if (selectedImage) {
+						<div class="fullscreen-modal" (click)="closeFullscreen()">
+							<div class="modal-content">
+								<img
+									[src]="`projects/${project.id}/${selectedImage}.png`"
+									[alt]="project.title" />
+							</div>
+						</div>
+					}
+				</div>
+			}
+		}
+		@if (!getCurrentProject()) {
 			<p>{{ "uni.not-found" | translate }}</p>
 		}
 	</section>
