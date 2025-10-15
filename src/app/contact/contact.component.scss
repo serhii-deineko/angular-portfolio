@@ -35,8 +35,22 @@
 			color: var(--accent-color);
 		}
 
-		i {
-			font-size: 1.5rem;
+		.contact-icon {
+			filter: grayscale(1) invert(var(--icon-invert, 0.7));
+			transition: var(--transition);
+			width: 22px;
+			height: 22px;
+		}
+
+		&:hover .contact-icon {
+			filter: grayscale(1) invert(var(--icon-invert-hover, 0.9));
+		}
+
+		// Email icon slightly larger
+		&[href^="mailto:"] .contact-icon {
+			margin-left: -3px;
+			width: 28px;
+			height: 28px;
 		}
 	}
 
@@ -77,6 +91,23 @@
 			&:hover {
 				transform: translateY(-3px);
 				color: var(--accent-color);
+			}
+
+			.footer-icon {
+				filter: grayscale(1) invert(var(--icon-invert, 0.7));
+				transition: var(--transition);
+				width: 22px;
+				height: 22px;
+			}
+
+			&:hover .footer-icon {
+				filter: grayscale(1) invert(var(--icon-invert-hover, 0.9));
+			}
+
+			// Email icon slightly larger in footer
+			&[href^="mailto:"] .footer-icon {
+				width: 28px;
+				height: 28px;
 			}
 		}
 	}
