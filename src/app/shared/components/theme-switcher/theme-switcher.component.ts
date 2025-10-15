@@ -23,9 +23,8 @@ export class ThemeSwitcherComponent implements OnInit {
 
 	private initializeTheme() {
 		const storedTheme = localStorage.getItem("theme");
-		if (storedTheme) {
-			this.darkMode.set(storedTheme === "dark");
-		}
+		const isDarkMode = storedTheme ? storedTheme === "dark" : true; // Default to dark mode
+		this.darkMode.set(isDarkMode);
 		this.applyTheme();
 	}
 
