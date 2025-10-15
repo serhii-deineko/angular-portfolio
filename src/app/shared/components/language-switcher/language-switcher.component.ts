@@ -15,6 +15,7 @@ import { Subject, takeUntil } from "rxjs";
 import { LANGUAGE_FLAGS, LANGUAGE_FULLNAMES } from "../../constants/language.constant";
 import { Language } from "../../interfaces/language.interface";
 import { LanguageService } from "../../services/language.service";
+import { StorageService } from "../../services/storage.service";
 
 @Component({
 	selector: "app-language-switcher",
@@ -36,10 +37,11 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
 	constructor(
 		public languageService: LanguageService,
 		public translate: TranslateService,
-		private cdr: ChangeDetectorRef
+		private cdr: ChangeDetectorRef,
+		private storageService: StorageService
 	) {
 		this.availableLanguages = languageService.getAvailableLanguages();
-		const storedLang = localStorage.getItem("language") as Language;
+		const storedLang = this.storageService.getItem("language") as Language;
 		const currentLang = storedLang || translate.currentLang || translate.defaultLang || "en";
 		this.currentLang.set(currentLang as Language);
 	}

@@ -10,6 +10,7 @@ import { HeaderComponent } from "./header/header.component";
 import { ScrollService } from "./shared/services/scroll.service";
 import { SEOService } from "./shared/services/seo.service";
 import { LanguageService } from "./shared/services/language.service";
+import { StorageService } from "./shared/services/storage.service";
 
 @Component({
 	selector: "app-root",
@@ -53,7 +54,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 		private router: Router,
 		private seoService: SEOService,
 		@Inject(DOCUMENT) private document: Document,
-		private renderer: Renderer2
+		private renderer: Renderer2,
+		private storageService: StorageService
 	) {}
 
 	ngOnInit() {
@@ -149,7 +151,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 	}
 
 	private initializeTheme() {
-		const storedTheme = localStorage.getItem("theme");
+		const storedTheme = this.storageService.getItem("theme");
 		const isDarkMode = storedTheme ? storedTheme === "dark" : true; // Default to dark mode
 
 		if (isDarkMode) {

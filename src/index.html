@@ -114,15 +114,21 @@
 		<script>
 			// Initialize theme immediately to prevent flash
 			(function () {
-				const storedTheme = localStorage.getItem("theme");
-				const isDarkMode = storedTheme ? storedTheme === "dark" : true; // Default to dark mode
+				try {
+					const storedTheme = localStorage.getItem("theme");
+					const isDarkMode = storedTheme ? storedTheme === "dark" : true; // Default to dark mode
 
-				if (isDarkMode) {
+					if (isDarkMode) {
+						document.body.classList.add("dark-mode");
+						document.body.classList.remove("light-mode");
+					} else {
+						document.body.classList.add("light-mode");
+						document.body.classList.remove("dark-mode");
+					}
+				} catch (e) {
+					// Fallback to dark mode if localStorage is not available (SSR)
 					document.body.classList.add("dark-mode");
 					document.body.classList.remove("light-mode");
-				} else {
-					document.body.classList.add("light-mode");
-					document.body.classList.remove("dark-mode");
 				}
 			})();
 		</script>

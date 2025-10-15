@@ -5,6 +5,7 @@ import { Meta } from "@angular/platform-browser";
 import { TranslateService } from "@ngx-translate/core";
 import { AVAILABLE_LANGUAGES, DEFAULT_LANGUAGE, LOCALES } from "../constants/language.constant";
 import { Language } from "../interfaces/language.interface";
+import { StorageService } from "./storage.service";
 
 @Injectable({
 	providedIn: "root"
@@ -16,11 +17,12 @@ export class LanguageService {
 	constructor(
 		@Inject(DOCUMENT) private doc: Document,
 		private translate: TranslateService,
-		private meta: Meta
+		private meta: Meta,
+		private storageService: StorageService
 	) {}
 
 	public initLanguage(): void {
-		const storedLang = localStorage.getItem("language") as Language;
+		const storedLang = this.storageService.getItem("language") as Language;
 		const currentLang =
 			storedLang || this.translate.currentLang || this.translate.defaultLang || "en";
 		this.setLanguage(currentLang as Language);
@@ -31,7 +33,7 @@ export class LanguageService {
 		this.setHtmlLang(language);
 		this.setOgTags(language);
 		this.language.set(language);
-		localStorage.setItem("language", language);
+		this.storageService.setItem("language", language);
 	}
 
 	public getAvailableLanguages(): Language[] {

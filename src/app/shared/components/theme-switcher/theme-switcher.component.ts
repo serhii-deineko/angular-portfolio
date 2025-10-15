@@ -1,6 +1,7 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, Inject, OnInit, Renderer2, signal } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
+import { StorageService } from "../../services/storage.service";
 
 @Component({
 	selector: "app-theme-switcher",
@@ -14,7 +15,8 @@ export class ThemeSwitcherComponent implements OnInit {
 
 	constructor(
 		@Inject(DOCUMENT) private document: Document,
-		private renderer: Renderer2
+		private renderer: Renderer2,
+		private storageService: StorageService
 	) {}
 
 	ngOnInit() {
@@ -22,7 +24,7 @@ export class ThemeSwitcherComponent implements OnInit {
 	}
 
 	private initializeTheme() {
-		const storedTheme = localStorage.getItem("theme");
+		const storedTheme = this.storageService.getItem("theme");
 		const isDarkMode = storedTheme ? storedTheme === "dark" : true; // Default to dark mode
 		this.darkMode.set(isDarkMode);
 		this.applyTheme();
@@ -35,7 +37,7 @@ export class ThemeSwitcherComponent implements OnInit {
 		// Use requestAnimationFrame to ensure smooth transition
 		requestAnimationFrame(() => {
 			this.darkMode.set(!this.darkMode());
-			localStorage.setItem("theme", this.darkMode() ? "dark" : "light");
+			this.storageService.setItem("theme", this.darkMode() ? "dark" : "light");
 			this.applyTheme();
 
 			// Remove transitioning class after a short delay
