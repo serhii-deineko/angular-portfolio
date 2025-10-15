@@ -13,7 +13,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { version } from "../../package.json";
 import { routes } from "./app.routes";
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 
 registerLocaleData(localeEn, "en-EN");
 registerLocaleData(localePl, "pl-PL");
@@ -48,6 +48,7 @@ export const appConfig: ApplicationConfig = {
 		),
 		provideAnimationsAsync(),
 		provideAnimations(),
-		provideHttpClient(), provideClientHydration(withEventReplay())
+		provideHttpClient(),
+		provideClientHydration(withEventReplay())
 	]
 };

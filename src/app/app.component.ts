@@ -1,14 +1,14 @@
 import { animate, style, transition, trigger } from "@angular/animations";
-import { CommonModule } from "@angular/common";
-import { AfterViewInit, Component, OnInit, signal } from "@angular/core";
+import { CommonModule, DOCUMENT } from "@angular/common";
+import { AfterViewInit, Component, Inject, OnInit, Renderer2, signal } from "@angular/core";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { NavigationEnd, Router, RouterOutlet } from "@angular/router";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { filter, interval, takeWhile } from "rxjs";
 import { ContactComponent } from "./contact/contact.component";
 import { HeaderComponent } from "./header/header.component";
-import { ScrollService } from "./services/scroll.service";
-import { SEOService } from "./services/seo.service";
+import { ScrollService } from "./shared/services/scroll.service";
+import { SEOService } from "./shared/services/seo.service";
 import { LanguageService } from "./shared/services/language.service";
 
 @Component({
@@ -51,12 +51,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 		private translateService: TranslateService,
 		private languageService: LanguageService,
 		private router: Router,
-		private seoService: SEOService
-	) {
-		this.languageService.initLanguage();
-	}
+		private seoService: SEOService,
+		@Inject(DOCUMENT) private document: Document,
+		private renderer: Renderer2
+	) {}
 
 	ngOnInit() {
+		this.initializeTheme();
+		this.languageService.initLanguage();
 		// Initialize previous URL with current URL
 		this.previousUrl = this.router.url;
 
@@ -144,5 +146,18 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 	scrollTo(sectionId: string) {
 		this.scrollService.scrollTo(sectionId);
+	}
+
+	private initializeTheme() {
+		const storedTheme = localStorage.getItem("theme");
+		const isDarkMode = storedTheme ? storedTheme === "dark" : true; // Default to dark mode
+
+		if (isDarkMode) {
+			this.renderer.addClass(this.document.body, "dark-mode");
+			this.renderer.removeClass(this.document.body, "light-mode");
+		} else {
+			this.renderer.addClass(this.document.body, "light-mode");
+			this.renderer.removeClass(this.document.body, "dark-mode");
+		}
 	}
 }
