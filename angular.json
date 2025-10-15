@@ -58,15 +58,57 @@
 					},
 					"configurations": {
 						"ssr": {
+							"optimization": true,
 							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "1.5mb",
+									"maximumError": "2mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "10kb",
+									"maximumError": "15kb"
+								}
+							],
 							"server": "src/main.server.ts",
 							"prerender": true,
 							"ssr": {
 								"entry": "src/server.ts"
-							}
+							},
+							"allowedCommonJsDependencies": [
+								"file-saver",
+								"jszip"
+							]
 						},
 						"production": {
-							"outputHashing": "all"
+							"optimization": true,
+							"outputHashing": "all",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"budgets": [
+								{
+									"type": "initial",
+									"maximumWarning": "1.5mb",
+									"maximumError": "2mb"
+								},
+								{
+									"type": "anyComponentStyle",
+									"maximumWarning": "10kb",
+									"maximumError": "15kb"
+								}
+							],
+							"allowedCommonJsDependencies": [
+								"file-saver",
+								"jszip"
+							]
 						},
 						"development": {
 							"optimization": false,
