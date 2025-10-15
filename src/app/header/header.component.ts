@@ -3,7 +3,7 @@ import { RouterModule } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";
 import { LanguageSwitcherComponent } from "src/app/shared/components/language-switcher/language-switcher.component";
 import { ThemeSwitcherComponent } from "src/app/shared/components/theme-switcher/theme-switcher.component";
-import { ScrollService } from "../services/scroll.service";
+import { ScrollService } from "../shared/services/scroll.service";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 

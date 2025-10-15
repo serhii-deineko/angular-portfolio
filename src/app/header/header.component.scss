@@ -55,6 +55,7 @@
 		align-items: center;
 		margin: 0;
 		padding: 0;
+		min-height: var(--nav-height);
 		list-style: none;
 	}
 
@@ -231,31 +232,14 @@ body.light-mode {
 			height: 20px;
 		}
 
-		.emoji-png,
-		.emoji-webp {
-			position: absolute;
-			top: 0;
-			left: 0;
+		picture {
 			width: 20px;
 			height: 20px;
 		}
 
-		.emoji-png {
-			opacity: 1;
-		}
-
-		.emoji-webp {
-			opacity: 0;
-		}
-
-		&:hover {
-			.emoji-png {
-				opacity: 0;
-			}
-
-			.emoji-webp {
-				opacity: 1;
-			}
+		img {
+			width: 20px;
+			height: 20px;
 		}
 	}
 }
@@ -323,31 +307,9 @@ body.light-mode {
 		height: 18px;
 	}
 
-	.emoji-png,
-	.emoji-webp {
-		position: absolute;
-		top: 0;
-		left: 0;
+	.emoji-fallback {
 		width: 18px;
 		height: 18px;
-	}
-
-	.emoji-png {
-		opacity: 1;
-	}
-
-	.emoji-webp {
-		opacity: 0;
-	}
-
-	&:hover {
-		.emoji-png {
-			opacity: 0;
-		}
-
-		.emoji-webp {
-			opacity: 1;
-		}
 	}
 
 	span {
@@ -367,8 +329,7 @@ body.light-mode {
 
 ::ng-deep body.light-mode {
 	.emoji-seeker button {
-		.emoji-png,
-		.emoji-webp {
+		img {
 			filter: brightness(1.5);
 		}
 	}

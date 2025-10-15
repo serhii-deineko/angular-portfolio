@@ -1,7 +1,7 @@
 <nav class="header">
 	<div class="header__content">
 		<a class="logo" [attr.aria-label]="'header.home' | translate" href="/">
-			<img src="/logo.png" alt="" />
+			<img src="/logo.png" alt="" width="46" height="15" loading="eager" />
 		</a>
 
 		<div class="nav__links desktop-nav">
@@ -45,14 +45,20 @@
 				<li class="nav__item emoji-seeker">
 					<button class="nav__link" mat-button matRipple routerLink="/emoji-seeker">
 						<div class="emoji-icon">
-							<img
-								class="emoji-png"
-								[attr.alt]="'header.nav.emoji-seeker' | translate"
-								src="assets/emoji/icon/magnifying-glass-tilted-right.png" />
-							<img
-								class="emoji-webp"
-								[attr.alt]="'header.nav.emoji-seeker' | translate"
-								src="assets/emoji/icon/magnifying-glass-tilted-right.webp" />
+							<picture>
+								<source
+									type="image/webp"
+									srcset="assets/emoji/icon/magnifying-glass-tilted-right.webp"
+									width="18"
+									height="18" />
+								<img
+									class="emoji-fallback"
+									[attr.alt]="'header.nav.emoji-seeker' | translate"
+									src="assets/emoji/icon/magnifying-glass-tilted-right.png"
+									width="18"
+									height="18"
+									loading="lazy" />
+							</picture>
 						</div>
 						<span>{{ "header.nav.emoji-seeker" | translate }}</span>
 					</button>
