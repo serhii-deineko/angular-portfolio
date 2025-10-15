@@ -18,7 +18,7 @@ export interface SEOData {
 	providedIn: "root"
 })
 export class SEOService {
-	private baseUrl = "https://serhii-deineko.web.app"; // Замените на ваш домен
+	private baseUrl = "https://serhii-deineko.web.app";
 
 	constructor(
 		private meta: Meta,
@@ -43,20 +43,68 @@ export class SEOService {
 	}
 
 	private getRouteData(url: string): SEOData {
-		const cleanUrl = url.split("?")[0].split("#")[0];
+		const cleanUrl = url.split("?")[0];
 
 		switch (cleanUrl) {
 			case "/":
 				return {
-					title: "Serhii Deineko - Angular Frontend Developer | Portfolio",
+					title: "Serhii Deineko - Angular Frontend Developer | AI & Web Solutions",
 					description:
-						"Experienced Angular Frontend Developer specializing in modern web applications, SPA development, and user experience optimization.",
+						"Angular Frontend Developer with 6+ years experience. Specialized in AI-powered applications, SPA development, and modern web solutions. Creator of AISEMA grant advisor, speech analysis platforms, and mobile home configurators.",
 					keywords:
-						"Angular developer, Frontend developer, Web development, JavaScript, TypeScript, Portfolio",
-					image: `${this.baseUrl}/assets/logo.png`,
+						"Angular developer, Frontend developer, AI applications, TypeScript, JavaScript, SPA development, Web solutions, Grant advisor, Speech analysis, Mobile home configurator, Chatbot development, Fullstack developer",
+					image: `${this.baseUrl}/logo.png`,
 					url: this.baseUrl,
 					type: "website",
 					author: "Serhii Deineko"
+				};
+
+			case "/#about":
+				return {
+					title: "About Serhii Deineko - Angular Frontend Developer",
+					description:
+						"Learn about Serhii Deineko's journey as an Angular Frontend Developer. 6+ years of experience in AI-powered applications, web development, and modern frontend solutions.",
+					keywords:
+						"about, Angular developer, experience, portfolio, frontend developer, AI applications",
+					image: `${this.baseUrl}/logo.png`,
+					url: `${this.baseUrl}/#about`,
+					type: "website"
+				};
+
+			case "/#projects":
+				return {
+					title: "Projects - Serhii Deineko Portfolio",
+					description:
+						"Explore Serhii Deineko's portfolio of web applications and AI-powered solutions. Including AISEMA grant advisor, speech analysis platforms, mobile home configurators, and chatbot development.",
+					keywords:
+						"projects, portfolio, Angular applications, AI solutions, web development, mobile home configurator, speech analysis, chatbot",
+					image: `${this.baseUrl}/logo.png`,
+					url: `${this.baseUrl}/#projects`,
+					type: "website"
+				};
+
+			case "/#experience":
+				return {
+					title: "Experience - Serhii Deineko Career",
+					description:
+						"Serhii Deineko's professional experience as Fullstack Developer at Networks.ua, Lark Leisure Homes, and Frontend Developer at Yarrl S.A. Specialized in Angular, AI applications, and modern web solutions.",
+					keywords:
+						"experience, career, Angular developer, fullstack developer, AI applications, Yarrl, Lark Leisure Homes, Networks.ua",
+					image: `${this.baseUrl}/logo.png`,
+					url: `${this.baseUrl}/#experience`,
+					type: "website"
+				};
+
+			case "/#contact":
+				return {
+					title: "Contact Serhii Deineko - Angular Frontend Developer",
+					description:
+						"Get in touch with Serhii Deineko for Angular frontend development projects, AI application development, and modern web solutions. Available for freelance and full-time opportunities.",
+					keywords:
+						"contact, hire, Angular developer, frontend developer, AI applications, freelance, web development",
+					image: `${this.baseUrl}/logo.png`,
+					url: `${this.baseUrl}/#contact`,
+					type: "website"
 				};
 
 			case "/emoji-seeker":
@@ -65,7 +113,7 @@ export class SEOService {
 					description:
 						"Advanced emoji search tool with AI-powered suggestions. Find the perfect emoji for any situation with our intelligent emoji seeker.",
 					keywords: "emoji search, emoji finder, emoji tool, AI emoji, emoji suggestions",
-					image: `${this.baseUrl}/assets/logo.png`,
+					image: `${this.baseUrl}/logo.png`,
 					url: `${this.baseUrl}/emoji-seeker`,
 					type: "website"
 				};
@@ -80,7 +128,7 @@ export class SEOService {
 					title: "Serhii Deineko - Angular Frontend Developer",
 					description:
 						"Experienced Angular Frontend Developer specializing in modern web applications.",
-					image: `${this.baseUrl}/assets/logo.png`,
+					image: `${this.baseUrl}/logo.png`,
 					url: `${this.baseUrl}${cleanUrl}`,
 					type: "website"
 				};
@@ -90,42 +138,46 @@ export class SEOService {
 	private getProjectSEOData(projectId: string): SEOData {
 		const projects: Record<string, { title: string; description: string; keywords: string }> = {
 			"aisema-ai-grant-advisor": {
-				title: "AISEMA AI Grant Advisor - AI-Powered Grant Discovery Platform",
+				title: "AISEMA AI Grant Advisor - AI-Powered EU Funding Discovery Platform",
 				description:
-					"Revolutionary AI platform that helps researchers and organizations discover and apply for relevant grants using advanced machine learning algorithms.",
+					"Revolutionary AI platform built with Angular and LLM technology that helps researchers and organizations discover and apply for relevant EU grants. Featured in Rzeczpospolita newspaper and partnered with Łukasiewicz ITECH.",
 				keywords:
-					"AI grant advisor, grant discovery, machine learning, research funding, AI platform"
+					"AI grant advisor, EU funding, grant discovery, machine learning, research funding, Angular, LLM, AISEMA, Yarrl"
 			},
 			"homes-offers-configurator": {
-				title: "Homes Offers Configurator - Real Estate Configuration Tool",
+				title: "AI-Powered Flyer Configurator - Real Estate Marketing Tool",
 				description:
-					"Interactive configuration tool for real estate offers with dynamic pricing and customization options.",
-				keywords: "real estate, home configurator, property configuration, real estate tool"
+					"AI-powered flyer configurator integrating multiple machine-learning models to auto-organize and categorize product images, with dynamic layout rendering and export to print-ready formats for real estate marketing.",
+				keywords:
+					"AI flyer configurator, real estate marketing, machine learning, image organization, print-ready formats, Lark Leisure Homes"
 			},
 			"mobile-homes-configurator": {
-				title: "Mobile Homes Configurator - Custom Mobile Home Builder",
+				title: "Mobile Homes Configurator - 3D Visualization & Custom Builder",
 				description:
-					"Comprehensive mobile home configuration platform with 3D visualization and customization options.",
-				keywords: "mobile homes, home configurator, 3D visualization, mobile home builder"
+					"Custom mobile homes configurator built with vanilla JavaScript/PHP featuring bespoke event-bus state manager, DOM diff-and-patch engine for real-time previews, and secure PHP/SQL backend for configuration persistence.",
+				keywords:
+					"mobile homes configurator, 3D visualization, JavaScript, PHP, real-time preview, custom builder, Lark Leisure Homes"
 			},
 			"mobile-homes-order-app": {
-				title: "Mobile Homes Order App - Streamlined Ordering System",
+				title: "Mobile Homes Order App - Angular Material & Firebase System",
 				description:
-					"Efficient mobile application for ordering mobile homes with integrated payment and tracking systems.",
-				keywords: "mobile app, order system, mobile homes, e-commerce, mobile ordering"
+					"Fully unified Angular Material & Firebase order-creation app with automated CI/CD, Firebase Auth, Firestore for order data, Storage for media, Firebase Functions for email notifications, and role-based access controls.",
+				keywords:
+					"Angular Material, Firebase, mobile homes order app, CI/CD, Firestore, role-based access, Lark Leisure Homes"
 			},
 			"speech-analysis-platform": {
-				title: "Speech Analysis Platform - Advanced Voice Analytics",
+				title: "Speech Analysis Platform - AI-Powered Call Center Analytics",
 				description:
-					"Cutting-edge speech analysis platform with real-time voice processing and sentiment analysis capabilities.",
+					"Angular frontend for call-center conversation analysis tool powered by advanced AI models. Features custom analyses from uploaded recordings, multi-criteria evaluation, consultant performance tracking, and SSO integration.",
 				keywords:
-					"speech analysis, voice analytics, sentiment analysis, voice processing, AI speech"
+					"speech analysis, call center analytics, AI voice processing, Angular, sentiment analysis, consultant performance, SSO integration, Yarrl"
 			},
 			"website-chatbot-plugin": {
-				title: "Website Chatbot Plugin - Intelligent Customer Support",
+				title: "AI Chatbot Plugin - Vector-Based Contextual Search & GPT Integration",
 				description:
-					"Smart chatbot plugin for websites providing automated customer support and lead generation.",
-				keywords: "chatbot, customer support, lead generation, website plugin, AI assistant"
+					"Vanilla JavaScript chatbot frontend for furniture e-commerce sites featuring vector-based contextual search, complaint filing/checking via XML API, and integrated GPT-based assistant responses. Deployed on multiple platforms including Ministry of Finance projects.",
+				keywords:
+					"AI chatbot, vector search, GPT integration, e-commerce, JavaScript, XML API, Ministry of Finance, Yarrl"
 			}
 		};
 
@@ -137,7 +189,7 @@ export class SEOService {
 
 		return {
 			...project,
-			image: `${this.baseUrl}/assets/logo.png`,
+			image: `${this.baseUrl}/logo.png`,
 			url: `${this.baseUrl}/projects/${projectId}`,
 			type: "article",
 			author: "Serhii Deineko"
@@ -155,7 +207,7 @@ export class SEOService {
 		this.meta.updateTag({ property: "og:description", content: data.description });
 		this.meta.updateTag({
 			property: "og:image",
-			content: data.image || `${this.baseUrl}/assets/logo.png`
+			content: data.image || `${this.baseUrl}/logo.png`
 		});
 		this.meta.updateTag({ property: "og:url", content: data.url || this.baseUrl });
 		this.meta.updateTag({ property: "og:type", content: data.type || "website" });
@@ -166,7 +218,7 @@ export class SEOService {
 		this.meta.updateTag({ name: "twitter:description", content: data.description });
 		this.meta.updateTag({
 			name: "twitter:image",
-			content: data.image || `${this.baseUrl}/assets/logo.png`
+			content: data.image || `${this.baseUrl}/logo.png`
 		});
 
 		this.meta.updateTag({ name: "robots", content: "index, follow" });
