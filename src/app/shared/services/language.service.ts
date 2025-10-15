@@ -1,69 +1,61 @@
-import { DOCUMENT, isPlatformBrowser } from "@angular/common";
-import { Inject, Injectable, PLATFORM_ID, signal } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import { Inject, Injectable, signal } from "@angular/core";
 import { toObservable } from "@angular/core/rxjs-interop";
 import { Meta } from "@angular/platform-browser";
 import { TranslateService } from "@ngx-translate/core";
 import { AVAILABLE_LANGUAGES, DEFAULT_LANGUAGE, LOCALES } from "../constants/language.constant";
+import { Language } from "../interfaces/language.interface";
 
 @Injectable({
 	providedIn: "root"
 })
 export class LanguageService {
-	public language = signal<string>(DEFAULT_LANGUAGE);
+	public language = signal<Language>(DEFAULT_LANGUAGE);
 	public language$ = toObservable(this.language);
 
 	constructor(
-		@Inject(DOCUMENT) private document: Document,
-		@Inject(PLATFORM_ID) private platformId: Object,
-		private translateService: TranslateService,
+		@Inject(DOCUMENT) private doc: Document,
+		private translate: TranslateService,
 		private meta: Meta
 	) {}
 
 	public initLanguage(): void {
-		let language = DEFAULT_LANGUAGE;
-
-		if (isPlatformBrowser(this.platformId)) {
-			language = localStorage.getItem("language") || DEFAULT_LANGUAGE;
-		}
-
-		this.language.set(language);
-		this.setLanguage(this.language());
+		const storedLang = localStorage.getItem("language") as Language;
+		const currentLang =
+			storedLang || this.translate.currentLang || this.translate.defaultLang || "en";
+		this.setLanguage(currentLang as Language);
 	}
 
-	public setLanguage(language: string): void {
+	public setLanguage(language: Language): void {
+		this.translate.use(language);
 		this.setHtmlLang(language);
 		this.setOgTags(language);
-
 		this.language.set(language);
-		this.translateService.use(language);
-
-		if (isPlatformBrowser(this.platformId)) {
-			localStorage.setItem("language", language);
-		}
+		localStorage.setItem("language", language);
 	}
 
-	public getAvailableLanguages(): string[] {
+	public getAvailableLanguages(): Language[] {
 		return AVAILABLE_LANGUAGES;
 	}
 
-	private setHtmlLang(language: string): void {
-		if (this?.document?.documentElement) {
-			this.document.documentElement.lang = language;
+	private setHtmlLang(language: Language): void {
+		if (this?.doc?.documentElement) {
+			this.doc.documentElement.lang = language;
 		}
 	}
 
-	private setOgTags(language: string): void {
-		this.meta.removeTag(`content='${this.formatLanguage(language)}'`);
-		this.meta.updateTag({ property: "og:locale", content: this.formatLanguage(language) });
+	private setOgTags(language: Language): void {
+		this.meta.removeTag(`content='${this.formatLang(language)}'`);
+		this.meta.updateTag({ property: "og:locale", content: this.formatLang(language) });
 		this.meta.addTags(
 			AVAILABLE_LANGUAGES.filter((lang) => lang !== language).map((lang) => ({
 				property: "og:locale:alternate",
-				content: this.formatLanguage(lang)
+				content: this.formatLang(lang)
 			}))
 		);
 	}
 
-	private formatLanguage(language: string): string {
+	private formatLang(language: Language): string {
 		return LOCALES[language];
 	}
 }
