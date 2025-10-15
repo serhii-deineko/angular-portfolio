@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 					this.progressSpiner.set(true);
 					setTimeout(() => {
 						this.progressSpiner.set(false);
-					}, 500);
+					}, 1000);
 				}
 
 				// Small delay to ensure DOM is updated
