@@ -42,18 +42,17 @@ export class HeaderComponent implements OnInit {
 	}
 
 	scrollToSection(sectionId: string, event?: Event) {
-		if (event) {
-			event.preventDefault();
-		}
-
 		// Check if we're on the home page
 		const currentUrl = window.location.pathname;
 		if (currentUrl === "/" || currentUrl === "") {
-			// We're on home page, just scroll to section
+			// We're on home page, prevent default and use JS scroll
+			if (event) {
+				event.preventDefault();
+			}
+			// Update URL hash without triggering hashchange
+			history.replaceState(null, "", `#${sectionId}`);
 			this.scrollService.scrollTo(sectionId);
-		} else {
-			// We're on another page, navigate to home with anchor
-			window.location.href = `/#${sectionId}`;
 		}
+		// If we're on another page, let the anchor link work normally
 	}
 }

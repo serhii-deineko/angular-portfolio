@@ -17,6 +17,31 @@ export class ScrollService {
 			.filter((section) => section !== null) as HTMLElement[];
 		this.scrollProgress = document.getElementById(scrollProgressId)!;
 		window.addEventListener("scroll", this.handleScroll.bind(this));
+		window.addEventListener("hashchange", this.handleHashChange.bind(this));
+	}
+
+	scrollTo(sectionId: string) {
+		document.getElementById(sectionId)?.scrollIntoView({
+			behavior: "smooth",
+			block: "start"
+		});
+	}
+
+	updateSections(sections: string[]) {
+		this.sections = sections
+			.map((id) => document.getElementById(id))
+			.filter((section) => section !== null) as HTMLElement[];
+		// Trigger scroll handler to update active section
+		this.handleScroll();
+	}
+
+	// Method to check if we're on a page with sections
+	hasSections(): boolean {
+		return this.sections.length > 0;
+	}
+
+	clearActiveSection() {
+		this.activeSection.next("");
 	}
 
 	private handleScroll() {
@@ -81,27 +106,13 @@ export class ScrollService {
 		}
 	}
 
-	scrollTo(sectionId: string) {
-		document.getElementById(sectionId)?.scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		});
-	}
-
-	updateSections(sections: string[]) {
-		this.sections = sections
-			.map((id) => document.getElementById(id))
-			.filter((section) => section !== null) as HTMLElement[];
-		// Trigger scroll handler to update active section
-		this.handleScroll();
-	}
-
-	// Method to check if we're on a page with sections
-	hasSections(): boolean {
-		return this.sections.length > 0;
-	}
-
-	clearActiveSection() {
-		this.activeSection.next("");
+	private handleHashChange() {
+		const hash = window.location.hash.slice(1);
+		if (hash && this.sections.some((section) => section.id === hash)) {
+			document.getElementById(hash)?.scrollIntoView({
+				behavior: "smooth",
+				block: "start"
+			});
+		}
 	}
 }

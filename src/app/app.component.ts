@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 					this.progressSpiner.set(true);
 					setTimeout(() => {
 						this.progressSpiner.set(false);
-					}, 1000);
+					}, 500);
 				}
 
 				// Small delay to ensure DOM is updated
@@ -139,7 +139,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 				complete: () => {
 					setTimeout(() => {
 						this.progressSpiner.set(false);
-					}, 300);
+					}, 500);
 				}
 			});
 	}
