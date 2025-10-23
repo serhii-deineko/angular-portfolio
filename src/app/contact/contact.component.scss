@@ -67,9 +67,7 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 1000;
-	backdrop-filter: blur(10px);
-	background-color: var(--bg-color);
+	z-index: 3;
 	padding: 1rem 0;
 	height: var(--footer-height);
 
@@ -84,20 +82,30 @@
 		gap: 3rem;
 
 		a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			backdrop-filter: blur(3px);
 			transition: var(--transition);
+			border: 1px solid var(--bg-color-tertiary);
+			border-radius: 100%;
+			background-color: color-mix(in srgb, var(--bg) 70%, transparent);
+			width: 2.5rem;
+			height: 2.5rem;
 			color: var(--text-color);
 			font-size: 1.5rem;
 
 			&:hover {
 				transform: translateY(-3px);
+				background-color: var(--bg);
 				color: var(--accent-color);
 			}
 
 			.footer-icon {
 				filter: grayscale(1) invert(var(--icon-invert, 0.7));
 				transition: var(--transition);
-				width: 22px;
-				height: 22px;
+				width: 20px;
+				height: 20px;
 			}
 
 			&:hover .footer-icon {
@@ -106,8 +114,8 @@
 
 			// Email icon slightly larger in footer
 			&[href^="mailto:"] .footer-icon {
-				width: 28px;
-				height: 28px;
+				width: 24px;
+				height: 24px;
 			}
 		}
 	}
