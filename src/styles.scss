@@ -6,7 +6,7 @@
 	--dark: #1d1d1d;
 	--dark-bg: #101010;
 	--dark-bg-secondary: #303030;
-	--dark-bg-tertiary: #454545;
+	--dark-bg-tertiary: #505050;
 	--dark-text: #909090;
 	--dark-text-secondary: #a5a5a5;
 	--dark-text-tertiary: #c5c5c5;
@@ -29,8 +29,6 @@
 	--scrollbar-width: 8px;
 	--footer-height: 70px;
 	--transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	--transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-	--transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
 	// Default theme variables (will be overridden by theme classes)
 	--bg: var(--dark);
@@ -333,7 +331,7 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
-	transition: background-color var(--transition-fast);
+	transition: var(--transition);
 	border-radius: 4px;
 	background: var(--text-color);
 
