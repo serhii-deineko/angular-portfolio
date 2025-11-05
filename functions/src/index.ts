@@ -23,7 +23,7 @@ export const chatCompletion = functions.https.onRequest(async (req, res) => {
 	}
 
 	try {
-		const { messages, model = "gpt-4o-mini", temperature = 0.7 } = req.body;
+		const { messages, model = "gpt-3.5-turbo", temperature = 0.9 } = req.body;
 
 		if (!messages || !Array.isArray(messages)) {
 			res.status(400).json({ error: "Invalid request body" });
