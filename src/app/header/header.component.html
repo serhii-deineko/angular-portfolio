@@ -5,8 +5,8 @@
 		</a>
 
 		<div class="nav__links desktop-nav">
-			<ol class="nav__list">
-				<li class="nav__item">
+			<ol class="nav__list" [class.border]="!hiddenTooltip">
+				<li class="nav__item" mat-button matRipple>
 					<a
 						class="nav__link"
 						[class.active]="activeSection === 'hero'"
