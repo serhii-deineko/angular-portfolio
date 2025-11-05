@@ -19,10 +19,10 @@
 			"part2": "orientées business en utilisant la dernière stack Angular. Je suis passionné par le",
 			"emphasis1": "design épuré",
 			"emphasis2": "la performance",
-			"emphasis3": "sans friction",
+			"emphasis3": "les interfaces",
 			"connector1": ",",
-			"connector2": ", et les expériences ",
-			"part3": "utilisateur."
+			"connector2": ", et les ",
+			"part3": "intuitives."
 		},
 		"cta": {
 			"certificate": "Certificat dans le CEIDG",
@@ -133,7 +133,7 @@
 			},
 			{
 				"id": "mobile-homes-configurator",
-				"title": "Configurateur Full-Stack de Maisons Mobiles",
+				"title": "Configurateur de Maisons Mobiles",
 				"description": "Architecturé et livré en solo un configurateur web sophistiqué pour une usine de maisons mobiles, révolutionnant le processus de vente. L'application permet la personnalisation en temps réel, génère des devis professionnels instantanés et s'intègre avec les systèmes internes. Construit initialement avec un moteur vanilla personnalisé pour des performances maximales, il a été modernisé par la suite avec un frontend Angular complet et un backend Firebase pour améliorer l'évolutivité et la maintenabilité.",
 				"key-points": [
 					"Architecturé et construit l'application full-stack entière à partir de zéro en tant que développeur solo, supervisant le développement frontend et backend pour répondre aux besoins business précis.",
@@ -164,7 +164,7 @@
 			},
 			{
 				"id": "homes-offers-configurator",
-				"title": "Configurateur Full-Stack de Brochures d'Offres",
+				"title": "Configurateur de Brochures d'Offres",
 				"description": "Conçu et développé une application web interne pour les équipes commerciales et les distributeurs afin de générer dynamiquement des brochures professionnelles, prêtes à l'impression, pour des offres de maisons mobiles. Initialement construite avec JavaScript vanilla pour des performances et un contrôle maximaux, l'application est en cours de modernisation avec Angular pour améliorer la maintenabilité et le développement de fonctionnalités, rationalisant l'ensemble du processus de proposition commerciale.",
 				"key-points": [
 					"Architecturé et développé un configurateur de brochures dynamique à partir de zéro pour remplacer les méthodes manuelles et chronophages de création de propositions.",
@@ -221,57 +221,6 @@
 						"content": "Développé une application web configurateur de démonstration full-stack qui permet de générer des instances de chatbot personnalisées en définissant UID, couleurs et données d'exemple. Le processus de build et de déploiement pour chaque instance de démonstration était entièrement automatisé et conteneurisé en utilisant Docker, assurant la cohérence de l'environnement et une provision rapide."
 					}
 				]
-			},
-			{
-				"id": "legacy-app-modernization",
-				"title": "Support & Modernisation d'App Legacy",
-				"description": "Fourni un support complet et une modernisation itérative pour deux applications business critiques : une plateforme legacy PHP/jQuery et un système d'automatisation d'emails basé sur Angular pour BNP Paribas. Amélioré la fonctionnalité, la stabilité et l'expérience utilisateur grâce au développement de nouvelles fonctionnalités, à la correction de bugs et à des améliorations architecturales.",
-				"key-points": [
-					"Maintenu et amélioré une application Angular de production pour la gestion automatisée de demandes par email, implémentant de nouveaux composants UI et de la logique métier en utilisant PrimeNG et Angular Material.",
-					"Construit des microfrontends Angular pour remplacer progressivement des parties clés de l'UI d'une application legacy PHP/jQuery sans causer d'indisponibilité ou perturber le flux de production en direct.",
-					"Développé de nouvelles fonctionnalités et résolu des bugs à travers les deux applications, assurant une haute disponibilité et un alignement avec les exigences business évolutives.",
-					"Conteneurisé les services legacy et modernes avec Docker sur Linux, établissant un environnement cohérent pour le développement, les tests et le déploiement automatisé."
-				],
-				"full-description": "Piloté le support et la modernisation progressive de deux applications distinctes, en se concentrant sur l'ajout de valeur via de nouvelles fonctionnalités, la résolution immédiate de bugs et des améliorations architecturales stratégiques pour assurer l'évolutivité et la maintenabilité à long terme.",
-				"sections": [
-					{
-						"title": "Support & Amélioration de l'Application Angular",
-						"content": "Fourni une maintenance continue et du développement pour une application Angular critique conçue pour automatiser et gérer le routage des demandes par email pour BNP Paribas. Implémenté de nouvelles fonctionnalités d'interface utilisateur en utilisant les bibliothèques de composants PrimeNG et Angular Material, ajouté de nouvelles logiques métier pour gérer divers types de demandes, et assuré la fiabilité et les performances de l'application en environnement de production."
-					},
-					{
-						"title": "Modernisation du Système Legacy via Microfrontends",
-						"content": "Exécuté une migration stratégique depuis une application monolithique PHP/jQuery en construisant et intégrant des microfrontends Angular. Cette approche a permis le remplacement transparent des sections UI obsolètes par des composants Angular modernes et performants sans risquer d'indisponibilité ou perturber le workflow des utilisateurs, améliorant significativement la maintenabilité."
-					},
-					{
-						"title": "Développement Full-Cycle & DevOps",
-						"content": "Géré le cycle de vie complet du développement pour les deux projets — de l'analyse des exigences et du développement de nouvelles fonctionnalités aux tests, corrections de bugs et déploiement. Conteneurisé les applications en utilisant Docker pour standardiser les environnements à travers les étapes, facilitant des pipelines CI/CD fiables et des retours arrière faciles."
-					}
-				]
-			},
-			{
-				"id": "other-website-development",
-				"title": "Autre Développement de Sites WordPress",
-				"description": "Ingéniéré et lancé 11+ sites WordPress complets pour un portefeuille diversifié de clients internationaux, incluant la manufacturing, l'hôtellerie, l'art et les médias. Maîtrisé le spectre des solutions sans code Elementor aux thèmes codés sur mesure et aux intégrations fonctionnelles complexes, livrant des expériences digitales sur mesure pour les besoins uniques de chaque marque.",
-				"key-points": [
-					"Piloté le développement de bout en bout : de la configuration initiale de l'hébergement et du domaine au codage de thème personnalisé, au développement de plugin et au déploiement final.",
-					"Implémenté des fonctionnalités avancées incluant des formulaires PHP personnalisés, l'authentification utilisateur OAuth 2.0 via Google, et la traduction de contenu multilingue dynamique via l'API DeepL.",
-					"Optimisé chaque site pour la performance, le SEO et l'utilisabilité, assurant une expérience transparente sur tous les types d'appareils et navigateurs."
-				],
-				"full-description": "Exécuté une large gamme de projets de développement web, démontrant la versatilité de la création de prototypes rapides avec des constructeurs de page à l'architecture de thèmes WordPress sur mesure à partir de zéro. Résolu des défis clients uniques via des scripts PHP personnalisés et des intégrations d'API tierces.",
-				"sections": [
-					{
-						"title": "Développement de Thème & Plugin Personnalisé",
-						"content": "Conçu et construit des thèmes WordPress à partir de zéro pour une performance maximale et une flexibilité de design (ex: Lark Gallery Print). Développé des scripts PHP et plugins personnalisés pour étendre la fonctionnalité de base, comme la création de formulaires de réservation complexes pour les maisons de vacances (Holiday Domki) et des sélecteurs de service de laverie (Pralnia Delfin), dépassant les limitations des solutions pré-construites."
-					},
-					{
-						"title": "Intégrations Avancées & Implémentation d'API",
-						"content": "Amélioré l'expérience utilisateur et les capacités du site en intégrant des services tiers puissants. Implémenté une authentification utilisateur sécurisée via Google OAuth pour des connexions rationalisées. Automatisé la gestion de contenu multilingue en intégrant l'API de traduction DeepL, fournissant un changement de langue transparent pour les clients internationaux comme Zweitheim.de et Neptun Darlowo."
-					},
-					{
-						"title": "Stratégies de Construction Variées : D'Elementor au Code Personnalisé",
-						"content": "Adapté la méthodologie de développement pour correspondre parfaitement au périmètre et au budget du projet. Utilisé Elementor pour une construction de site marketing efficace et visuellement impressionnante (Hotel Plaza, Luminarist TV). Inversement, employé du HTML, CSS et PHP brut pour des solutions sur mesure, légères et hautement personnalisées où l'unicité du design et la performance étaient primordiales (Lark Factory)."
-					}
-				]
 			}
 		]
 	},
@@ -312,7 +261,7 @@
 				"id": "lark-leisure-homes",
 				"role": "Développeur Fullstack",
 				"company": "Lark Leisure Homes",
-				"duration": "Juillet 2022 - Présent",
+				"duration": "Juillet 2022 - Novembre 2023",
 				"points": [
 					"Architecturé un configurateur de maisons mobiles personnalisé en JavaScript vanilla/PHP comportant un gestionnaire d'état event-bus sur mesure, un moteur de diff-and-patch DOM pour les aperçus en temps réel, et un backend PHP/SQL sécurisé pour la persistance et le versioning des configurations",
 					"Construit un configurateur de flyer alimenté par l'IA (https://larkfactory.com/oferter/) intégrant de multiples modèles de machine-learning pour auto-organiser et catégoriser les images produits, avec un rendu de mise en page dynamique et une exportation vers des formats prêts à l'impression",
@@ -325,7 +274,7 @@
 				"id": "yarrl",
 				"role": "Développeur Frontend",
 				"company": "Yarrl S.A.",
-				"duration": "Novembre 2023 - Présent",
+				"duration": "Novembre 2023 - Octobre 2025",
 				"points": [
 					"Construit le frontend pour Aisema, une application de recherche de financement UE utilisant LLM, développée en Angular avec Jenkins pour CI/CD et Sentry pour la surveillance des erreurs en temps réel (plus de détails : https://cyfrowa.rp.pl/biznes-ludzie-startupy/art42365771-polska-aplikacja-ai-pomoze-firmom-zdobyc-pieniadze-z-ue)",
 					"Développé un frontend de chatbot en JavaScript vanilla pour des sites e-commerce de meubles (ex: BRW) comportant une recherche contextuelle basée sur les vecteurs et le dépôt/vérification de réclamation via une API XML externe ; intégré des réponses d'assistant basées sur GPT directement dans l'UI, maintenant déployé sur de multiples plateformes incluant des projets du Ministère des Finances",

@@ -19,10 +19,10 @@
 			"part2": "geschäftsorientierter Lösungen mit dem neuesten Angular-Stack. Ich brenne für",
 			"emphasis1": "sauberes Design",
 			"emphasis2": "Leistung",
-			"emphasis3": "reibungslose",
+			"emphasis3": "intuitive",
 			"connector1": ",",
 			"connector2": " und ",
-			"part3": "Benutzererfahrungen."
+			"part3": "Benutzeroberflächen."
 		},
 		"cta": {
 			"certificate": "Bescheinigung im CEIDG",
@@ -133,7 +133,7 @@
 			},
 			{
 				"id": "mobile-homes-configurator",
-				"title": "Full-Stack Mobilheim-Konfigurator",
+				"title": "Mobilheim-Konfigurator",
 				"description": "Architektierte und lieferte eigenständig einen anspruchsvollen webbasierten Konfigurator für eine Mobilheim-Fabrik, der den Vertriebsprozess revolutionierte. Die Anwendung ermöglicht Echtzeit-Anpassung, generiert sofort professionelle Angebote und integriert mit internen Systemen. Ursprünglich mit einer benutzerdefinierten Vanilla-Engine für maximale Leistung gebaut, wurde sie später mit einem vollständigen Angular-Frontend und Firebase-Backend modernisiert, um Skalierbarkeit und Wartbarkeit zu verbessern.",
 				"key-points": [
 					"Architektierte und baute die gesamte Full-Stack-Anwendung von Grund auf als Solo-Entwickler, überwachte sowohl Frontend- als auch Backend-Entwicklung, um präzise Geschäftsanforderungen zu erfüllen.",
@@ -164,7 +164,7 @@
 			},
 			{
 				"id": "homes-offers-configurator",
-				"title": "Full-Stack Broschürenangebot-Konfigurator",
+				"title": "Broschürenangebot-Konfigurator",
 				"description": "Konzipierte und entwickelte eine interne Webanwendung für Vertriebsteams und Händler, um dynamisch professionelle, druckfertige Broschüren für Mobilheim-Angebote zu generieren. Ursprünglich mit vanilla JavaScript für maximale Leistung und Kontrolle gebaut, wird die Anwendung nun mit Angular modernisiert, um die Wartbarkeit und Funktionsentwicklung zu verbessern und den gesamten Vertriebsvorschlagsprozess zu optimieren.",
 				"key-points": [
 					"Architektierte und entwickelte einen dynamischen Broschürenkonfigurator von Grund auf, um manuelle, zeitaufwändige Angebotserstellungsmethoden zu ersetzen.",
@@ -221,57 +221,6 @@
 						"content": "Entwickelte eine Full-Stack Demo-Konfigurator-Web-App, die das Generieren angepasster Chatbot-Instanzen durch Definieren von UID, Farben und Beispieldaten ermöglicht. Der Build- und Deployment-Prozess für jede Demo-Instanz wurde vollständig automatisiert und mit Docker containerisiert, gewährleistete Umgebungskonsistenz und schnelle Bereitstellung."
 					}
 				]
-			},
-			{
-				"id": "legacy-app-modernization",
-				"title": "Legacy-App-Unterstützung & Modernisierung",
-				"description": "Bietete umfassende Unterstützung und iterative Modernisierung für zwei kritische Geschäftsanwendungen: eine Legacy-PHP/jQuery-Plattform und ein Angular-basiertes E-Mail-Automatisierungssystem für BNP Paribas. Verbesserte Funktionalität, Stabilität und Benutzererfahrung durch neue Funktionsentwicklung, Bugfixes und architektonische Verbesserungen.",
-				"key-points": [
-					"Wartete und erweiterte eine Produktions-Angular-Anwendung für automatisierte E-Mail-Anfrageverwaltung, implementierte neue UI-Komponenten und Geschäftslogik mit PrimeNG und Angular Material.",
-					"Baute Angular-Microfrontends, um schrittweise wichtige UI-Teile einer Legacy-PHP/jQuery-App zu ersetzen, ohne Ausfallzeiten oder Unterbrechung des Live-Produktionsflusses zu verursachen.",
-					"Entwickelte neue Funktionen und behob Bugs in beiden Anwendungen, gewährleistete hohe Verfügbarkeit und Ausrichtung auf sich entwickelnde Geschäftsanforderungen.",
-					"Containerisierte Legacy- und moderne Services mit Docker auf Linux, etablierte eine konsistente Umgebung für Entwicklung, Testing und automatisiertes Deployment."
-				],
-				"full-description": "Leitete die Unterstützung und progressive Modernisierung von zwei verschiedenen Anwendungen, konzentrierte sich darauf, Wert durch neue Funktionen, sofortige Bugbehebung und strategische architektonische Upgrades hinzuzufügen, um Skalierbarkeit und langfristige Wartbarkeit zu gewährleisten.",
-				"sections": [
-					{
-						"title": "Angular-Anwendungsunterstützung & Erweiterung",
-						"content": "Bietete laufende Wartung und Entwicklung für eine entscheidende Angular-Anwendung, die entwickelt wurde, um E-Mail-basierte Anfrageleitung für BNP Paribas zu automatisieren und zu verwalten. Implementierte neue Benutzeroberflächenfunktionalitäten mit PrimeNG und Angular Material Komponentenbibliotheken, fügte neue Geschäftslogik hinzu, um diverse Anfragetypen zu handhaben, und gewährleistete die Zuverlässigkeit und Leistung der Anwendung in einer Produktionsumgebung."
-					},
-					{
-						"title": "Legacy-System-Modernisierung via Microfrontends",
-						"content": "Führte eine strategische Migration von einer monolithischen PHP/jQuery-Anwendung durch, indem Angular-Microfrontends gebaut und integriert wurden. Dieser Ansatz erlaubte den nahtlosen Ersatz veralteter UI-Abschnitte mit modernen, leistungsfähigen Angular-Komponenten, ohne Ausfallzeiten zu riskieren oder den Benutzer-Workflow zu unterbrechen, verbesserte die Wartbarkeit erheblich."
-					},
-					{
-						"title": "Full-Cycle-Entwicklung & DevOps",
-						"content": "Verwaltete den gesamten Entwicklungslebenszyklus für beide Projekte – vom Analysieren der Anforderungen und Entwickeln neuer Funktionen bis zum Testen, Bugfixen und Deployment. Containerisierte Anwendungen mit Docker, um Umgebungen über Stages zu standardisieren, erleichterte zuverlässige CI/CD-Pipelines und einfache Rollbacks."
-					}
-				]
-			},
-			{
-				"id": "other-website-development",
-				"title": "Andere Website WordPress-Entwicklung",
-				"description": "Entwickelte und startete 11+ umfassende WordPress-Websites für ein diverses Portfolio internationaler Kunden, einschließlich Fertigung, Gastgewerbe, Kunst und Medien. Meisterte das Spektrum von No-Code-Elementor-Lösungen bis zu benutzerdefiniert codierten Themes und komplexen Funktionsintegrationen, lieferte maßgeschneiderte digitale Erfahrungen für die einzigartigen Bedürfnisse jeder Marke.",
-				"key-points": [
-					"Leitete End-to-End-Entwicklung: vom initialen Hosting-Setup und Domain-Konfiguration bis zum benutzerdefinierten Theme-Coding, Plugin-Entwicklung und finalem Deployment.",
-					"Implementierte erweiterte Funktionen einschließlich benutzerdefinierter PHP-Formulare, OAuth 2.0-Benutzerauthentifizierung via Google und dynamische mehrsprachige Content-Übersetzung via DeepL API.",
-					"Optimierte jede Seite für Leistung, SEO und Usability, gewährleistete eine nahtlose Erfahrung über alle Gerätetypen und Browser hinweg."
-				],
-				"full-description": "Führte eine breite Palette von Webentwicklungsprojekten durch, demonstrierte Vielseitigkeit von der schnellen Prototyperstellung mit Page-Buildern bis zum Architektieren maßgeschneiderter WordPress-Themes von Grund auf. Löste einzigartige Kundenherausforderungen durch benutzerdefiniertes PHP-Scripting und Third-Party-API-Integrationen.",
-				"sections": [
-					{
-						"title": "Benutzerdefinierte Theme & Plugin-Entwicklung",
-						"content": "Entwarf und baute WordPress-Themes von Grund auf für maximale Leistung und Designflexibilität (z.B. Lark Gallery Print). Entwickelte benutzerdefinierte PHP-Skripte und Plugins, um Kernfunktionalität zu erweitern, wie das Erstellen komplexer Buchungsformulare für Ferienhäuser (Holiday Domki) und Waschsalon-Service-Selektoren (Pralnia Delfin), bewegte sich über die Grenzen vorgefertigter Lösungen hinaus."
-					},
-					{
-						"title": "Erweiterte Integrationen & API-Implementierung",
-						"content": "Verbesserte Benutzererfahrung und Site-Fähigkeiten durch Integration leistungsstarker Drittanbieterdienste. Implementierte sichere Benutzerauthentifizierung via Google OAuth für optimierte Logins. Automatisierte mehrsprachiges Content-Management durch Integration der DeepL-Übersetzungs-API, bot nahtloses Sprachwechseln für internationale Kunden wie Zweitheim.de und Neptun Darlowo."
-					},
-					{
-						"title": "Vielseitige Build-Strategien: Von Elementor zu Benutzerdefiniertem Code",
-						"content": "Passte die Entwicklungsmethodik perfekt an Projektumfang und Budget an. Verwendete Elementor für effiziente und visuell beeindruckende Marketing-Site-Konstruktion (Hotel Plaza, Luminarist TV). Umgekehrt, verwendete rohes HTML, CSS und PHP für maßgeschneiderte, leichtgewichtige und hochgradig angepasste Lösungen, wo Design-Einzigartigkeit und Leistung oberste Priorität hatten (Lark Factory)."
-					}
-				]
 			}
 		]
 	},
@@ -312,7 +261,7 @@
 				"id": "lark-leisure-homes",
 				"role": "Fullstack Entwickler",
 				"company": "Lark Leisure Homes",
-				"duration": "Juli 2022 - Gegenwart",
+				"duration": "Juli 2022 - November 2023",
 				"points": [
 					"Architektierte einen benutzerdefinierten Mobilheim-Konfigurator in vanilla JavaScript/PHP mit einem maßgeschneiderten Event-Bus State Manager, DOM-Diff-and-Patch-Engine für Echtzeit-Vorschauen und einem sicheren PHP/SQL-Backend für Konfigurationspersistenz und Versionierung",
 					"Baute einen KI-gestützten Flyer-Konfigurator (https://larkfactory.com/oferter/) integrierte mehrere Machine-Learning-Modelle zur automatischen Organisation und Kategorisierung von Produktbildern, mit dynamischem Layout-Rendering und Export zu druckfertigen Formaten",
@@ -325,7 +274,7 @@
 				"id": "yarrl",
 				"role": "Frontend Entwickler",
 				"company": "Yarrl S.A.",
-				"duration": "November 2023 - Gegenwart",
+				"duration": "November 2023 - Oktober 2025",
 				"points": [
 					"Baute das Frontend für Aisema, eine EU-Förderantragssuchanwendung mit LLM, entwickelt in Angular mit Jenkins für CI/CD und Sentry für Echtzeit-Fehlerüberwachung (mehr Details: https://cyfrowa.rp.pl/biznes-ludzie-startupy/art42365771-polska-aplikacja-ai-pomoze-firmom-zdobyc-pieniadze-z-ue)",
 					"Entwickelte ein vanilla JavaScript Chatbot-Frontend für Möbel-E-Commerce-Sites (z.B. BRW) mit vektorbasierter kontextueller Suche und Reklamations-Einreichung/Prüfung via einer externen XML-API; integrierte GPT-basierte Assistenten-Antworten direkt in die UI, jetzt eingesetzt auf mehreren Plattformen einschließlich Projekten des Finanzministeriums",
