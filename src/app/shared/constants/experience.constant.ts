@@ -29,7 +29,7 @@ export const EXPERIENCES_DEFINITIONS = [
 	{
 		role: "Fullstack Developer",
 		company: "Lark Leisure Homes",
-		duration: "July 2022 - Present",
+		duration: "July 2022 - November 2023",
 		points: [
 			"Engineered mobile homes configurator in vanilla JavaScript and PHP, featuring custom event-bus state management, DOM diffing for real-time previews, and secure SQL backend for configuration storage and versioning.",
 			"Developed AI-powered flyer configurator[](https://larkfactory.com/oferter/) using machine learning models to categorize product images, generate dynamic layouts, and export print-ready formats for efficient marketing.",
@@ -41,7 +41,7 @@ export const EXPERIENCES_DEFINITIONS = [
 	{
 		role: "Frontend Developer",
 		company: "yarrl S.A.",
-		duration: "November 2023 - Present",
+		duration: "November 2023 - October 2025",
 		points: [
 			"Developed Angular frontend for Aisema, an AI platform aiding EU grant acquisition through LLM-based analysis, in collaboration with Łukasiewicz ITECH; integrated Jenkins CI/CD and Sentry for monitoring (details: https://cyfrowa.rp.pl/biznes-ludzie-startupy/art42365771-polska-aplikacja-ai-pomoze-firmom-zdobyc-pieniadze-z-ue).",
 			"Built vanilla JavaScript chatbot for e-commerce platforms like BRW, enabling vector-based search, XML API complaint handling, and GPT-integrated responses; deployed across sites including Ministry of Finance projects.",
