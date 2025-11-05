@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from "@angular/animations";
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import { Router } from "@angular/router";
 import { TranslateModule } from "@ngx-translate/core";

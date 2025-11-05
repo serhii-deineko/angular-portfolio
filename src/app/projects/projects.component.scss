@@ -1,170 +1,106 @@
 #projects {
+	z-index: 2;
 	margin: 0 auto;
 	padding: 0.5rem;
-	max-width: 1000px;
+	max-width: 1200px;
 }
 
 .projects-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
 	margin-top: 50px;
 }
 
 .project-card {
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	cursor: pointer;
-	margin-bottom: 25px;
-	border-radius: 12px;
-	background-color: var(--bg);
-	padding: 2rem;
-	min-height: auto;
+	border-radius: 16.5px;
+	height: 300px;
+	min-height: 300px;
 	user-select: none;
 	-webkit-tap-highlight-color: transparent;
+	backdrop-filter: blur(3px);
 	transition: var(--transition);
-	border: 1.5px solid var(--bg-color-secondary);
-
+	overflow: hidden;
 	&:hover {
-		transform: translateY(-5px) scale(1.025);
-		border-color: var(--bg-color-tertiary);
-
-		.project-title {
-			color: var(--accent-color);
+		.project-content {
+			opacity: 1;
 		}
 	}
 
 	&:active {
-		transform: translateY(-3px); // Gives a subtle press effect
+		transform: translateY(-3px);
 	}
+}
+
+.project-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	transition: var(--transition);
+	border-radius: 16px;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .project-content {
 	display: flex;
 	flex-direction: column;
+	justify-content: flex-end;
+	gap: 1rem;
+	opacity: 0;
+	z-index: 1;
+	transition: var(--transition);
+	border-radius: 16px;
+	background: linear-gradient(transparent, black);
+	padding: 2rem;
 	height: 100%;
 }
 
-.project-header {
-	margin-bottom: 1rem;
-}
-
 .project-title {
-	transition: var(--transition);
-	margin: 0 0 0.5rem;
-	color: var(--text-color-highlight);
-	font-size: 24px;
-}
-
-.project-description {
-	margin-bottom: 1rem;
-	color: var(--text-color-secondary);
-	font-size: 16px;
-	line-height: 1.5;
-}
-
-.project-keypoints {
-	flex: 1;
-	margin-bottom: 1.5rem;
-
-	ul {
-		margin: 0;
-		padding: 0 20px;
-		list-style: none;
-
-		li {
-			position: relative;
-			margin-bottom: 8px;
-			padding-left: 25px;
-			color: var(--text-color);
-			font-size: 14px;
-			line-height: 1.5;
-
-			&::before {
-				position: absolute;
-				left: 0;
-				opacity: 0.25;
-				content: "o";
-				color: var(--accent-color);
-				font-weight: 300;
-				font-size: 8px;
-				line-height: 2.5;
-				font-family: "FontAwesome";
-			}
-		}
-	}
-}
-
-.project-footer {
 	display: flex;
-	column-gap: 20px;
-	justify-content: space-between;
-	align-items: flex-end;
-	margin-top: auto;
+	align-items: center;
+	gap: 0.5rem;
+	transition: var(--transition);
+
+	h2 {
+		color: white;
+		font-weight: 500;
+		font-size: 22px;
+	}
+
+	.mat-icon {
+		width: 35px;
+		min-width: 35px;
+		height: 35px;
+		color: white;
+		font-size: 35px;
+	}
 }
 
 .project-tech-list {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
+	transition: var(--transition);
 	padding: 0;
 	font-size: 13px;
 	font-family: var(--font-mono);
 	list-style: none;
 
 	li {
-		border: 1px solid var(--bg-color-tertiary);
-		border-radius: 6px;
-		background-color: var(--bg-color-secondary);
-		padding: 6px 14px;
-		color: var(--text-color-highlight);
+		border: 1px solid white;
+		border-radius: 35px;
+		padding: 6px 12px;
+		color: white;
 	}
 }
 
-.project-links {
-	display: flex;
-	justify-content: flex-end;
-	gap: 15px;
-
-	a {
-		transform: translateY(3px);
-		opacity: 0.8;
-		transition: var(--transition);
-		color: var(--text-color-highlight);
-		font-size: 20px;
-
-		&:hover {
-			transform: translateY(0);
-			opacity: 1;
-			color: var(--accent-color);
-		}
-	}
-}
-
-.view-more {
-	display: flex;
-	align-items: center;
-	gap: 8px;
-	opacity: 0.5;
-	padding-right: 10px;
-	color: var(--accent-color);
-	font-weight: 500;
-	font-size: 14px;
-	font-family: var(--font-sans);
-	white-space: nowrap;
-
-	.mat-icon {
-		display: flex;
-		align-items: center;
-		transition: var(--transition);
-		font-size: 18px;
-	}
-}
-
-.project-card:hover .view-more {
-	opacity: 1;
-}
-
-.project-card:hover .view-more .mat-icon {
-	transform: translateX(5px);
-}
 @keyframes fadeInUp {
 	from {
 		transform: translateY(20px);
@@ -180,11 +116,7 @@
 	#projects {
 		padding: 60px 1.5rem 20px;
 	}
-	.project-card {
+	.project-content {
 		padding: 1.5rem;
-	}
-	.project-footer {
-		row-gap: 1rem;
-		flex-direction: column;
 	}
 }
