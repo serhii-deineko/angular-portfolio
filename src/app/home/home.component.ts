@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { Component } from "@angular/core";
+import { Component, signal } from "@angular/core";
 import { ExperienceComponent } from "../experience/experience.component";
 import { HeroComponent } from "../hero/hero.component";
 import { ProjectsComponent } from "../projects/projects.component";

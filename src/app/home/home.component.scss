@@ -6,30 +6,27 @@
 
 main {
 	flex: 1;
-	padding-top: 4rem; // Offset for fixed header
+	padding-top: 4rem;
 }
 
 section {
 	padding: 4rem 0;
-	scroll-margin-top: 80px; // Ensure sections align below header
+	scroll-margin-top: 80px;
 
 	&:not(:first-child) {
 		border-top: 1px solid var(--divider);
 	}
 }
 
-// Smooth scroll behavior
 html {
 	scroll-behavior: smooth;
 }
 
-// Dark theme overrides
 .mat-toolbar {
 	background-color: var(--surface) !important;
 	color: var(--text-primary) !important;
 }
 
-// Responsive padding
 @media (max-width: 1024px) {
 	main {
 		padding-top: 60px;
@@ -38,21 +35,5 @@ html {
 	section {
 		padding: 2rem 0;
 		scroll-margin-top: 60px;
-	}
-}
-
-// Print styles
-@media print {
-	app-header {
-		display: none;
-	}
-
-	main {
-		padding-top: 0;
-	}
-
-	section {
-		page-break-inside: avoid;
-		border: none !important;
 	}
 }
