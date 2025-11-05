@@ -68,8 +68,7 @@
 	bottom: 0;
 	left: 0;
 	z-index: 3;
-	padding: 1rem 0;
-	height: var(--footer-height);
+	margin: 1.5rem 0;
 
 	&.hide {
 		opacity: 0;
@@ -79,7 +78,7 @@
 	.footer-icons {
 		display: flex;
 		justify-content: center;
-		gap: 3rem;
+		gap: 1.5rem;
 
 		a {
 			display: flex;
@@ -135,11 +134,7 @@
 	}
 
 	.persistent-footer {
-		padding: 1rem;
+		margin: 1rem;
 		height: auto;
-
-		.footer-icons {
-			gap: 2rem;
-		}
 	}
 }
