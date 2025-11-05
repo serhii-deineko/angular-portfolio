@@ -26,10 +26,6 @@ export class SEOService {
 		private router: Router,
 		@Inject(DOCUMENT) private document: Document
 	) {
-		this.initializeSEO();
-	}
-
-	private initializeSEO() {
 		this.router.events
 			.pipe(filter((event) => event instanceof NavigationEnd))
 			.subscribe((event: NavigationEnd) => {
@@ -59,6 +55,7 @@ export class SEOService {
 					author: "Serhii Deineko"
 				};
 
+			case "/about":
 			case "/#about":
 				return {
 					title: "About Serhii Deineko - Angular Frontend Developer",
@@ -67,10 +64,11 @@ export class SEOService {
 					keywords:
 						"about, Angular developer, experience, portfolio, frontend developer, AI applications",
 					image: `${this.baseUrl}/logo.png`,
-					url: `${this.baseUrl}/#about`,
+					url: `${this.baseUrl}/about`,
 					type: "website"
 				};
 
+			case "/projects":
 			case "/#projects":
 				return {
 					title: "Projects - Serhii Deineko Portfolio",
@@ -79,10 +77,11 @@ export class SEOService {
 					keywords:
 						"projects, portfolio, Angular applications, AI solutions, web development, mobile home configurator, speech analysis, chatbot",
 					image: `${this.baseUrl}/logo.png`,
-					url: `${this.baseUrl}/#projects`,
+					url: `${this.baseUrl}/projects`,
 					type: "website"
 				};
 
+			case "/experience":
 			case "/#experience":
 				return {
 					title: "Experience - Serhii Deineko Career",
@@ -91,10 +90,11 @@ export class SEOService {
 					keywords:
 						"experience, career, Angular developer, fullstack developer, AI applications, Yarrl, Lark Leisure Homes, Networks.ua",
 					image: `${this.baseUrl}/logo.png`,
-					url: `${this.baseUrl}/#experience`,
+					url: `${this.baseUrl}/experience`,
 					type: "website"
 				};
 
+			case "/contact":
 			case "/#contact":
 				return {
 					title: "Contact Serhii Deineko - Angular Frontend Developer",
@@ -103,13 +103,13 @@ export class SEOService {
 					keywords:
 						"contact, hire, Angular developer, frontend developer, AI applications, freelance, web development",
 					image: `${this.baseUrl}/logo.png`,
-					url: `${this.baseUrl}/#contact`,
+					url: `${this.baseUrl}/contact`,
 					type: "website"
 				};
 
 			case "/emoji-seeker":
 				return {
-					title: "Emoji Seeker - Find Perfect Emojis | Serhii Deineko",
+					title: "🔍 Emoji Seeker - Find the perfect emoji for any situation using AI-powered search",
 					description:
 						"Advanced emoji search tool with AI-powered suggestions. Find the perfect emoji for any situation with our intelligent emoji seeker.",
 					keywords: "emoji search, emoji finder, emoji tool, AI emoji, emoji suggestions",
@@ -119,11 +119,6 @@ export class SEOService {
 				};
 
 			default:
-				if (cleanUrl.startsWith("/projects/")) {
-					const projectId = cleanUrl.split("/projects/")[1];
-					return this.getProjectSEOData(projectId);
-				}
-
 				return {
 					title: "Serhii Deineko - Angular Frontend Developer",
 					description:
@@ -133,67 +128,6 @@ export class SEOService {
 					type: "website"
 				};
 		}
-	}
-
-	private getProjectSEOData(projectId: string): SEOData {
-		const projects: Record<string, { title: string; description: string; keywords: string }> = {
-			"aisema-ai-grant-advisor": {
-				title: "AISEMA AI Grant Advisor - AI-Powered EU Funding Discovery Platform",
-				description:
-					"Revolutionary AI platform built with Angular and LLM technology that helps researchers and organizations discover and apply for relevant EU grants. Featured in Rzeczpospolita newspaper and partnered with Łukasiewicz ITECH.",
-				keywords:
-					"AI grant advisor, EU funding, grant discovery, machine learning, research funding, Angular, LLM, AISEMA, Yarrl"
-			},
-			"homes-offers-configurator": {
-				title: "AI-Powered Flyer Configurator - Real Estate Marketing Tool",
-				description:
-					"AI-powered flyer configurator integrating multiple machine-learning models to auto-organize and categorize product images, with dynamic layout rendering and export to print-ready formats for real estate marketing.",
-				keywords:
-					"AI flyer configurator, real estate marketing, machine learning, image organization, print-ready formats, Lark Leisure Homes"
-			},
-			"mobile-homes-configurator": {
-				title: "Mobile Homes Configurator - 3D Visualization & Custom Builder",
-				description:
-					"Custom mobile homes configurator built with vanilla JavaScript/PHP featuring bespoke event-bus state manager, DOM diff-and-patch engine for real-time previews, and secure PHP/SQL backend for configuration persistence.",
-				keywords:
-					"mobile homes configurator, 3D visualization, JavaScript, PHP, real-time preview, custom builder, Lark Leisure Homes"
-			},
-			"mobile-homes-order-app": {
-				title: "Mobile Homes Order App - Angular Material & Firebase System",
-				description:
-					"Fully unified Angular Material & Firebase order-creation app with automated CI/CD, Firebase Auth, Firestore for order data, Storage for media, Firebase Functions for email notifications, and role-based access controls.",
-				keywords:
-					"Angular Material, Firebase, mobile homes order app, CI/CD, Firestore, role-based access, Lark Leisure Homes"
-			},
-			"speech-analysis-platform": {
-				title: "Speech Analysis Platform - AI-Powered Call Center Analytics",
-				description:
-					"Angular frontend for call-center conversation analysis tool powered by advanced AI models. Features custom analyses from uploaded recordings, multi-criteria evaluation, consultant performance tracking, and SSO integration.",
-				keywords:
-					"speech analysis, call center analytics, AI voice processing, Angular, sentiment analysis, consultant performance, SSO integration, Yarrl"
-			},
-			"website-chatbot-plugin": {
-				title: "AI Chatbot Plugin - Vector-Based Contextual Search & GPT Integration",
-				description:
-					"Vanilla JavaScript chatbot frontend for furniture e-commerce sites featuring vector-based contextual search, complaint filing/checking via XML API, and integrated GPT-based assistant responses. Deployed on multiple platforms including Ministry of Finance projects.",
-				keywords:
-					"AI chatbot, vector search, GPT integration, e-commerce, JavaScript, XML API, Ministry of Finance, Yarrl"
-			}
-		};
-
-		const project = projects[projectId] || {
-			title: `Project ${projectId} - Serhii Deineko Portfolio`,
-			description: `Detailed information about ${projectId} project developed by Serhii Deineko.`,
-			keywords: "portfolio, project, web development, Angular"
-		};
-
-		return {
-			...project,
-			image: `${this.baseUrl}/logo.png`,
-			url: `${this.baseUrl}/projects/${projectId}`,
-			type: "article",
-			author: "Serhii Deineko"
-		};
 	}
 
 	updateMetaTags(data: SEOData) {
@@ -221,36 +155,186 @@ export class SEOService {
 			content: data.image || `${this.baseUrl}/logo.png`
 		});
 
-		this.meta.updateTag({ name: "robots", content: "index, follow" });
-		this.meta.updateTag({ name: "googlebot", content: "index, follow" });
-	}
+		this.updateCanonicalUrl(data.url || this.baseUrl);
 
-	updateTitle(title: string) {
-		this.title.setTitle(title);
-	}
+		const cleanUrl = (data.url || "").replace(this.baseUrl, "");
+		const isProjectPage = cleanUrl.startsWith("/projects/");
 
-	updateDescription(description: string) {
-		this.meta.updateTag({ name: "description", content: description });
-	}
-
-	addStructuredData(data: any) {
-		const script = this.document.createElement("script");
-		script.type = "application/ld+json";
-		script.text = JSON.stringify(data);
-		script.id = "structured-data";
-
-		const existingScript = this.document.getElementById("structured-data");
-		if (existingScript) {
-			existingScript.remove();
+		if (isProjectPage) {
+			this.meta.updateTag({ name: "robots", content: "noindex, nofollow" });
+			this.meta.updateTag({ name: "googlebot", content: "noindex, nofollow" });
+		} else {
+			this.meta.updateTag({
+				name: "robots",
+				content:
+					"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+			});
+			this.meta.updateTag({
+				name: "googlebot",
+				content:
+					"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+			});
 		}
 
+		if (data.url === this.baseUrl || data.url === `${this.baseUrl}/`) {
+			this.setStructuredData(this.getHomeStructuredData());
+		} else {
+			this.clearStructuredData();
+		}
+	}
+
+	private setStructuredData(payload: unknown) {
+		const existing = this.document.getElementById("structured-data");
+		if (existing) existing.remove();
+		const script = this.document.createElement("script");
+		script.type = "application/ld+json";
+		script.id = "structured-data";
+		script.text = JSON.stringify(payload);
 		this.document.head.appendChild(script);
 	}
 
-	removeStructuredData() {
-		const existingScript = this.document.getElementById("structured-data");
-		if (existingScript) {
-			existingScript.remove();
+	private clearStructuredData() {
+		const existing = this.document.getElementById("structured-data");
+		if (existing) existing.remove();
+	}
+
+	private updateCanonicalUrl(url: string) {
+		let link: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
+
+		if (!link) {
+			link = this.document.createElement("link");
+			link.setAttribute("rel", "canonical");
+			this.document.head.appendChild(link);
 		}
+
+		link.setAttribute("href", url);
+	}
+
+	private getHomeStructuredData() {
+		return [
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"@id": `${this.baseUrl}/#website`,
+				url: this.baseUrl,
+				name: "Serhii Deineko Portfolio",
+				description:
+					"Angular Frontend Developer portfolio showcasing AI-powered applications and modern web solutions",
+				inLanguage: "en-US",
+				potentialAction: {
+					"@type": "SearchAction",
+					target: {
+						"@type": "EntryPoint",
+						urlTemplate: `${this.baseUrl}/?s={search_term_string}`
+					},
+					"query-input": "required name=search_term_string"
+				}
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "Person",
+				"@id": `${this.baseUrl}/#person`,
+				name: "Serhii Deineko",
+				jobTitle: "Angular Frontend Developer",
+				description:
+					"Angular Frontend Developer with 6+ years experience specializing in AI-powered applications, SPA development, and modern web solutions",
+				url: this.baseUrl,
+				image: `${this.baseUrl}/logo.png`,
+				sameAs: ["https://github.com/sdeineko", "https://linkedin.com/in/serhii-deineko"],
+				knowsAbout: [
+					"Angular",
+					"TypeScript",
+					"JavaScript",
+					"AI Applications",
+					"Machine Learning",
+					"Web Development"
+				],
+				hasOccupation: {
+					"@type": "Occupation",
+					name: "Frontend Developer",
+					occupationLocation: {
+						"@type": "Country",
+						name: "Poland"
+					},
+					estimatedSalary: {
+						"@type": "MonetaryAmountDistribution",
+						name: "base",
+						currency: "EUR"
+					},
+					skills: "Angular, TypeScript, AI Applications, Firebase, Docker, CI/CD"
+				},
+				alumniOf: [
+					{
+						"@type": "EducationalOrganization",
+						name: "PSW w Białej Podlaskiej",
+						location: "Poland"
+					},
+					{
+						"@type": "EducationalOrganization",
+						name: "Dnipro University of Technology",
+						location: "Ukraine"
+					}
+				],
+				worksFor: [
+					{
+						"@type": "Organization",
+						name: "Yarrl S.A.",
+						description: "Frontend Developer - AI Applications"
+					},
+					{
+						"@type": "Organization",
+						name: "Lark Leisure Homes",
+						description: "Fullstack Developer - Web Solutions"
+					}
+				]
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "BreadcrumbList",
+				itemListElement: [
+					{
+						"@type": "ListItem",
+						position: 1,
+						name: "Home",
+						item: this.baseUrl
+					},
+					{
+						"@type": "ListItem",
+						position: 2,
+						name: "About",
+						item: `${this.baseUrl}/about`
+					},
+					{
+						"@type": "ListItem",
+						position: 3,
+						name: "Projects",
+						item: `${this.baseUrl}/projects`
+					},
+					{
+						"@type": "ListItem",
+						position: 4,
+						name: "Experience",
+						item: `${this.baseUrl}/experience`
+					},
+					{
+						"@type": "ListItem",
+						position: 5,
+						name: "Contact",
+						item: `${this.baseUrl}/contact`
+					}
+				]
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfilePage",
+				"@id": `${this.baseUrl}/#profilepage`,
+				mainEntity: {
+					"@id": `${this.baseUrl}/#person`
+				},
+				breadcrumb: {
+					"@id": `${this.baseUrl}/#breadcrumb`
+				}
+			}
+		];
 	}
 }
