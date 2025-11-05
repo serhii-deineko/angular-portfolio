@@ -32,7 +32,7 @@ export const PROJECTS_DEFINITIONS: Record<string, any> = {
 		],
 		github: "",
 		images: 4,
-		video: false
+		video: true
 	},
 	"mobile-homes-order-app": {
 		tech: [
@@ -51,7 +51,7 @@ export const PROJECTS_DEFINITIONS: Record<string, any> = {
 		demo: [{ type: "pdf", url: "https://lark-order-app.web.app/" }],
 		github: "",
 		images: 4,
-		video: false
+		video: true
 	},
 	"speech-analysis-platform": {
 		tech: [
@@ -78,7 +78,7 @@ export const PROJECTS_DEFINITIONS: Record<string, any> = {
 		demo: [],
 		github: "",
 		images: 4,
-		video: false
+		video: true
 	},
 	"mobile-homes-configurator": {
 		tech: [
@@ -102,7 +102,6 @@ export const PROJECTS_DEFINITIONS: Record<string, any> = {
 		tech: [
 			"JavaScript",
 			"Python",
-			"TensorFlow",
 			"Machine Learning",
 			"HTML",
 			"CSS",
@@ -123,61 +122,5 @@ export const PROJECTS_DEFINITIONS: Record<string, any> = {
 		github: "",
 		images: 4,
 		video: true
-	},
-	"legacy-app-modernization": {
-		tech: [
-			"Angular",
-			"TypeScript",
-			"PrimeNG",
-			"Angular Material",
-			"Express.js",
-			"Node.js",
-			"Microfrontends",
-			"Web Components",
-			"Docker",
-			"CI/CD"
-		],
-		demo: [],
-		github: "",
-		images: null,
-		video: false
-	},
-	"other-website-development": {
-		tech: [
-			"WordPress",
-			"PHP",
-			"JavaScript",
-			"HTML5",
-			"CSS3/SASS",
-			"Elementor",
-			"REST API",
-			"OAuth 2.0 (Google API)",
-			"DeepL API",
-			"Custom Theme Development",
-			"Responsive & Cross-Browser Design",
-			"WooCommerce",
-			"cPanel/PHPMyAdmin"
-		],
-		demo: [
-			{ label: "Lark Factory", type: "www", url: "https://larkfactory.com/" },
-			{ label: "Zweitheim", type: "www", url: "https://zweitheim.de/" },
-			{ label: "Lark Gallery Print", type: "www", url: "https://larkgalleryprint.com/" },
-			{ label: "Mobilheim West", type: "www", url: "https://mobilheimwest.com/" },
-			{ label: "Luminarist TV", type: "www", url: "https://luminaristv.com/" },
-			{
-				label: "Hells Horde (Test)",
-				type: "www",
-				url: "https://hellshorde.online/testwebsite/"
-			},
-			{ label: "Neptun Darlowo", type: "www", url: "https://www.neptundarlowo.com/" },
-			{ label: "Hotel Plaza Morze", type: "www", url: "https://www.hotelplaza-morze.pl/" },
-			{ label: "Club Plaza Jantar", type: "www", url: "https://jantar-morze.pl/club-plaza/" },
-			{ label: "Pralnia Delfin", type: "www", url: "https://www.pralnia-delfin.pl/" },
-			{ label: "Holiday Domki", type: "www", url: "https://holiday-domkiholenderskie.pl/" },
-			{ label: "Aisema", type: "www", url: "https://aisema.eu" }
-		],
-		github: "",
-		images: 1,
-		video: false
 	}
 };
