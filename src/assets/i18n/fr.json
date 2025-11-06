@@ -194,7 +194,7 @@
 			},
 			{
 				"id": "website-chatbot-plugin",
-				"title": "Plugin de Chatbot Unifié pour E‑Commerce",
+				"title": "Plugin de Chatbot Personnalisable pour E‑Commerce",
 				"description": "Orchestré un chatbot multi-langue pour une plateforme e-commerce de meubles leader. Ingéniéré un pipeline de données pour une recherche contextuelle de produits vectorielle, un widget vanilla JS avec des formulaires de service, et un configurateur de démonstration évolutif.",
 				"key-points": [
 					"Construit le frontend du moteur de recherche sémantique, traitant les requêtes utilisateur en vecteurs et affichant les résultats produits pertinents dans un slider interactif de type chat.",

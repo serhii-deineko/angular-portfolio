@@ -194,7 +194,7 @@
 			},
 			{
 				"id": "website-chatbot-plugin",
-				"title": "Ujednolicona Wtyczka Chatbota dla E‑Commerce",
+				"title": "Konfigurowalna Wtyczka Chatbota dla E‑Commerce",
 				"description": "Zorganizowano wielojęzycznego chatbota dla wiodącej platformy e-commerce meblowej. Zaprojektowano potok danych dla kontekstowego wyszukiwania produktów wektorowych, widget vanilla JS z formularzami usług i skalowalny konfigurator demo.",
 				"key-points": [
 					"Zbudowano frontend wyszukiwarki semantycznej, przetwarzającej zapytania użytkowników na wektory i wyświetlającej relevantne wyniki produktów w interaktywnym suwaku opartym na czacie.",

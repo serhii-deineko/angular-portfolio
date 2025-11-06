@@ -193,7 +193,7 @@
 			},
 			{
 				"id": "website-chatbot-plugin",
-				"title": "Unified Chatbot Plugin for E‑Commerce",
+				"title": "Customizable Chatbot Plugin for E‑Commerce",
 				"description": "Orchestrated a multi-language chatbot for a leading furniture e-commerce platform. Engineered a data pipeline for a contextual vector product search, a vanilla JS widget with service forms, and a scalable demo configurator.",
 				"key-points": [
 					"Built the semantic search engine frontend, processing user queries into vectors and displaying relevant product results in an interactive chat-based slider.",
