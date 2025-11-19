@@ -31,7 +31,7 @@
 	img {
 		opacity: 0.9;
 		filter: invert(1);
-		width: 46px;
+		width: 50px;
 	}
 
 	&__text {
@@ -131,16 +131,27 @@
 }
 
 :host ::ng-deep .burger-button {
-	transform: scale(0.9);
-	border: 1.5px solid var(--border-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-radius: 12px;
-	background: var(--bg);
-	width: 44px;
-	height: 44px;
+	background-color: var(--text-color-secondary);
+	padding: 0;
+	width: 46px;
+	height: 46px;
 	text-transform: lowercase;
 
 	span {
+		opacity: 0.33;
 		filter: grayscale(1);
+	}
+
+	.mat-icon {
+		width: 28px;
+		height: 28px;
+		color: var(--bg);
+		font-weight: 100;
+		font-size: 28px;
 	}
 
 	.mdc-button__label {
@@ -148,6 +159,7 @@
 		column-gap: 0.5rem;
 		justify-content: center;
 		align-items: center;
+		background-color: color-mix(in srgb, var(--bg-color) 50%, transparent);
 		width: 100%;
 		font-weight: 600;
 	}
@@ -171,7 +183,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: color-mix(in srgb, var(--text) 50%, transparent);
 		width: 100vw;
 		height: 100vh;
 	}
@@ -182,7 +194,6 @@
 		right: 0;
 		transform: translateX(100%);
 		transition: var(--transition);
-		border-left: 1px solid var(--border-color);
 		background-color: var(--bg-color);
 		width: 280px;
 		height: 100vh;
@@ -196,24 +207,37 @@
 	&__header {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: flex-end;
+		justify-content: space-between;
 		align-items: center;
 		gap: 0.5rem;
-		padding: 1rem;
+		padding: 1.5rem;
+
+		.burger-button {
+			transform: scale(1.15);
+			border: none !important;
+			background-color: unset !important;
+
+			.mat-icon {
+				color: var(--accent-color);
+			}
+		}
+
+		.switcher-container {
+			display: flex;
+			column-gap: 1rem;
+			align-items: center;
+		}
 	}
 
 	&__list {
 		margin: 0;
+		margin-top: 1rem;
 		padding: 0;
 		list-style: none;
 	}
 
 	&__item {
-		border-bottom: 1px solid var(--border-color);
-
-		&:last-child {
-			border-bottom: none;
-		}
+		user-select: none;
 	}
 
 	&__link {
@@ -222,11 +246,14 @@
 		cursor: pointer;
 		border: none;
 		background: none;
-		padding: 1rem 1.5rem;
+		padding: 0.75rem 1.5rem;
 		width: 100%;
 		color: var(--text);
-		font-size: 16px;
+		font-weight: 700;
+		font-size: 20px;
+		font-family: var(--font-mono);
 		text-decoration: none;
+		text-transform: lowercase;
 
 		&.active {
 			background-color: rgba(var(--accent-color-rgb), 0.1);
@@ -259,8 +286,13 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
+	.header {
+		height: unset !important;
+	}
+
 	.header__content {
-		padding: 1rem;
+		background: linear-gradient(-190deg, var(--bg-color), transparent 60%);
+		padding: 1.5rem;
 	}
 
 	.desktop-nav {
@@ -275,16 +307,7 @@
 
 ::ng-deep body.dark-mode {
 	.burger-button {
-		background-color: #454545 !important;
-
-		.mdc-button__label {
-			color: #d1d1d1 !important;
-		}
-	}
-
-	.burger-button {
 		.mat-mdc-button-ripple > * {
-			opacity: 0.1;
 			background: var(--accent-color) !important;
 		}
 		.mat-mdc-button-persistent-ripple::before {
