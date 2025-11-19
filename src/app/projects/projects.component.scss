@@ -25,6 +25,8 @@
 	backdrop-filter: blur(3px);
 	transition: var(--transition);
 	overflow: hidden;
+
+	.visible,
 	&:hover {
 		.project-content {
 			opacity: 1;
@@ -94,8 +96,10 @@
 	list-style: none;
 
 	li {
+		transition: var(--transition);
 		border: 1px solid white;
 		border-radius: 35px;
+		background-color: color-mix(in srgb, var(--bg) 10%, transparent);
 		padding: 6px 12px;
 		color: white;
 	}
@@ -115,6 +119,17 @@
 @media (max-width: 1024px) {
 	#projects {
 		padding: 60px 1.5rem 20px;
+	}
+	.projects-list {
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.project-card {
+		height: 275px;
+		min-height: 275px;
+
+		.project-content {
+			opacity: 1;
+		}
 	}
 	.project-content {
 		padding: 1.5rem;
